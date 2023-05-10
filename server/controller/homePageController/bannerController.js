@@ -12,6 +12,8 @@ export const getBannerData = async(request, response)=> {
 }
 
 
+
+
 export const updateBannerTitle = async (request, response) => {
 	console.log(request.body)
 	try {
