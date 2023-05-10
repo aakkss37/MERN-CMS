@@ -10,4 +10,4 @@ router.post('/home-page/banner/update/text', updateBannerText)
 router.post('/home-page/banner/update/image', updateBannerImage)
 
 
-export default routertext
+export default router
