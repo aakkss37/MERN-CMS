@@ -147,21 +147,19 @@ export default () => {
 	// COMPANY OVERVIEW
 	const [overViewText, setOverViewText] = useState()
 	const hangleUpdateOverViewText = async () => {
+		console.log(overViewText)
 		try {
-			try {
-				const resp = await axios.post("http://localhost:8000/home-page/overView/update/overViewText", {
-					overViewText: overViewText
-				})
-				console.log("responce: ", resp.data.data)
-				setOverViewText("")
-			} catch (error) {
-				console.log(error)
-			}
+			const resp = await axios.post("http://localhost:8000/home-page/overView/update/overViewText", {
+				overViewText: overViewText
+			})
+			console.log("responce: ", resp.data.data)
+			setOverViewText("")
 		} catch (error) {
-			
+			console.log(error)
 		}
+
 	}
-	
+
 
 	return (
 
@@ -270,7 +268,7 @@ export default () => {
 								)
 							}
 
-							
+
 
 						</Col>
 					</Row>
@@ -353,4 +351,4 @@ export default () => {
 			</Container>
 		</article>
 	)
-	}
+}

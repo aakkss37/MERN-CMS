@@ -17,6 +17,6 @@ router.get('/file/:filename', getImage);
 
 
 /* COMPANY OVERVIEW */ 
-router.post('home-page/overView/update/overViewText', updateOverviewText)
+router.post('/home-page/overView/update/overViewText', updateOverviewText)
 
 export default router
