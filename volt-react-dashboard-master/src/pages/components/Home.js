@@ -69,30 +69,29 @@ const recognitinAndAward = [
 export default () => {
 
 	const [showNewCardForm, setShowNewCardForm] = useState(false);
-	const [changeingCompnentId, setchangeingCompnentId] = useState();
 	const imageInputRef = useRef();
-	const updateComponent = (id)=>{
+	const updateComponent = (id) => {
 		console.log(id)
 	}
 
 
 
 
-	
-	
+
+
 	// BANNER
 	const [bannerData, setBannerData] = useState()
 	useEffect(() => {
-	  const getBannerData = async ()=> {
-		try {
-			const resp = await axios.get("http://localhost:8000/home-page/get-banner-data")
-			console.log(resp.data)
-			setBannerData(resp.data)
-		} catch (error) {
-			console.log(error)
+		const getBannerData = async () => {
+			try {
+				const resp = await axios.get("http://localhost:8000/home-page/get-banner-data")
+				console.log(resp.data)
+				setBannerData(resp.data)
+			} catch (error) {
+				console.log(error)
+			}
 		}
-	  }
-	  getBannerData();
+		getBannerData();
 	}, [])
 
 	const [bannerTitle, setBannerTitle] = useState("");
@@ -103,8 +102,8 @@ export default () => {
 	// 	setBannerImageName(file.name)
 	// 	console.log(changeingCompnentId)
 	// }
-	
-	const handleUpdateBannerTitle = async()=> {
+
+	const handleUpdateBannerTitle = async () => {
 		try {
 			const resp = await axios.post("http://localhost:8000/home-page/banner/update/title", {
 				title: bannerTitle,
@@ -112,12 +111,12 @@ export default () => {
 			})
 			console.log("responce: ", resp.data.data)
 			setBannerTitle("")
-			setBannerData( (prev)=>({...prev, title: resp.data.data.title}))
+			setBannerData((prev) => ({ ...prev, title: resp.data.data.title }))
 		} catch (error) {
 			console.log(error)
 		}
 	}
-	const handleUpdateBannerText = async()=> {
+	const handleUpdateBannerText = async () => {
 		try {
 			const resp = await axios.post("http://localhost:8000/home-page/banner/update/text", {
 				text: bannerText,
@@ -143,6 +142,27 @@ export default () => {
 
 	}
 
+
+
+	// COMPANY OVERVIEW
+	const [overViewText, setOverViewText] = useState()
+	const hangleUpdateOverViewText = async () => {
+		try {
+			try {
+				const resp = await axios.post("http://localhost:8000/home-page/overView/update/overViewText", {
+					overViewText: overViewText
+				})
+				console.log("responce: ", resp.data.data)
+				setOverViewText("")
+			} catch (error) {
+				console.log(error)
+			}
+		} catch (error) {
+			
+		}
+	}
+	
+
 	return (
 
 		<article>
@@ -166,8 +186,8 @@ export default () => {
 							<p>Current Value : {bannerData?.title}</p>
 							<div style={inputConatinerStyle}>
 								<input type='text' value={bannerTitle}
-								placeholder='Enter head title for Agile global solution home page' style={inputStyle} 
-									onChange={(e)=>setBannerTitle(e.target.value)}/>
+									placeholder='Enter head title for Agile global solution home page' style={inputStyle}
+									onChange={(e) => setBannerTitle(e.target.value)} />
 								<button style={updateButtonStyle} onClick={handleUpdateBannerTitle}>Update</button>
 							</div>
 						</Col>
@@ -178,10 +198,10 @@ export default () => {
 							<h4 >Banner Text </h4>
 							<p>Current Value : {bannerData?.text}</p>
 							<div style={inputConatinerStyle}>
-								<input type='text' 
-								placeholder='Enter New Text' style={inputStyle} 
+								<input type='text'
+									placeholder='Enter New Text' style={inputStyle}
 									value={bannerText}
-									onChange={(e) => setBannerText(e.target.value)}/>
+									onChange={(e) => setBannerText(e.target.value)} />
 								<button style={updateButtonStyle} onClick={handleUpdateBannerText} >Update</button>
 							</div>
 						</Col>
@@ -191,12 +211,12 @@ export default () => {
 						<Col xs={12}>
 							<h4 >Banner Image </h4>
 							<p>Current Value : <a href={bannerData?.bannerImg}>Open Image</a></p>
-								<p>{bannerImageName}</p>
+							<p>{bannerImageName}</p>
 							<div style={inputConatinerStyle}>
-								<button variant="outlined" component="label" style={updateButtonStyle} onClick={()=> imageInputRef.current.click()}>
+								<button variant="outlined" component="label" style={updateButtonStyle} onClick={() => imageInputRef.current.click()}>
 									Upload Banner Image
 								</button>
-								<input hidden accept="image/*" type="file" ref={imageInputRef} onChange={(e) => { handleUpdateBannerImage(e.target.files[0]) }}  />
+								<input hidden accept="image/*" type="file" ref={imageInputRef} onChange={(e) => { handleUpdateBannerImage(e.target.files[0]) }} />
 							</div>
 						</Col>
 					</Row>
@@ -214,8 +234,10 @@ export default () => {
 							<h4 >Overview Text </h4>
 							<p>Current Value : Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT solutions provider headquartered in Folsom, CA (a suburb of Sacramento) servicing prestigious clients all over the world.</p>
 							<div style={inputConatinerStyle}>
-								<textarea type='text' placeholder='About Company' rows='5' style={inputStyle}  />
-								<button style={updateButtonStyle} >Update</button>
+								<textarea type='text'
+									placeholder='About Company' rows='5' value={overViewText}
+									style={inputStyle} onChange={(e) => setOverViewText(e.target.value)} />
+								<button style={updateButtonStyle} onClick={hangleUpdateOverViewText}>Update</button>
 							</div>
 						</Col>
 					</Row>
@@ -227,32 +249,32 @@ export default () => {
 								overviewCard.map((item, index) =>
 									<div style={{ border: '1px solid gray', marginBottom: '10px', borderRadius: "5px", padding: '10px', }} key={index}>
 										<h6>Card {index + 1}</h6>
-										{/* <div style={cardBackground}>
+										<div style={cardBackground}>
 											<p>Card background : <a href=''>Open Image</a></p>
-											<button variant="outlined" component="label" style={updateButtonStyle} onClick={() => { setchangeingCompnentId(item.id); return imageInputRef.current.click() }}>
-												Change
+											<button variant="outlined" component="label" style={updateButtonStyle} onClick={() => imageInputRef.current.click()}>
+												Choose Image
 											</button>
-											<input hidden accept="image/*" type="file" ref={imageInputRef} onChange={(e) => handleChangeImage(e.target.files[0])} />
-										</div> */}
-										<br />
-										<p>Card Heading : Gloable best</p>
-										<div style={inputConatinerStyle}>
-											<input type='text' placeholder='Card Title' style={inputStyle} />
-											<button style={updateButtonStyle} >Update</button>
+											<input hidden accept="image/*" type="file" ref={imageInputRef} onChange={(e) => { handleUpdateBannerImage(e.target.files[0]) }} />
 										</div>
 										<br />
-										<p>Card Text : Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+										<p>Card Heading : </p>
+										<div style={inputConatinerStyle}>
+											<input type='text' placeholder='Card Title' style={inputStyle} />
+										</div>
+										<br />
+										<p>Card Text :  </p>
 										<div style={inputConatinerStyle}>
 											<input type='text' placeholder='Card Text' style={inputStyle} />
-											<button style={updateButtonStyle} >Update</button>
 										</div>
 									</div>
 								)
 							}
 
+							
+
 						</Col>
 					</Row>
-					
+
 					{
 						showNewCardForm ? <div style={{ border: '1px solid gray', marginTop: '10px', borderRadius: "5px", padding: '10px', background: '#262b40' }}>
 							<h6>New Card </h6>
@@ -264,7 +286,7 @@ export default () => {
 								</button>
 							</div>
 							<br />
-							<p style={{color: 'white'}}>Card Heading : Gloable best</p>
+							<p style={{ color: 'white' }}>Card Heading : Gloable best</p>
 							<div style={inputConatinerStyle}>
 								<input type='text' placeholder='Card Title' style={inputStyle} />
 							</div>
@@ -313,7 +335,7 @@ export default () => {
 											<p>Recognition Text : {item.text} </p>
 											<div style={inputConatinerStyle}>
 												<input type='text' placeholder='Card Text' style={inputStyle} />
-												<button style={updateButtonStyle} onClick={()=> updateComponent(item.id)}>Update</button>
+												<button style={updateButtonStyle} onClick={() => updateComponent(item.id)}>Update</button>
 											</div>
 											<br />
 											<button style={{ border: 'none', background: '#ff4e04c2', padding: '10px', color: 'white', borderRadius: '5px' }}>Delete Recognition</button>
@@ -331,4 +353,4 @@ export default () => {
 			</Container>
 		</article>
 	)
-}
+	}
