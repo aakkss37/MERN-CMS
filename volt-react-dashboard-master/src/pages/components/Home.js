@@ -174,6 +174,19 @@ export default () => {
 
 	}
 
+	useEffect(() => {
+		const getcurrentOverViewTextData = async () => {
+			try {
+				const resp = await axios.get("http://localhost:8000/home-page/get-overViewText/card-data")
+				console.log(resp.data)
+				setCurrentOverViewText(resp.data.data)
+			} catch (error) {
+				console.log(error)
+			}
+		}
+		// getcurrentOverViewTextData();
+	}, [])
+
 
 	return (
 
