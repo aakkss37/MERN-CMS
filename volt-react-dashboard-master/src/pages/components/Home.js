@@ -76,20 +76,25 @@ export default () => {
 	}
 
 
+
+
+	
+	
+	// BANNER
+	const [bannerData, setBannerData] = useState()
 	useEffect(() => {
 	  const getBannerData = async ()=> {
 		try {
-			const resp = await axios.get("http://localhost:8000/home-page/banner/update/title")
+			const resp = await axios.get("http://localhost:8000/home-page/get-banner-data")
 			console.log(resp.data)
+			setBannerData(resp.data)
 		} catch (error) {
 			console.log(error)
 		}
 	  }
 	  getBannerData();
 	}, [])
-	
 
-	// BANNER
 	const [bannerTitle, setBannerTitle] = useState("");
 	const [bannerText, setBannerText] = useState("");
 	const [bannerImageName, setBannerImageName] = useState();
@@ -102,10 +107,12 @@ export default () => {
 	const handleUpdateBannerTitle = async()=> {
 		try {
 			const resp = await axios.post("http://localhost:8000/home-page/banner/update/title", {
-				title: bannerTitle
+				title: bannerTitle,
+				id: bannerData._id
 			})
-			console.log("responce: ", resp.data)
+			console.log("responce: ", resp.data.data)
 			setBannerTitle("")
+			setBannerData( (prev)=>({...prev, title: resp.data.data.title}))
 		} catch (error) {
 			console.log(error)
 		}
@@ -113,10 +120,6 @@ export default () => {
 	const handleUpdateBannerText = ()=> {
 
 	}
-
-
-
-
 
 
 	return (
@@ -139,7 +142,7 @@ export default () => {
 					<Row>
 						<Col xs={12}>
 							<h4 >Banner Title </h4>
-							<p>Current Value : INNOVATION</p>
+							<p>Current Value : {bannerData?.title}</p>
 							<div style={inputConatinerStyle}>
 								<input type='text' value={bannerTitle}
 								placeholder='Enter head title for Agile global solution home page' style={inputStyle} 
@@ -152,7 +155,7 @@ export default () => {
 					<Row>
 						<Col xs={12}>
 							<h4 >Banner Text </h4>
-							<p>Current Value : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor morbi velit turpis et dolor sit morbi odio id. Aliquam ultricies tortor ac.</p>
+							<p>Current Value : {bannerData?.text}</p>
 							<div style={inputConatinerStyle}>
 								<input type='text' 
 								placeholder='Enter New Text' style={inputStyle} 
