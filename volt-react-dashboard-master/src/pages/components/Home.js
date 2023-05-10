@@ -1,5 +1,5 @@
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Row, Col, Container } from '@themesberg/react-bootstrap';
 import axios from 'axios';
 
@@ -76,6 +76,19 @@ export default () => {
 	}
 
 
+	useEffect(() => {
+	  const getBannerData = async ()=> {
+		try {
+			const resp = await axios.get("http://localhost:8000/home-page/banner/update/title")
+			console.log(resp.data)
+		} catch (error) {
+			console.log(error)
+		}
+	  }
+	  getBannerData();
+	}, [])
+	
+
 	// BANNER
 	const [bannerTitle, setBannerTitle] = useState("");
 	const [bannerText, setBannerText] = useState("");
@@ -86,8 +99,16 @@ export default () => {
 		console.log(changeingCompnentId)
 	}
 	
-	const handleUpdateBannerTitle = ()=> {
-
+	const handleUpdateBannerTitle = async()=> {
+		try {
+			const resp = await axios.post("http://localhost:8000/home-page/banner/update/title", {
+				title: bannerTitle
+			})
+			console.log("responce: ", resp.data)
+			setBannerTitle("")
+		} catch (error) {
+			console.log(error)
+		}
 	}
 	const handleUpdateBannerText = ()=> {
 
