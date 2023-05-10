@@ -1,5 +1,5 @@
 import BannerData from "../../model/HomePage/bannerSchema.js"
-
+const url = 'http://localhost:8000';
 
 
 export const getBannerData = async(request, response)=> {
@@ -43,3 +43,12 @@ export const updateBannerText = async (request, response) => {
 	}
 }
 
+export const uploadBannerImage = async (request, response) => {
+	if (!request.file)
+		return response.status(404).json("File not found");
+
+	const imageUrl = `${url}/file/${request.file.filename}`;
+	console.log("image url =====>", imageUrl)
+
+	response.status(200).json(imageUrl);
+}
