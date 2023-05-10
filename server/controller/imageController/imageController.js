@@ -34,7 +34,9 @@ export const uploadImage = (request, response) => {
 		return response.status(404).json("File not found");
 
 	const imageUrl = `${url}/file/${request.file.filename}`;
-	console.log(imageUrl)
+	console.log("image url =====>", imageUrl)
+	console.log("image url =====>", imageUrl)
+	console.log("image url =====>", imageUrl)
 
 	response.status(200).json(imageUrl);
 }

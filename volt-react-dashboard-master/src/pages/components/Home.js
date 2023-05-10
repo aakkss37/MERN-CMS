@@ -131,6 +131,22 @@ export default () => {
 		}
 	}
 
+	const handleUpdateBannerImage = async (file) => {
+		const data = new FormData();
+		data.append("name", file.name);
+		data.append("file", file);
+		// API CALL
+		const responce = await axios.post("http://localhost:8000/home-page/banner/update/text", data); //return a url of the pic
+		// console.log("responce ===> ", responce.data);
+		// postData.displayPic = responce.data;
+		setPostData((prevPostData) => {
+			return {
+				...prevPostData,
+				displayPic: responce.data,
+			}
+		});
+
+	}
 
 	return (
 
@@ -185,8 +201,7 @@ export default () => {
 								<button variant="outlined" component="label" style={updateButtonStyle} onClick={()=> imageInputRef.current.click()}>
 									Upload Banner Image
 								</button>
-								<input hidden accept="image/*" type="file" ref={imageInputRef} onChange={(e) => { handleChangeImage(e.target.files[0]) }}  />
-								{/* handleChangeImage(e.target.files[0]) */}
+								<input hidden accept="image/*" type="file" ref={imageInputRef} onChange={(e) => { handleUpdateBannerImage(e.target.files[0]) }}  />
 							</div>
 						</Col>
 					</Row>
