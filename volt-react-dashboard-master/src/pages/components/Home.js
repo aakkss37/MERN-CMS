@@ -117,8 +117,18 @@ export default () => {
 			console.log(error)
 		}
 	}
-	const handleUpdateBannerText = ()=> {
-
+	const handleUpdateBannerText = async()=> {
+		try {
+			const resp = await axios.post("http://localhost:8000/home-page/banner/update/text", {
+				text: bannerText,
+				id: bannerData._id
+			})
+			console.log("responce: ", resp.data.data)
+			setBannerText("")
+			setBannerData((prev) => ({ ...prev, text: resp.data.data.text }))
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 
