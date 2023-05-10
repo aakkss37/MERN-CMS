@@ -1,6 +1,17 @@
 import BannerData from "../../model/HomePage/bannerSchema.js"
 
 
+
+export const getBannerData = async(request, response)=> {
+	try {
+		const bannerData = await BannerData.findOne({})
+		response.status(200).json(bannerData);
+	} catch (error) {
+		response.status(500).json({ msg: "Failed to get banner data." });
+	}
+}
+
+
 export const updateBannerTitle = async (request, response) => {
 	try {
 		await BannerData.findByIdAndUpdate(request.body.id, 
