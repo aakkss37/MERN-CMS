@@ -18,3 +18,11 @@ export const updateOverviewText = async (request, response) => {
 		response.status(500).json({ msg: "Error while Updating Text." });
 	}
 }
+export const getOverviewText = async (request, response) => {
+	try {
+		const found = await CompanyOverview.findOne({})
+		response.status(200).json({ msg: "Banner Text Updated sucessfully.", data: found });
+	} catch (error) {
+		response.status(500).json({ msg: "Error while Updating Text." });
+	}
+}
