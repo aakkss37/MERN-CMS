@@ -108,8 +108,23 @@ const Home = () => {
 		const getBannerData = async () => {
 			try {
 				const resp = await axios.get("http://localhost:8000/home-page/get-banner-data")
-				console.log(resp.data)
+				// console.log(resp.data)
 				setBannerData(resp.data)
+			} catch (error) {
+				console.log(error)
+			}
+		}
+		getBannerData();
+	}, [])
+
+	// BANNER
+	const [overViewText, setOverViewText] = useState()
+	useEffect(() => {
+		const getBannerData = async () => {
+			try {
+				const resp = await axios.get("http://localhost:8000/home-page/get-overViewText")
+				// console.log(resp.data)
+				setOverViewText(resp.data.data)
 			} catch (error) {
 				console.log(error)
 			}
@@ -147,7 +162,7 @@ const Home = () => {
 				<div className='flex flex-col items-center justify-center mt-10 md:mt-16 lg:my-14'>
 					<h2 className='text-[24px] md:text-[36px] leading-[43px] text-center'>AGILE GLOBAL SOLUTIONS, INC</h2>
 					<p className='text-center text-[18px] md:text-[24px] leading-[32px] mt-5 md:mt-10 lg:mt-14 '>
-						Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT solutions provider headquartered in Folsom, CA (a suburb of Sacramento) servicing prestigious clients all over the world.</p>
+						{overViewText?.text}</p>
 				</div>
 
 				{/* four cards div */}
