@@ -15,9 +15,9 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 
-// // DATABASE CONNECTION
-// import mongoseConnection from "./db/db.js";
-// mongoseConnection();
+// DATABASE CONNECTION
+import mongoseConnection from "./db/dbConfig.js";
+mongoseConnection();
 
 
 // ROUTING
