@@ -99,10 +99,10 @@ export default () => {
 	const [bannerText, setBannerText] = useState("");
 	const [bannerImageName, setBannerImageName] = useState();
 
-	const handleChangeImage = (file)=> {
-		setBannerImageName(file.name)
-		console.log(changeingCompnentId)
-	}
+	// const handleChangeImage = (file)=> {
+	// 	setBannerImageName(file.name)
+	// 	console.log(changeingCompnentId)
+	// }
 	
 	const handleUpdateBannerTitle = async()=> {
 		try {
@@ -136,15 +136,15 @@ export default () => {
 		data.append("name", file.name);
 		data.append("file", file);
 		// API CALL
-		const responce = await axios.post("http://localhost:8000/home-page/banner/update/text", data); //return a url of the pic
-		// console.log("responce ===> ", responce.data);
+		const responce = await axios.post("http://localhost:8000/home-page/banner/update/image", data); //return a url of the pic
+		console.log("responce ===> ", responce.data);
 		// postData.displayPic = responce.data;
-		setPostData((prevPostData) => {
-			return {
-				...prevPostData,
-				displayPic: responce.data,
-			}
-		});
+		// setPostData((prevPostData) => {
+		// 	return {
+		// 		...prevPostData,
+		// 		displayPic: responce.data,
+		// 	}
+		// });
 
 	}
 
@@ -232,13 +232,13 @@ export default () => {
 								overviewCard.map((item, index) =>
 									<div style={{ border: '1px solid gray', marginBottom: '10px', borderRadius: "5px", padding: '10px', }} key={index}>
 										<h6>Card {index + 1}</h6>
-										<div style={cardBackground}>
+										{/* <div style={cardBackground}>
 											<p>Card background : <a href=''>Open Image</a></p>
 											<button variant="outlined" component="label" style={updateButtonStyle} onClick={() => { setchangeingCompnentId(item.id); return imageInputRef.current.click() }}>
 												Change
 											</button>
 											<input hidden accept="image/*" type="file" ref={imageInputRef} onChange={(e) => handleChangeImage(e.target.files[0])} />
-										</div>
+										</div> */}
 										<br />
 										<p>Card Heading : Gloable best</p>
 										<div style={inputConatinerStyle}>
@@ -301,13 +301,13 @@ export default () => {
 									return (
 										<div style={{ border: '1px solid gray', marginBottom: '10px', borderRadius: "5px", padding: '10px', }} key={index}>
 											<h6>Recognition {index + 1}</h6>
-											<div style={cardBackground}>
+											{/* <div style={cardBackground}>
 												<p>Card background : <a href=''>Open Image</a></p>
 												<button variant="outlined" component="label" style={updateButtonStyle} onClick={() => { setchangeingCompnentId(item.id); return imageInputRef.current.click()}}>
 													Change
 												</button>
 												<input hidden accept="image/*" type="file" ref={imageInputRef} onChange={(e) => handleChangeImage(e.target.files[0]) } />
-											</div>
+											</div> */}
 											<br />
 											<p>Recognition Title : {item.title}</p>
 											<div style={inputConatinerStyle}>

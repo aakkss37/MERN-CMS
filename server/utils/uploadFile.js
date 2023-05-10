@@ -7,7 +7,7 @@ const DB_USERNAME = process.env.DB_USERNAME;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 
 
-const CONNECTION_URL = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0.9dheery.mongodb.net/?retryWrites=true&w=majority`
+const CONNECTION_URL = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0.xbvctmj.mongodb.net/?retryWrites=true&w=majority`
 const connectionOption = {
 	useNewUrlParser: true, useUnifiedTopology: true
 }
