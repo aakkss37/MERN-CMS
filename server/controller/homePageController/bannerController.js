@@ -43,16 +43,3 @@ export const updateBannerText = async (request, response) => {
 	}
 }
 
-export const updateBannerImage = async (request, response) => {
-	try {
-		await BannerData.findByIdAndUpdate(request.body.id, 
-			{
-				bannerImg: request.body.imageUrl
-			}
-		)
-		const updatedData = await BannerData.findOne({})
-		response.status(200).json({ msg: "Banner Image Updated sucessfully.", data: updatedData });
-	} catch (error) {
-		response.status(500).json({ msg: "Error while Updating Title." });
-	}
-}
