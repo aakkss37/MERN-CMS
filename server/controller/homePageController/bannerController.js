@@ -49,6 +49,18 @@ export const uploadBannerImage = async (request, response) => {
 
 	const imageUrl = `${url}/file/${request.file.filename}`;
 	console.log("image url =====>", imageUrl)
-
-	response.status(200).json(imageUrl);
+	try {
+		const found = await BannerData.findOne({})
+		console.log(found)
+		await BannerData.findByIdAndUpdate(found._id,
+			{
+				bannerImg: imageUrl
+			}
+		)
+		const updatedData = await BannerData.findOne({})
+		console.log("updated file: ", updatedData)
+		response.status(200).json({ msg: "Banner Text Updated sucessfully.", data: updatedData });
+	} catch (error) {
+		response.status(500).json({ msg: "Error while Updating Text." });
+	}
 }

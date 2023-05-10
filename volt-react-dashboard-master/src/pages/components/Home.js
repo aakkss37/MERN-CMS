@@ -97,7 +97,7 @@ export default () => {
 
 	const [bannerTitle, setBannerTitle] = useState("");
 	const [bannerText, setBannerText] = useState("");
-	const [bannerImageName, setBannerImageName] = useState();
+	const [bannerImageName, setBannerImageName] = useState("");
 
 	// const handleChangeImage = (file)=> {
 	// 	setBannerImageName(file.name)
@@ -135,16 +135,11 @@ export default () => {
 		const data = new FormData();
 		data.append("name", file.name);
 		data.append("file", file);
+		setBannerImageName(file.name)
 		// API CALL
-		const responce = await axios.post("http://localhost:8000/home-page/banner/update/image", data); //return a url of the pic
-		console.log("responce ===> ", responce.data);
-		// postData.displayPic = responce.data;
-		// setPostData((prevPostData) => {
-		// 	return {
-		// 		...prevPostData,
-		// 		displayPic: responce.data,
-		// 	}
-		// });
+		const resp = await axios.post("http://localhost:8000/home-page/banner/update/image", data); //return a url of the pic
+		console.log("responce ===> ", resp.data);
+		setBannerData((prev) => ({ ...prev, bannerImg: resp.data.data.bannerImg }))
 
 	}
 
@@ -195,7 +190,7 @@ export default () => {
 					<Row>
 						<Col xs={12}>
 							<h4 >Banner Image </h4>
-							<p>Current Value : <a href=''>Open Image</a></p>
+							<p>Current Value : <a href={bannerData?.bannerImg}>Open Image</a></p>
 								<p>{bannerImageName}</p>
 							<div style={inputConatinerStyle}>
 								<button variant="outlined" component="label" style={updateButtonStyle} onClick={()=> imageInputRef.current.click()}>

@@ -45,6 +45,8 @@ const logos = [
 
 ]
 
+
+
 const Home = () => {
 
 	useEffect(() => {
@@ -115,17 +117,23 @@ const Home = () => {
 		getBannerData();
 	}, [])
 
+	const bannerStyle = {
+		backgroundImage: `url(${bannerData?.bannerImg})`,
+		backgroundRepeat: "no-repeat",
+		backgroundSize: 'cover',
+		backgroundPosition: 'center',
+	}
 
 	return (
 		<>
 			{/* black div bg */}
-			<main data-aos="fade-up" className='  bg-black w-screen h-[90dvh] home-hero-robot-bg'>
+			<main data-aos="fade-up" className='  bg-black w-screen h-[90dvh] ' style={bannerStyle}>
 				{/* innovation div */}
 				<div className=' p-3 sm:p-10 lg:mx-20 xl:mx-40  lg:pt-14  flex flex-col text-white sm:max-w-[500px] lg:max-w-[650px] 
       md:max-w-[600px]  items-start justify-start'>
 					<p className='text-[34px] md:text-[56px]  font-bold leading-[78px]'>{bannerData?.title}</p>
 					<p className='flex text-[18px] leading-9'>{bannerData?.text}</p>
-					<img className='w-[156px] h-[122px] py-2 sm:py-3 md:w-[219px] md:h-[137px] lg:ml-5 lg:h-[150px] lg:w-[229px]' src={homeHeroArrow} alt="" />
+					{/* <img className='w-[156px] h-[122px] py-2 sm:py-3 md:w-[219px] md:h-[137px] lg:ml-5 lg:h-[150px] lg:w-[229px]' src={homeHeroArrow} alt="" /> */}
 					{/* know more button div */}
 					<div className=' w-full flex items-center justify-center'>
 						<button className='flex items-center justify-center home-hero-know-btn font-bold text-[24px] px-5 py-2 md:px-8 md:py-4 lg:px-14 '>Know More</button>

@@ -4,7 +4,7 @@ const BannerDataSchema = new mongoose.Schema({
 
 	title: { type: String, },
 	text: { type: String, },
-	bannerImg: { type: Boolean, },
+	bannerImg: { type: String, },
 
 })
 
