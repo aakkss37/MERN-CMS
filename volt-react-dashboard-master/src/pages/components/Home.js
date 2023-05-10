@@ -146,6 +146,19 @@ export default () => {
 
 	// COMPANY OVERVIEW
 	const [overViewText, setOverViewText] = useState()
+	const [currentOverViewText, setCurrentOverViewText] = useState()
+	useEffect(() => {
+		const getcurrentOverViewTextData = async () => {
+			try {
+				const resp = await axios.get("http://localhost:8000/home-page/get-overViewText")
+				console.log(resp.data)
+				setCurrentOverViewText(resp.data.data)
+			} catch (error) {
+				console.log(error)
+			}
+		}
+		getcurrentOverViewTextData();
+	}, [])
 	const hangleUpdateOverViewText = async () => {
 		console.log(overViewText)
 		try {
@@ -154,6 +167,7 @@ export default () => {
 			})
 			console.log("responce: ", resp.data.data)
 			setOverViewText("")
+			setCurrentOverViewText(resp.data.data)
 		} catch (error) {
 			console.log(error)
 		}
@@ -230,7 +244,7 @@ export default () => {
 					<Row>
 						<Col xs={12}>
 							<h4 >Overview Text </h4>
-							<p>Current Value : Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT solutions provider headquartered in Folsom, CA (a suburb of Sacramento) servicing prestigious clients all over the world.</p>
+							<p>Current Value : {currentOverViewText?.text}</p>
 							<div style={inputConatinerStyle}>
 								<textarea type='text'
 									placeholder='About Company' rows='5' value={overViewText}
