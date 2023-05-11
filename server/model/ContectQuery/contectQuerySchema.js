@@ -8,6 +8,6 @@ const QuerySchema = new mongoose.Schema({
 	subject: { type: String, }
 })
 
-const ContctQuery = mongoose.model('ContctQuery', QuerySchema);
+const ContactQuery = mongoose.model('ContactQuery', QuerySchema);
 
-export default ContctQuery;
+export default ContactQuery;
