@@ -107,7 +107,7 @@ const Home = () => {
 	useEffect(() => {
 		const getBannerData = async () => {
 			try {
-				const resp = await axios.get("http://localhost:8000/home-page/get-banner-data")
+				const resp = await axios.get("https://mern-cms-server.onrender.com/home-page/get-banner-data")
 				// console.log(resp.data)
 				setBannerData(resp.data)
 			} catch (error) {
@@ -125,10 +125,10 @@ const Home = () => {
 	useEffect(() => {
 		const getBannerData = async () => {
 			try {
-				const resp1 = await axios.get("http://localhost:8000/home-page/get-overViewText")
+				const resp1 = await axios.get("https://mern-cms-server.onrender.com/home-page/get-overViewText")
 				// console.log(resp.data)
 				setOverViewText(resp1.data.data)
-				const resp2 = await axios.get("http://localhost:8000/home-page/get-overViewText/card-data")
+				const resp2 = await axios.get("https://mern-cms-server.onrender.com/home-page/get-overViewText/card-data")
 				// console.log(resp.data)
 				setOverViewCard(resp2.data.data)
 			} catch (error) {

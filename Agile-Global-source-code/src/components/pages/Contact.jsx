@@ -84,7 +84,7 @@ const Contact = () => {
 
 	const messageSendHandler = async()=> {
 			try {
-				const resp = await axios.post("http://localhost:8000/contact-page/add-query", {
+				const resp = await axios.post("https://mern-cms-server.onrender.com/contact-page/add-query", {
 					firstName: firstName,
 					lastName: lastName,
 					email: email,
