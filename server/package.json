@@ -1,11 +1,11 @@
 {
-  "name": "server",
+  "name": "index.js",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon index.js.js",
 	"build": "npm i"
   },
   "author": "amar kumar",
