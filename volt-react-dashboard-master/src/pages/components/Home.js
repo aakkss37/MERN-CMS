@@ -282,13 +282,13 @@ export default () => {
 								overViewCard?.map((item, index) =>
 									<div style={{ border: '1px solid gray', marginBottom: '10px', borderRadius: "5px", padding: '10px', }} key={index}>
 										<h6>Card {index + 1}</h6>
-										<div style={cardBackground}>
+										{/* <div style={cardBackground}>
 											<p>Card background : <a href=''>Open Image</a></p>
 											<button variant="outlined" component="label" style={updateButtonStyle} onClick={() => imageInputRef.current.click()}>
 												Choose Image
 											</button>
 											<input hidden accept="image/*" type="file" ref={imageInputRef} onChange={(e) => { handleUpdateBannerImage(e.target.files[0]) }} />
-										</div>
+										</div> */}
 										<br />
 										<p>Current Title : {item.title}</p>
 										<div style={inputConatinerStyle}>
@@ -319,80 +319,82 @@ export default () => {
 					</Row>
 
 					{
-						showNewCardForm ? <div style={{ border: '1px solid gray', marginTop: '10px', borderRadius: "5px", padding: '10px', background: '#262b40' }}>
-							<h6>New Card </h6>
-							<div style={cardBackground}>
-								<button variant="outlined" component="label" style={updateButtonStyle} >
-									Select Background Image
-									<input hidden accept="image/*" type="file" onChange={(e) => { }} />
-									{/* handleChangeImage(e.target.files[0]) */}
-								</button>
-							</div>
-							<br />
-							<p style={{ color: 'white' }}>Card Heading : Gloable best</p>
-							<div style={inputConatinerStyle}>
-								<input type='text' placeholder='Card Title' style={inputStyle} />
-							</div>
-							<br />
-							<p style={{ color: 'white' }}>Card Text : Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-							<div style={inputConatinerStyle}>
-								<input type='text' placeholder='Card Text' style={inputStyle} />
-							</div>
-							<br />
-							<button style={updateButtonStyle} >Save & Upload</button>
-						</div>
-							: <button onClick={() => setShowNewCardForm(true)} style={{ border: 'none', background: '#262b40', width: '100%', padding: '10px', color: 'white', borderRadius: '5px' }}>Add New Card</button>
+						// showNewCardForm ? <div style={{ border: '1px solid gray', marginTop: '10px', borderRadius: "5px", padding: '10px', background: '#262b40' }}>
+						// 	<h6>New Card </h6>
+						// 	<div style={cardBackground}>
+						// 		<button variant="outlined" component="label" style={updateButtonStyle} >
+						// 			Select Background Image
+						// 			<input hidden accept="image/*" type="file" onChange={(e) => { }} />
+						// 			{/* handleChangeImage(e.target.files[0]) */}
+						// 		</button>
+						// 	</div>
+						// 	<br />
+						// 	<p style={{ color: 'white' }}>Card Heading : Gloable best</p>
+						// 	<div style={inputConatinerStyle}>
+						// 		<input type='text' placeholder='Card Title' style={inputStyle} />
+						// 	</div>
+						// 	<br />
+						// 	<p style={{ color: 'white' }}>Card Text : Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+						// 	<div style={inputConatinerStyle}>
+						// 		<input type='text' placeholder='Card Text' style={inputStyle} />
+						// 	</div>
+						// 	<br />
+						// 	<button style={updateButtonStyle} >Save & Upload</button>
+						// </div>
+						// 	: <button onClick={() => setShowNewCardForm(true)} style={{ border: 'none', background: '#262b40', width: '100%', padding: '10px', color: 'white', borderRadius: '5px' }}>Add New Card</button>
 					}
 				</div>
-				<br /><br /><br /><br /><br /><br />
+				<br /><br /><br />
+				{/* <br /><br /><br /> */}
 
 
 
 				{/* RECOGNITION & AWARDS */}
 
-				<div className="pt-2">
-					<h2 style={{ color: 'gray', textAlign: 'center' }}>RECOGNITION & AWARDS </h2>
+{
+				// <div className="pt-2">
+				// 	<h2 style={{ color: 'gray', textAlign: 'center' }}>RECOGNITION & AWARDS </h2>
 
 
-					<Row>
-						<Col xs={12}>
-							{
-								recognitinAndAward.map((item, index) => {
-									return (
-										<div style={{ border: '1px solid gray', marginBottom: '10px', borderRadius: "5px", padding: '10px', }} key={index}>
-											<h6>Recognition {index + 1}</h6>
-											{/* <div style={cardBackground}>
-												<p>Card background : <a href=''>Open Image</a></p>
-												<button variant="outlined" component="label" style={updateButtonStyle} onClick={() => { setchangeingCompnentId(item.id); return imageInputRef.current.click()}}>
-													Change
-												</button>
-												<input hidden accept="image/*" type="file" ref={imageInputRef} onChange={(e) => handleChangeImage(e.target.files[0]) } />
-											</div> */}
-											<br />
-											<p>Recognition Title : {item.title}</p>
-											<div style={inputConatinerStyle}>
-												<input type='text' placeholder='Enter New Recognition Title' style={inputStyle} />
-												<button style={updateButtonStyle} >Update</button>
-											</div>
-											<br />
-											<p>Recognition Text : {item.text} </p>
-											<div style={inputConatinerStyle}>
-												<input type='text' placeholder='Card Text' style={inputStyle} />
-												<button style={updateButtonStyle} onClick={() => updateComponent(item.id)}>Update</button>
-											</div>
-											<br />
-											<button style={{ border: 'none', background: '#ff4e04c2', padding: '10px', color: 'white', borderRadius: '5px' }}>Delete Recognition</button>
-										</div>
-									)
-								}
-								)
-							}
+				// 	<Row>
+				// 		<Col xs={12}>
+				// 			{
+				// 				recognitinAndAward.map((item, index) => {
+				// 					return (
+				// 						<div style={{ border: '1px solid gray', marginBottom: '10px', borderRadius: "5px", padding: '10px', }} key={index}>
+				// 							<h6>Recognition {index + 1}</h6>
+				// 							{/* <div style={cardBackground}>
+				// 								<p>Card background : <a href=''>Open Image</a></p>
+				// 								<button variant="outlined" component="label" style={updateButtonStyle} onClick={() => { setchangeingCompnentId(item.id); return imageInputRef.current.click()}}>
+				// 									Change
+				// 								</button>
+				// 								<input hidden accept="image/*" type="file" ref={imageInputRef} onChange={(e) => handleChangeImage(e.target.files[0]) } />
+				// 							</div> */}
+				// 							<br />
+				// 							<p>Recognition Title : {item.title}</p>
+				// 							<div style={inputConatinerStyle}>
+				// 								<input type='text' placeholder='Enter New Recognition Title' style={inputStyle} />
+				// 								<button style={updateButtonStyle} >Update</button>
+				// 							</div>
+				// 							<br />
+				// 							<p>Recognition Text : {item.text} </p>
+				// 							<div style={inputConatinerStyle}>
+				// 								<input type='text' placeholder='Card Text' style={inputStyle} />
+				// 								<button style={updateButtonStyle} onClick={() => updateComponent(item.id)}>Update</button>
+				// 							</div>
+				// 							<br />
+				// 							<button style={{ border: 'none', background: '#ff4e04c2', padding: '10px', color: 'white', borderRadius: '5px' }}>Delete Recognition</button>
+				// 						</div>
+				// 					)
+				// 				}
+				// 				)
+				// 			}
 
-						</Col>
-					</Row>
+				// 		</Col>
+				// 	</Row>
 
-				</div>
-
+				// </div>
+}
 			</Container>
 		</article>
 	)

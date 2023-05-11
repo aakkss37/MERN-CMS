@@ -1,62 +1,77 @@
 
-import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBullhorn } from '@fortawesome/free-solid-svg-icons';
-import { Col, Row, Alert, Button, Container } from '@themesberg/react-bootstrap';
+import React, { useEffect, useState, useRef } from 'react';
+import { useReactToPrint } from "react-to-print";
+import { Col, Row, Container } from '@themesberg/react-bootstrap';
+import axios from "axios"
 
-import Documentation from "../../components/Documentation";
 
 export default () => {
 	const [customerData, setCustomerData] = useState([])
 
-	// useEffect(() => {
-	// 	const getCustomerData = async()=> {
-	// 		console.log("something")
-	// 	}
-	// 	getCustomerData
-	// }, [])
+	useEffect(() => {
+		const getCustomerData = async () => {
+			try {
+				const resp = await axios.get("http://localhost:8000/contact-page/add-query/get")
+				console.log("responce: ", resp.data.data)
+				setCustomerData(resp.data.data)
+			} catch (error) {
+				console.log(error)
+			}
+		}
+		getCustomerData()
+	}, [])
 
-
+	const conponentPDF = useRef();
+	const exportToPdf = useReactToPrint({
+		content: () => conponentPDF.current,
+		documentTitle: "Query-List",
+	})
 
 	return (
 		<article style={{ minHeight: '80vh' }}>
 			<Container className="px-0">
-				<Row className="d-flex flex-wrap flex-md-nowrap align-items-center py-4">
-					<Col className="d-block mb-4 mb-md-0">
-						<h1 className="h2">Contect Query</h1>
-						<p className="mb-0">
-							Use alerts to provide contextual feedback to your users based on their input and behaviour.
-						</p>
-					</Col>
-				</Row>
+				<div ref={conponentPDF} style={{ width: '100%', padding: "20px"}}>
+					<Row className="d-flex flex-wrap flex-md-nowrap align-items-center py-4">
+						<Col className="d-block mb-4 mb-md-0">
+							<h1 className="h2">Contect Query</h1>
+							<p className="mb-0">
+								Here is the list of query asked by visiters.
+							</p>
+						</Col>
+					</Row>
+					<table style={{ width: '100%' }}>
+						<thead>
+							<tr>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Email</th>
+								<th>Phone Number</th>
+								<th>Subject</th>
+							</tr>
+						</thead>
+						<br />
+						<tbody>
+							{
+								customerData?.map(item => (
+									<tr>
+										<td>{item.firstName}</td>
+										<td>{item.lastName}</td>
+										<td>{item.email}</td>
+										<td>{item.phone}</td>
+										<td>{item.subject}</td>
+									</tr>
+								))
+							}
+
+						</tbody>
+					</table>
+				</div>
 				<br /><br />
-				<table style={{ width: '100%' }}>
-					<thead>
-						<tr>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Email</th>
-							<th>Phone Number</th>
-							<th>Subject</th>
-						</tr>
-					</thead>
-					<tbody>
-						{
-							customerData?.map(item => (
-								<tr>
-									<td>{item.firstName}</td>
-									<td>{item.lastName}</td>
-									<td>{item.email}</td>
-									<td>{item.phoneNumber}</td>
-									<td>{item.subject}</td>
-								</tr>
-							))
-						}
-
-					</tbody>
-				</table>
-
-
+				<button style={{ border: 'none',marginLeft: "20px", background: 'rgb(97 218 251)', padding: '10px 30px', color: 'white', borderRadius: '5px', fontWeight: "800" }}
+					onClick={exportToPdf}
+				>
+					Export
+				</button>
 			</Container>
 		</article>
 	);

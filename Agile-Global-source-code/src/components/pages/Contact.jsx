@@ -83,7 +83,6 @@ const Contact = () => {
 
 
 	const messageSendHandler = async()=> {
-		try {
 			try {
 				const resp = await axios.post("http://localhost:8000/contact-page/add-query", {
 					firstName: firstName,
@@ -101,9 +100,6 @@ const Contact = () => {
 			} catch (error) {
 				console.log(error)
 			}
-		} catch (error) {
-			console.log(error)
-		}
 	}
 
 	return (

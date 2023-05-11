@@ -138,7 +138,7 @@ export default (props = {}) => {
 			{/* AGILE GLOBAL CMS */}
               <CollapsableNavItem eventKey="components/" title="Agile global CMS" icon={faBoxOpen}>
                 <NavItem title="Home page" link={Routes.Accordions.path} />
-                <NavItem title="Alerts" link={Routes.Alerts.path} />
+                <NavItem title="Contect us Queries" link={Routes.Alerts.path} />
                 <NavItem title="Badges" link={Routes.Badges.path} />
                 <NavItem title="Breadcrumbs" link={Routes.Breadcrumbs.path} />
                 <NavItem title="Buttons" link={Routes.Buttons.path} />
