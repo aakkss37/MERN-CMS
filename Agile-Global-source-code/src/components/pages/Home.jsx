@@ -117,14 +117,20 @@ const Home = () => {
 		getBannerData();
 	}, [])
 
-	// BANNER
+
+
+	// COMPANY OVERVIEW
 	const [overViewText, setOverViewText] = useState()
+	const [overViewCard, setOverViewCard] = useState([])
 	useEffect(() => {
 		const getBannerData = async () => {
 			try {
-				const resp = await axios.get("http://localhost:8000/home-page/get-overViewText")
+				const resp1 = await axios.get("http://localhost:8000/home-page/get-overViewText")
 				// console.log(resp.data)
-				setOverViewText(resp.data.data)
+				setOverViewText(resp1.data.data)
+				const resp2 = await axios.get("http://localhost:8000/home-page/get-overViewText/card-data")
+				// console.log(resp.data)
+				setOverViewCard(resp2.data.data)
 			} catch (error) {
 				console.log(error)
 			}
@@ -139,6 +145,8 @@ const Home = () => {
 		backgroundPosition: 'center',
 	}
 
+	const imgArr = [homeCardImg1, homeCardImg2, homeCardImg3, homeCardImg4]
+
 	return (
 		<>
 			{/* black div bg */}
@@ -148,7 +156,7 @@ const Home = () => {
       md:max-w-[600px]  items-start justify-start'>
 					<p className='text-[34px] md:text-[56px]  font-bold leading-[78px]'>{bannerData?.title}</p>
 					<p className='flex text-[18px] leading-9'>{bannerData?.text}</p>
-					{/* <img className='w-[156px] h-[122px] py-2 sm:py-3 md:w-[219px] md:h-[137px] lg:ml-5 lg:h-[150px] lg:w-[229px]' src={homeHeroArrow} alt="" /> */}
+					<img className='w-[156px] h-[122px] py-2 sm:py-3 md:w-[219px] md:h-[137px] lg:ml-5 lg:h-[150px] lg:w-[229px]' src={homeHeroArrow} alt="" />
 					{/* know more button div */}
 					<div className=' w-full flex items-center justify-center'>
 						<button className='flex items-center justify-center home-hero-know-btn font-bold text-[24px] px-5 py-2 md:px-8 md:py-4 lg:px-14 '>Know More</button>
@@ -167,55 +175,24 @@ const Home = () => {
 
 				{/* four cards div */}
 				<div data-aos="fade-up" className='flex cursor-pointer items-center justify-center flex-wrap gap-5 md:gap-10 mt-5 md:mt-10 '>
-					{/* card 1 */}
-					<div className=' relative rounded-[8px] home-sol-outter-card-1-eff   w-[321px] h-[238px] lg:w-[261px] lg:h-[238px] text-white'>
-						<img className='w-full h-full rounded-[8px] home-card-1-image-eff' src={homeCardImg1} alt="" />
-						{/* text div */}
-						<div className='absolute rounded-[8px] px-3   home-sol-card-1 w-full h-full bottom-0 flex flex-col items-start justify-center gap-2'>
-							<p className='text-[24px] mt-[20px]'>Global Best</p>
-							<p className='text-[16px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-							<p className='text-[16px] '>Read more...</p>
-						</div>
+					{/* card  */}
+					{
+						overViewCard?.map((item, index) => (
+							<div className=' relative rounded-[8px] home-sol-outter-card-1-eff   w-[321px] h-[238px] lg:w-[261px] lg:h-[238px] text-white'>
+								<img className='w-full h-full rounded-[8px] home-card-1-image-eff' src={imgArr[index]} alt="" />
+								{/* text div */}
+								<div className='absolute rounded-[8px] px-3   home-sol-card-1 w-full h-full bottom-0 flex flex-col items-start justify-center gap-2'>
+									<p className='text-[24px] mt-[20px]'>{item.title}</p>
+									<p className='text-[16px]'>{item.text}</p>
+									<p className='text-[16px] '>Read more...</p>
+								</div>
 
-					</div>
+							</div>
 
-					{/* card 1 */}
-					<div className=' relative rounded-[8px] home-sol-outter-card-1-eff   w-[321px] h-[238px] lg:w-[261px] lg:h-[238px] text-white'>
-						<img className='w-full h-full rounded-[8px] home-card-1-image-eff' src={homeCardImg2} alt="" />
-						{/* text div */}
-						<div className='absolute rounded-[8px] px-3   home-sol-card-1 w-full h-full bottom-0 flex flex-col items-start justify-center gap-2'>
-							<p className='text-[24px] mt-[20px]'>Global Best</p>
-							<p className='text-[16px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-							<p className='text-[16px] '>Read more...</p>
-						</div>
+						))
+					}
 
-					</div>
-
-
-					{/* card 1 */}
-					<div className=' relative rounded-[8px] home-sol-outter-card-1-eff   w-[321px] h-[238px] lg:w-[261px] lg:h-[238px] text-white'>
-						<img className='w-full h-full rounded-[8px] home-card-1-image-eff' src={homeCardImg3} alt="" />
-						{/* text div */}
-						<div className='absolute rounded-[8px] px-3   home-sol-card-1 w-full h-full bottom-0 flex flex-col items-start justify-center gap-2'>
-							<p className='text-[24px] mt-[20px]'>Global Best</p>
-							<p className='text-[16px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-							<p className='text-[16px] '>Read more...</p>
-						</div>
-
-					</div>
-
-
-					{/* card 1 */}
-					<div className=' relative rounded-[8px] home-sol-outter-card-1-eff   w-[321px] h-[238px] lg:w-[261px] lg:h-[238px] text-white'>
-						<img className='w-full h-full rounded-[8px] home-card-1-image-eff' src={homeCardImg4} alt="" />
-						{/* text div */}
-						<div className='absolute rounded-[8px] px-3   home-sol-card-1 w-full h-full bottom-0 flex flex-col items-start justify-center gap-2'>
-							<p className='text-[24px] mt-[20px]'>Global Best</p>
-							<p className='text-[16px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-							<p className='text-[16px] '>Read more...</p>
-						</div>
-
-					</div>
+					
 				</div>
 
 
