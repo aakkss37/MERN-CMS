@@ -82,24 +82,32 @@ const Contact = () => {
 	const [subject, setSubject] = useState("")
 
 
-	const messageSendHandler = async()=> {
-			try {
-				const resp = await axios.post("https://mern-cms-server.onrender.com/contact-page/add-query", {
-					firstName: firstName,
-					lastName: lastName,
-					email: email,
-					phone: phone,
-					subject: subject
-				})
-				console.log("responce: ", resp.data.data)
-				setFirstName("")
-				setLastName("")
-				setEmail("")
-				setPhone("")
-				setSubject("")
-			} catch (error) {
-				console.log(error)
-			}
+
+	const messageSendHandler = async () => {
+		try {
+			const resp = await axios.post("https://mern-cms-server.onrender.com/contact-page/add-query", {
+				firstName: firstName,
+				lastName: lastName,
+				email: email,
+				phone: phone,
+				subject: subject
+			})
+			console.log("responce: ", resp.data.data)
+			setFirstName("")
+			setLastName("")
+			setEmail("")
+			setPhone("")
+			setSubject("")
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	let conactBanner = {
+		backgroundImage: "url('./images/contact/hero-bg.svg')",
+		backgroundSize: "cover",
+		objectFit: 'cover',
+		backgroundrepeat: 'no-repeat',
 	}
 
 	return (

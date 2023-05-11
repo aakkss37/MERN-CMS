@@ -30,7 +30,7 @@ export default () => {
 	return (
 		<article style={{ minHeight: '80vh' }}>
 			<Container className="px-0">
-				<div ref={conponentPDF} style={{ width: '100%', padding: "20px"}}>
+				<div ref={conponentPDF} style={{ width: '100%', padding: "20px" }}>
 					<Row className="d-flex flex-wrap flex-md-nowrap align-items-center py-4">
 						<Col className="d-block mb-4 mb-md-0">
 							<h1 className="h2">Contect Query</h1>
@@ -66,16 +66,21 @@ export default () => {
 									}
 
 								</tbody> :
-							<p style={{fontSize: 22, textAlign: "center", width: "100%"}}>Loading...</p>
+								<p style={{ fontSize: 22, textAlign: "center", width: "100%" }}>Loading...</p>
 						}
 					</table>
 				</div>
 				<br /><br />
-				<button style={{ border: 'none',marginLeft: "20px", background: 'rgb(97 218 251)', padding: '10px 30px', color: 'white', borderRadius: '5px', fontWeight: "800" }}
+				<button style={{ border: 'none', marginLeft: "20px", background: 'rgb(97 218 251)', padding: '10px 30px', color: 'white', borderRadius: '5px', fontWeight: "800" }}
 					onClick={exportToPdf}
 				>
 					Export
 				</button>
+			</Container>
+
+			<hr />
+
+			<Container className="px-0">
 			</Container>
 		</article>
 	);
