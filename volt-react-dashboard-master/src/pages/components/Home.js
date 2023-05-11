@@ -12,31 +12,6 @@ const updateButtonStyle = { padding: '10px', borderRadius: '4px', fontSize: 16, 
 const cardBackground = { display: 'flex', gap: '15px', }
 
 
-
-const overviewCard = [
-	{
-		id: 1,
-		img: 'img.jpg',
-		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		id: 2,
-		img: 'img.jpg',
-		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		id: 3,
-		img: 'img.jpg',
-		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		id: 4,
-		img: 'img.jpg',
-		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-]
-
-
 const recognitinAndAward = [
 	{
 		id: 1,
@@ -98,10 +73,6 @@ export default () => {
 	const [bannerText, setBannerText] = useState("");
 	const [bannerImageName, setBannerImageName] = useState("");
 
-	// const handleChangeImage = (file)=> {
-	// 	setBannerImageName(file.name)
-	// 	console.log(changeingCompnentId)
-	// }
 
 	const handleUpdateBannerTitle = async () => {
 		try {
@@ -151,7 +122,7 @@ export default () => {
 		const getcurrentOverViewTextData = async () => {
 			try {
 				const resp = await axios.get("http://localhost:8000/home-page/get-overViewText")
-				console.log(resp.data)
+				// console.log(resp.data)
 				setCurrentOverViewText(resp.data.data)
 			} catch (error) {
 				console.log(error)
@@ -165,7 +136,7 @@ export default () => {
 			const resp = await axios.post("http://localhost:8000/home-page/overView/update/overViewText", {
 				overViewText: overViewText
 			})
-			console.log("responce: ", resp.data.data)
+			// console.log("responce: ", resp.data.data)
 			setOverViewText("")
 			setCurrentOverViewText(resp.data.data)
 		} catch (error) {
@@ -174,18 +145,55 @@ export default () => {
 
 	}
 
+	const [overViewCard, setOverViewCard] = useState([])
 	useEffect(() => {
 		const getcurrentOverViewTextData = async () => {
 			try {
 				const resp = await axios.get("http://localhost:8000/home-page/get-overViewText/card-data")
-				console.log(resp.data)
-				setCurrentOverViewText(resp.data.data)
+				console.log(resp.data.data)
+				setOverViewCard(resp.data.data)
 			} catch (error) {
 				console.log(error)
 			}
 		}
-		// getcurrentOverViewTextData();
+		getcurrentOverViewTextData();
 	}, [])
+
+	// const [cardTitle, setCardTitle] = useState()
+	// const [cardImg, setCardImg] = useState()
+	// const [cardText, setCardText] = useState()
+	const hangleUpdateOverViewCard = async() => {
+		try {
+			const resp = await axios.post("http://localhost:8000/home-page/overViewText/card-data/update", overViewCard)
+			console.log(resp.data.data)
+			setOverViewCard(resp.data.data)
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const handleOverviewTitleChange = (value, id) => {
+		console.log(value)
+		const updatedOverview = overViewCard.map((item) => {
+			if (item._id === id) {
+				return { ...item, title: value };
+			}
+			return item;
+		});
+
+		setOverViewCard(updatedOverview);
+	};
+
+	const handleOverViewTextChange = (value, id) => {
+		const updatedOverview = overViewCard.map((item) => {
+			if (item._id === id) {
+				return { ...item, text: value };
+			}
+			return item;
+		});
+
+		setOverViewCard(updatedOverview);
+	};
 
 
 	return (
@@ -271,7 +279,7 @@ export default () => {
 						<Col xs={12}>
 							<h4 >Overview Card  </h4>
 							{
-								overviewCard.map((item, index) =>
+								overViewCard?.map((item, index) =>
 									<div style={{ border: '1px solid gray', marginBottom: '10px', borderRadius: "5px", padding: '10px', }} key={index}>
 										<h6>Card {index + 1}</h6>
 										<div style={cardBackground}>
@@ -282,19 +290,29 @@ export default () => {
 											<input hidden accept="image/*" type="file" ref={imageInputRef} onChange={(e) => { handleUpdateBannerImage(e.target.files[0]) }} />
 										</div>
 										<br />
-										<p>Card Heading : </p>
+										<p>Current Title : {item.title}</p>
 										<div style={inputConatinerStyle}>
-											<input type='text' placeholder='Card Title' style={inputStyle} />
+											<input type='text' placeholder='Card Title'
+												value={item.title}
+												style={inputStyle}
+												onChange={(e) => handleOverviewTitleChange(e.target.value, item._id)} />
 										</div>
 										<br />
-										<p>Card Text :  </p>
+										<p>Current Text : {item.text}  </p>
 										<div style={inputConatinerStyle}>
-											<input type='text' placeholder='Card Text' style={inputStyle} />
+											<input type='text' placeholder='Card Text'
+												value={item.text}
+												style={inputStyle}
+												onChange={(e) => handleOverViewTextChange(e.target.value, item._id)} />
 										</div>
 									</div>
 								)
 							}
-
+							<br />
+							<button style={{ padding: '10px 55px', marginLeft: '44%', borderRadius: '4px', fontSize: 16, border: 'none', background: '#61dafb', color: 'white', fontWeight: '800' }}
+								onClick={() => hangleUpdateOverViewCard()}
+							>Save</button>
+							<br /><br />
 
 
 						</Col>
