@@ -59,7 +59,7 @@ export default () => {
 	useEffect(() => {
 		const getBannerData = async () => {
 			try {
-				const resp = await axios.get("http://localhost:8000/home-page/get-banner-data")
+				const resp = await axios.get("https://mern-cms-server.onrender.com/home-page/get-banner-data")
 				console.log(resp.data)
 				setBannerData(resp.data)
 			} catch (error) {
@@ -76,7 +76,7 @@ export default () => {
 
 	const handleUpdateBannerTitle = async () => {
 		try {
-			const resp = await axios.post("http://localhost:8000/home-page/banner/update/title", {
+			const resp = await axios.post("https://mern-cms-server.onrender.com/home-page/banner/update/title", {
 				title: bannerTitle,
 				id: bannerData._id
 			})
@@ -89,7 +89,7 @@ export default () => {
 	}
 	const handleUpdateBannerText = async () => {
 		try {
-			const resp = await axios.post("http://localhost:8000/home-page/banner/update/text", {
+			const resp = await axios.post("https://mern-cms-server.onrender.com/home-page/banner/update/text", {
 				text: bannerText,
 				id: bannerData._id
 			})
@@ -107,7 +107,7 @@ export default () => {
 		data.append("file", file);
 		setBannerImageName(file.name)
 		// API CALL
-		const resp = await axios.post("http://localhost:8000/home-page/banner/update/image", data); //return a url of the pic
+		const resp = await axios.post("https://mern-cms-server.onrender.com/home-page/banner/update/image", data); //return a url of the pic
 		console.log("responce ===> ", resp.data);
 		setBannerData((prev) => ({ ...prev, bannerImg: resp.data.data.bannerImg }))
 
@@ -121,7 +121,7 @@ export default () => {
 	useEffect(() => {
 		const getcurrentOverViewTextData = async () => {
 			try {
-				const resp = await axios.get("http://localhost:8000/home-page/get-overViewText")
+				const resp = await axios.get("https://mern-cms-server.onrender.com/home-page/get-overViewText")
 				// console.log(resp.data)
 				setCurrentOverViewText(resp.data.data)
 			} catch (error) {
@@ -133,7 +133,7 @@ export default () => {
 	const hangleUpdateOverViewText = async () => {
 		console.log(overViewText)
 		try {
-			const resp = await axios.post("http://localhost:8000/home-page/overView/update/overViewText", {
+			const resp = await axios.post("https://mern-cms-server.onrender.com/home-page/overView/update/overViewText", {
 				overViewText: overViewText
 			})
 			// console.log("responce: ", resp.data.data)
@@ -149,7 +149,7 @@ export default () => {
 	useEffect(() => {
 		const getcurrentOverViewTextData = async () => {
 			try {
-				const resp = await axios.get("http://localhost:8000/home-page/get-overViewText/card-data")
+				const resp = await axios.get("https://mern-cms-server.onrender.com/home-page/get-overViewText/card-data")
 				console.log(resp.data.data)
 				setOverViewCard(resp.data.data)
 			} catch (error) {
@@ -164,7 +164,7 @@ export default () => {
 	// const [cardText, setCardText] = useState()
 	const hangleUpdateOverViewCard = async() => {
 		try {
-			const resp = await axios.post("http://localhost:8000/home-page/overViewText/card-data/update", overViewCard)
+			const resp = await axios.post("https://mern-cms-server.onrender.com/home-page/overViewText/card-data/update", overViewCard)
 			console.log(resp.data.data)
 			setOverViewCard(resp.data.data)
 		} catch (error) {

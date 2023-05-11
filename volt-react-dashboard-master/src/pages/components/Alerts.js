@@ -11,7 +11,7 @@ export default () => {
 	useEffect(() => {
 		const getCustomerData = async () => {
 			try {
-				const resp = await axios.get("http://localhost:8000/contact-page/add-query/get")
+				const resp = await axios.get("https://mern-cms-server.onrender.com/contact-page/add-query/get")
 				console.log("responce: ", resp.data.data)
 				setCustomerData(resp.data.data)
 			} catch (error) {
