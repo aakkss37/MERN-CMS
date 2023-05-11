@@ -26,16 +26,8 @@ export default () => {
         </div>
       </div>
 
-      <div className="table-settings mb-4">
+      {/* <div className="table-settings mb-4">
         <Row className="justify-content-between align-items-center">
-          <Col xs={8} md={6} lg={3} xl={4}>
-            <InputGroup>
-              <InputGroup.Text>
-                <FontAwesomeIcon icon={faSearch} />
-              </InputGroup.Text>
-              <Form.Control type="text" placeholder="Search" />
-            </InputGroup>
-          </Col>
           <Col xs={4} md={2} xl={1} className="ps-md-0 text-end">
             <Dropdown as={ButtonGroup}>
               <Dropdown.Toggle split as={Button} variant="link" className="text-dark m-0 p-0">
@@ -54,7 +46,7 @@ export default () => {
             </Dropdown>
           </Col>
         </Row>
-      </div>
+      </div> */}
 
       <TransactionsTable />
     </>
