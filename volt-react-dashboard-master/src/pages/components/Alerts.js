@@ -50,20 +50,24 @@ export default () => {
 							</tr>
 						</thead>
 						<br />
-						<tbody>
-							{
-								customerData?.map(item => (
-									<tr>
-										<td>{item.firstName}</td>
-										<td>{item.lastName}</td>
-										<td>{item.email}</td>
-										<td>{item.phone}</td>
-										<td>{item.subject}</td>
-									</tr>
-								))
-							}
+						{
+							customerData.length ?
+								<tbody>
+									{
+										customerData?.map(item => (
+											<tr>
+												<td>{item.firstName}</td>
+												<td>{item.lastName}</td>
+												<td>{item.email}</td>
+												<td>{item.phone}</td>
+												<td>{item.subject}</td>
+											</tr>
+										))
+									}
 
-						</tbody>
+								</tbody> :
+							<p style={{fontSize: 22, textAlign: "center", width: "100%"}}>Loading...</p>
+						}
 					</table>
 				</div>
 				<br /><br />
