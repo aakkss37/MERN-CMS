@@ -3267,24 +3267,6 @@ chardet@^0.7.0:
   resolved "https://registry.npmjs.org/chardet/-/chardet-0.7.0.tgz"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
-chartist-plugin-tooltips-updated@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.npmjs.org/chartist-plugin-tooltips-updated/-/chartist-plugin-tooltips-updated-0.1.4.tgz"
-  integrity sha512-fp03cd49Z73nmphxyzm6zEm1o8hSJMUeKz9/xphRu943rcphFXUJZIlHs09SpetUnB+ebsvOl9IE69mdbJNb7w==
-  dependencies:
-    chartist "0.11.4"
-    lodash "~4.17.19"
-
-chartist@^0.10.1:
-  version "0.10.1"
-  resolved "https://registry.npmjs.org/chartist/-/chartist-0.10.1.tgz"
-  integrity sha512-8Yd4F6tXvAaM5CIPmFYknC76KEgaU7iiY7Amo5IaaCRmTT/5YXjc/FuNXgqhPttOXHoGSjl0i3gkOE1mv15/wA==
-
-chartist@0.11.4:
-  version "0.11.4"
-  resolved "https://registry.npmjs.org/chartist/-/chartist-0.11.4.tgz"
-  integrity sha512-H4AimxaUD738/u9Mq8t27J4lh6STsLi4BQHt65nOtpLk3xyrBPaLiLMrHw7/WV9CmsjGA02WihjuL5qpSagLYw==
-
 chokidar@^2.1.8:
   version "2.1.8"
   resolved "https://registry.npmjs.org/chokidar/-/chokidar-2.1.8.tgz"
@@ -7344,7 +7326,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.npmjs.org/lodash.uniq/-/lodash.uniq-4.5.0.tgz"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.5, "lodash@>=3.5 <5", lodash@~4.17.10, lodash@~4.17.19:
+lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.5, "lodash@>=3.5 <5", lodash@~4.17.10:
   version "4.17.21"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -9578,13 +9560,6 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
-react-chartist@^0.14.4:
-  version "0.14.4"
-  resolved "https://registry.npmjs.org/react-chartist/-/react-chartist-0.14.4.tgz"
-  integrity sha512-1riwO5CjT5IdrilCM788waUYpIdl8Y4vsIc6Y5bbR3PIX46NYYtcq5bcaBEkIZfKEThuoJDEV6FU1rDmfbogsg==
-  dependencies:
-    prop-types "^15.5.8"
-
 react-copy-to-clipboard@^5.0.3:
   version "5.0.3"
   resolved "https://registry.npmjs.org/react-copy-to-clipboard/-/react-copy-to-clipboard-5.0.3.tgz"
@@ -9832,7 +9807,7 @@ react-transition-group@^4.4.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@*, "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^0.14.9 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0", "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^15.3.0 || ^16.0.0 || ^17.0.0", react@^16.0.0, react@^16.13.1, react@^16.14.0, react@^16.5.0, react@>=0.14.0, react@>=0.14.9, react@>=15, react@>=15.0.0, react@>=16.3.0, react@>=16.3.2, react@>=16.6.0, react@>=16.8.0, react@>=16.x:
+react@*, "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0", "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^15.3.0 || ^16.0.0 || ^17.0.0", react@^16.0.0, react@^16.13.1, react@^16.14.0, react@^16.5.0, react@>=0.14.0, react@>=0.14.9, react@>=15, react@>=15.0.0, react@>=16.3.0, react@>=16.3.2, react@>=16.6.0, react@>=16.8.0, react@>=16.x:
   version "16.14.0"
   resolved "https://registry.npmjs.org/react/-/react-16.14.0.tgz"
   integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
