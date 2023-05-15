@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch, Redirect, Outlet } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { Routes } from "../routes";
 
 // pages
@@ -99,15 +99,7 @@ const RouteWithSidebar = ({ component: Component, ...rest }) => {
 };
 
 
-const PrivateRoute = (props) => (
-	props.isUserAuthanticated
-		?
-		<>
-			<Outlet />
-		</>
-		:
-		<Redirect replace to={Routes.Signin.path} />
-)
+
 
 
 export default () => {
@@ -115,12 +107,16 @@ export default () => {
 
 	const [isUserAuthanticated, setUserAuthanticated] = useState(false);
 
+	const checkAuthantication = ()=> {
+		
+	}
+
+	console.log(isUserAuthanticated)
 	return (
 
 
-
-
 		<Switch>
+
 			<RouteWithLoader exact path={Routes.Presentation.path} component={Presentation} />
 			<RouteWithLoader exact path={Routes.Signin.path} component={Signin} />
 			<RouteWithLoader exact path={Routes.Signup.path} component={Signup} />
@@ -130,14 +126,14 @@ export default () => {
 			<RouteWithLoader exact path={Routes.NotFound.path} component={NotFoundPage} />
 			<RouteWithLoader exact path={Routes.ServerError.path} component={ServerError} />
 
+
 			{/* pages */}
-			<Route path={Routes.DashboardOverview.path} element={<PrivateRoute isUserAuthanticated={isUserAuthanticated} />}>
-				<RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
-			</Route>
+			<RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
 			<RouteWithSidebar exact path={Routes.Upgrade.path} component={Upgrade} />
 			<RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
 			<RouteWithSidebar exact path={Routes.Settings.path} component={Settings} />
 			<RouteWithSidebar exact path={Routes.BootstrapTables.path} component={BootstrapTables} />
+
 
 			{/* components */}
 			<RouteWithSidebar exact path={Routes.Accordions.path} component={Accordion} />
@@ -156,6 +152,7 @@ export default () => {
 			<RouteWithSidebar exact path={Routes.Tabs.path} component={Tabs} />
 			<RouteWithSidebar exact path={Routes.Tooltips.path} component={Tooltips} />
 			<RouteWithSidebar exact path={Routes.Toasts.path} component={Toasts} />
+
 
 			{/* documentation */}
 			<RouteWithSidebar exact path={Routes.DocsOverview.path} component={DocsOverview} />
