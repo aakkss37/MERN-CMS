@@ -32,7 +32,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Preloader from "../components/Preloader";
 
-import Accordion from "./components/Home";
+import Accordion from "./components/Accordion";
 import Alerts from "./components/Alerts";
 import Badges from "./components/Badges";
 import Breadcrumbs from "./components/Breadcrumbs";
@@ -110,7 +110,7 @@ export default () => (
     <RouteWithLoader exact path={Routes.ServerError.path} component={ServerError} />
 
     {/* pages */}
-		<RouteWithSidebar exact path={Routes.DashboardOverview.path} component={Accordion} />
+    <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
     <RouteWithSidebar exact path={Routes.Upgrade.path} component={Upgrade} />
     <RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
     <RouteWithSidebar exact path={Routes.Settings.path} component={Settings} />

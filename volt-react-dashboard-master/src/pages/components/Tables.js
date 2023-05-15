@@ -36,9 +36,24 @@ export default () => {
             </>
           }
           scope={{ Image, Table, FontAwesomeIcon, faAngleDown, faAngleUp, USAFlag, CanadaFlag, UKFlag, FranceFlag, JapanFlag, GermanyFlag }}
-          
+          imports={`import { Image, Table } from '@themesberg/react-bootstrap';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+
+import USAFlag from "src/assets/img/flags/united-states-of-america.svg";
+import CanadaFlag from "src/assets/img/flags/canada.svg";
+import UKFlag from "src/assets/img/flags/united-kingdom.svg";
+import FranceFlag from "src/assets/img/flags/france.svg";
+import JapanFlag from "src/assets/img/flags/japan.svg";
+import GermanyFlag from "src/assets/img/flags/germany.svg";`}
           example={`<Table>
-  
+  <thead className="thead-light">
+    <tr>
+      <th className="border-0">Country</th>
+      <th className="border-0">All</th>
+      <th className="border-0">All Change</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td className="border-0">

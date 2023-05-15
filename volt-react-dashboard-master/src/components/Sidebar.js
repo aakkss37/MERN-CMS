@@ -133,13 +133,11 @@ export default (props = {}) => {
                 <NavItem title="Build Tools" link={Routes.DocsBuild.path} />
                 <NavItem title="Changelog" link={Routes.DocsChangelog.path} />
               </CollapsableNavItem>
-
-
-			{/* AGILE GLOBAL CMS */}
-              <CollapsableNavItem eventKey="components/" title="Agile global CMS" icon={faBoxOpen}>
-                <NavItem title="Home page" link={Routes.Accordions.path} />
-                <NavItem title="Contect us Queries" link={Routes.Alerts.path} />
+              <CollapsableNavItem eventKey="components/" title="Components" icon={faBoxOpen}>
+                <NavItem title="Accordion" link={Routes.Accordions.path} />
+                <NavItem title="Alerts" link={Routes.Alerts.path} />
                 <NavItem title="Badges" link={Routes.Badges.path} />
+                <NavItem external title="Widgets" link="https://demo.themesberg.com/volt-pro-react/#/components/widgets" target="_blank" badgeText="Pro" />
                 <NavItem title="Breadcrumbs" link={Routes.Breadcrumbs.path} />
                 <NavItem title="Buttons" link={Routes.Buttons.path} />
                 <NavItem title="Forms" link={Routes.Forms.path} />
@@ -154,11 +152,6 @@ export default (props = {}) => {
                 <NavItem title="Toasts" link={Routes.Toasts.path} />
                 <NavItem title="Tooltips" link={Routes.Tooltips.path} />
               </CollapsableNavItem>
-
-
-
-
-
               <NavItem external title="Themesberg" link="https://themesberg.com" target="_blank" image={ThemesbergLogo} />
               <Button as={Link} to={Routes.Upgrade.path} variant="secondary" className="upgrade-to-pro"><FontAwesomeIcon icon={faRocket} className="me-1" /> Upgrade to Pro</Button>
             </Nav>

@@ -375,13 +375,6 @@ const Career = () => {
 
       <div className=' mt-10 relative flex items-center justify-center px-0 sm:px-0'>
 
-        {comment.map((data) => (
-          <div className='center-card'>
-            <h2 className='px-4 text-[18px]  font-bold '> {data.title} </h2>
-            <p className='px-4 text-[15px] leading-[14px]  '> {data.disc}</p>
-            <button className='px-4 text-[#17519B] text-[18px] flex items-center justify-center gap-2 font-semibold'>LEARN MORE <HiArrowRight></HiArrowRight></button>
-          </div>
-        ))}
 
         <Swiper
 
@@ -390,17 +383,17 @@ const Career = () => {
           coverflowEffect={{
             rotate: 25,
             stretch: -50,
-            depth: 200,
+            depth: -200,
             modifier: 1.6,
             slideShadows: false
           }}
           loop={true}
           slidesPerView={4}
           centeredSlides
-          // style={{ height: "300px" }}
-          allowTouchMove={false}
+        //   style={{ height: "300px" }}
+          allowTouchMove={true}
 
-          // pagination={{ el: '.swiper-pagination', clickable: true }}
+          pagination={{ el: '.swiper-pagination', clickable: true }}
           navigation={{
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
@@ -431,6 +424,14 @@ const Career = () => {
           }}
 
         >
+				  {comment.map((data) => (
+					  <div className='center-card'>
+						  <h2 className='px-4 text-[18px]  font-bold '> {data.title} </h2>
+						  <p className='px-4 text-[15px] leading-[14px]  '> {data.disc}</p>
+						  <button className='px-4 text-[#17519B] text-[18px] flex items-center justify-center gap-2 font-semibold'>LEARN MORE <HiArrowRight></HiArrowRight></button>
+					  </div>
+				  ))}
+
           <SwiperSlide className='slide-style'> <CareerImgCard></CareerImgCard> </SwiperSlide>
           <SwiperSlide className='slide-style'><CareerImgCard></CareerImgCard></SwiperSlide>
           <SwiperSlide className='slide-style'><CareerImgCard></CareerImgCard></SwiperSlide>
@@ -439,8 +440,6 @@ const Career = () => {
           <SwiperSlide className='slide-style'><CareerImgCard></CareerImgCard></SwiperSlide>
           <SwiperSlide className='slide-style'><CareerImgCard></CareerImgCard></SwiperSlide>
         
-          
-
 
           <div className="slider-controler">
             <div onClick={handlePrevClick} className="swiper-button-prev slider-arrow">
@@ -454,13 +453,12 @@ const Career = () => {
         </Swiper>
       </div>
 
-
-
+		  
 
       {/* slider div ends  */}
 
 
-
+		  <br /><br /><br /><br />
       {/* Perks and Benefits */}
       <div data-aos="fade-up" className='flex flex-col items-center justify-center mt-[-50px]'>
         <p className='text-[24px] sm:text-[30px] md:text-[32px] text-center leading-[44px] '>Perks and Benefits</p>
