@@ -268,11 +268,11 @@ const Home = () => {
 
 			<section data-aos="zoom-in" className='  mt-20 flex flex-col items-center justify-center p-3 '>
 				{/* title */}
-				<h2 className='text-[28px] md:text-[48px] font-bold my-4'>OUR PARTIAL CLIENT LIST</h2>
+				<h2 className='text-[28px] md:text-[34px] font-bold my-4'>OUR PARTIAL CLIENT LIST</h2>
 				{/* hr line */}
 				<div className='line w-[85vw] md:w-[70vw] lg:w-[40vw] bg-black h-[2px] my-3 ' ></div>
 
-				<p className='text-[18px] md:text-[20px] text-center my-2 mb-10 leading-[25px] w-full md:w-[80vw] lg:w-[70vw]'>AGILE GLOBAL has assisted numerous Fortune/Global 1000 and mid-sized firms in their application development, integration, conversion, consolidation and support efforts. We are also dedicated to partnering with early stage and emerging growth enterprise software companies, working with them to bring to market the best technology solutions possible.</p>
+				<p className='text-[16px] md:text-[16px] text-center my-2 mb-10 leading-[25px] w-full md:w-[80vw] lg:w-[70vw]'>AGILE GLOBAL has assisted numerous Fortune/Global 1000 and mid-sized firms in their application development, integration, conversion, consolidation and support efforts. We are also dedicated to partnering with early stage and emerging growth enterprise software companies, working with them to bring to market the best technology solutions possible.</p>
 
 
 
@@ -284,7 +284,7 @@ const Home = () => {
 				<Slider className='slider-outter  w-[85vw] ' {...settings}>
 					{
 						logos.map((item) => (
-							<img className='w-[200px] h-[100px] home-client-img' src={item.image} alt='saldk' />
+							<img className='w-[170px] h-[80px] home-client-img' src={item.image} alt='saldk' />
 						))
 					}
 				</Slider>
