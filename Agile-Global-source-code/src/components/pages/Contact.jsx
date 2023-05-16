@@ -214,7 +214,24 @@ const Contact = () => {
 						<p className='text-[20px] leading-[32px] my-2' style={{fontWeight: 800}}>California</p>
 						<p className='text-[14px]'>(916) 655-7745 [Work]</p>
 						<p className='text-[14px]'>(916) 848-3659 [Fax]</p>
-						{/* </div> */}
+					</div>
+				</div>
+
+				<div ref={boxRef} style={headerBox}>
+					<img ref={imageRef} src={officeImg1} alt="" style={headerImage} />
+					<div ref={textRef} >
+						<p className='text-[20px] leading-[32px] my-2' style={{fontWeight: 800}}>California</p>
+						<p className='text-[14px]'>(916) 655-7745 [Work]</p>
+						<p className='text-[14px]'>(916) 848-3659 [Fax]</p>
+					</div>
+				</div>
+				
+				<div ref={boxRef} style={headerBox}>
+					<img ref={imageRef} src={officeImg1} alt="" style={headerImage} />
+					<div ref={textRef} >
+						<p className='text-[20px] leading-[32px] my-2' style={{fontWeight: 800}}>California</p>
+						<p className='text-[14px]'>(916) 655-7745 [Work]</p>
+						<p className='text-[14px]'>(916) 848-3659 [Fax]</p>
 					</div>
 				</div>
 
