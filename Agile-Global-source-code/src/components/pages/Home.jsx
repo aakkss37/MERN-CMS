@@ -6,6 +6,7 @@ import axios from 'axios'
 
 
 
+import homeHeroRobot from "../../images/home/home-hero-robot.png"
 import mainSectionArrow from '../../images/home/main-arrow.svg'
 import homeHeroArrow from '../../images/home/home-hero-arrow-1.jpg'
 
@@ -139,7 +140,8 @@ const Home = () => {
 	}, [])
 
 	const bannerStyle = {
-		backgroundImage: `url(${bannerData?.bannerImg})`,
+		// backgroundImage: `url(${bannerData?.bannerImg})`,
+		backgroundImage: `url(${homeHeroRobot})`,
 		backgroundRepeat: "no-repeat",
 		backgroundSize: 'cover',
 		backgroundPosition: 'center',
@@ -153,13 +155,17 @@ const Home = () => {
 			<main data-aos="fade-up" className='  bg-black w-screen h-[90dvh] ' style={bannerStyle}>
 				{/* innovation div */}
 				<div className=' p-3 sm:p-10 lg:mx-20 xl:mx-40  lg:pt-14  flex flex-col text-white sm:max-w-[500px] lg:max-w-[650px] 
-      md:max-w-[600px]  items-start justify-start'>
-					<p className='text-[34px] md:text-[56px]  font-bold leading-[78px]'>{bannerData?.title}</p>
-					<p className='flex text-[18px] leading-9'>{bannerData?.text}</p>
-					<img className='w-[156px] h-[122px] py-2 sm:py-3 md:w-[219px] md:h-[137px] lg:ml-5 lg:h-[150px] lg:w-[229px]' src={homeHeroArrow} alt="" />
-					{/* know more button div */}
-					<div className=' w-full flex items-center justify-center'>
-						<button className='flex items-center justify-center home-hero-know-btn font-bold text-[24px] px-5 py-2 md:px-8 md:py-4 lg:px-14 '>Know More</button>
+      md:max-w-[600px]  items-start justify-start' >
+					<div style={{ marginTop: 50 }}>
+						{/* <p className='text-[34px] md:text-[56px]  font-bold leading-[78px]'>{bannerData?.title}</p> */}
+						<p className='text-[34px] md:text-[56px]  font-bold leading-[78px]'>INNOVATION</p>
+						{/* <p className='flex text-[18px] leading-9'>{bannerData?.text}</p> */}
+						<p className='flex text-[18px] leading-9'>Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT</p>
+						<img className='w-[156px] h-[122px] py-2 sm:py-3 md:w-[219px] md:h-[137px] lg:ml-5 lg:h-[150px] lg:w-[229px]' src={homeHeroArrow} alt="" />
+						{/* know more button div */}
+						<div className=' w-full flex items-center justify-center'>
+							<button className='flex items-center justify-center home-hero-know-btn font-bold text-[24px] px-5 py-2 md:px-8 md:py-4 lg:px-14 '>Know More</button>
+						</div>
 					</div>
 
 				</div>
@@ -169,8 +175,10 @@ const Home = () => {
 				{/* agile global solution 4 card div */}
 				<div className='flex flex-col items-center justify-center mt-10 md:mt-16 lg:my-14'>
 					<h2 className='text-[24px] md:text-[36px] leading-[43px] text-center'>AGILE GLOBAL SOLUTIONS, INC</h2>
-					<p className='text-center text-[18px] md:text-[24px] leading-[32px] mt-5 md:mt-10 lg:mt-14 '>
-						{overViewText?.text}</p>
+					{/* <p className='text-center text-[18px] md:text-[24px] leading-[32px] mt-5 md:mt-10 lg:mt-14 '>
+						{overViewText?.text}</p> */}
+					<p className='text-center text-[16px] md:text-[18px] leading-[32px] mt-5 md:mt-10 lg:mt-14 '>
+						Current Value : Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT solutions provider headquartered in Folsom, CA (a suburb of Sacramento) servicing prestigious clients all over the world.Current Value : Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT solutions provider headquartered in Folsom, CA (a suburb of Sacramento) servicing prestigious clients all over the world.Current Value : Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT solutions provider headquartered in Folsom, CA (a suburb of Sacramento) servicing prestigious clients all over the world.</p>
 				</div>
 
 				{/* four cards div */}
@@ -192,13 +200,13 @@ const Home = () => {
 						))
 					}
 
-					
+
 				</div>
 
 
 				{/* our recognition and awards..... */}
 				<div className='flex flex-col items-center justify-center my-20 md:my-14 lg:my-20'>
-					<p className='text-[24px] md:text-[36px] lg:text-[46px] text-center font-bold mb-10 md:mb-10'>OUR RECOGNITION & AWARDS</p>
+					<p className='text-[24px] md:text-[36px] lg:text-[48px] text-center font-bold mb-10 md:mb-10'>OUR RECOGNITION & AWARDS</p>
 					{/* content divs starts*/}
 					{/* first starts */}
 					<div data-aos="fade-up" className=' flex flex-col md:flex-row items-center justify-center gap-5 md:gap-10 lg:gap-20 '>
@@ -264,7 +272,7 @@ const Home = () => {
 				{/* hr line */}
 				<div className='line w-[85vw] md:w-[70vw] lg:w-[40vw] bg-black h-[2px] my-3 ' ></div>
 
-				<p className='text-[18px] md:text-[24px] text-center my-2 mb-10 leading-[25px] w-full md:w-[80vw] lg:w-[70vw]'>AGILE GLOBAL has assisted numerous Fortune/Global 1000 and mid-sized firms in their application development, integration, conversion, consolidation and support efforts. We are also dedicated to partnering with early stage and emerging growth enterprise software companies, working with them to bring to market the best technology solutions possible.</p>
+				<p className='text-[18px] md:text-[20px] text-center my-2 mb-10 leading-[25px] w-full md:w-[80vw] lg:w-[70vw]'>AGILE GLOBAL has assisted numerous Fortune/Global 1000 and mid-sized firms in their application development, integration, conversion, consolidation and support efforts. We are also dedicated to partnering with early stage and emerging growth enterprise software companies, working with them to bring to market the best technology solutions possible.</p>
 
 
 
@@ -290,6 +298,7 @@ const Home = () => {
 				<p className='text-center w-[70vw] md:w-[25vw] text-[16px] leading-[20px] mb-[30px]'>Everything you need to know about offering a differentiated customer experience</p>
 				{/* quate div */}
 				<div className='  flex relative items-center justify-center py-10 md:py-2  md:w-[55vw]'>
+					
 					<img className='absolute top-0 left-0 w-[46px] h-[52px]' src={homeQuotStart} alt="" />
 					<p className='text-[18px] text-center w-[90vw]  md:w-[50vw] p-3 md:p-5'>Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT solutions provider headquartered in Folsom, CA (a suburb of Sacramento) servicing prestigious clients all over the world.</p>
 					<img className='absolute bottom-0 right-0 w-[46px] h-[52px]' src={homeQuotEnd} alt="" />
