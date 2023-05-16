@@ -47,7 +47,7 @@ const OfficeAdd = (props) => {
 		gsap.set(textElement, {
 			position: "absolute",
 			top: "30%",
-			left: "60%",
+			left: "51%",
 			transform: "translate(-50%, -50%)",
 			autoAlpha: 0
 		});
