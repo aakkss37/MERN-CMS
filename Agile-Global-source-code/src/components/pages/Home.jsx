@@ -294,20 +294,20 @@ const Home = () => {
 
 			{/* what clients say about us section */}
 			<div data-aos="fade-up" className='flex flex-col items-center justify-center  mt-[50px]'>
-				<p className='text-[24px] md:text-[32px] font-bold'>What Clients say About us</p>
-				<p className='text-center w-[70vw] md:w-[25vw] text-[16px] leading-[20px] mb-[30px]'>Everything you need to know about offering a differentiated customer experience</p>
+				<p className='text-[24px] md:text-[26px] font-bold'>What Clients say About us</p>
+				<p className='text-center w-[70vw] md:w-[25vw] text-[14px] leading-[20px] mb-[30px]'>Everything you need to know about offering a differentiated customer experience</p>
 				{/* quate div */}
 				<div className='  flex relative items-center justify-center py-10 md:py-2  md:w-[55vw]'>
 					
-					<img className='absolute top-0 left-0 w-[46px] h-[52px]' src={homeQuotStart} alt="" />
-					<p className='text-[18px] text-center w-[90vw]  md:w-[50vw] p-3 md:p-5'>Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT solutions provider headquartered in Folsom, CA (a suburb of Sacramento) servicing prestigious clients all over the world.</p>
-					<img className='absolute bottom-0 right-0 w-[46px] h-[52px]' src={homeQuotEnd} alt="" />
+					<img className='absolute top-0 left-0 w-[40px] h-[46px]' src={homeQuotStart} alt="" />
+					<p className='text-[16px] text-center w-[90vw]  md:w-[50vw] p-3 md:p-5'>Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT solutions provider headquartered in Folsom, CA (a suburb of Sacramento) servicing prestigious clients all over the world.</p>
+					<img className='absolute bottom-0 right-0 w-[40px] h-[46px]' src={homeQuotEnd} alt="" />
 
 				</div>
 				{/* user name and image */}
 				<div className='flex flex-col items-center justify-center gap-1'>
 					<img className='w-[40px] h-[40px]' src={homeUserIcon} alt="" />
-					<p className='text-[18px] font-bold '>Jason Roy</p>
+					<p className='text-[16px] font-bold '>Jason Roy</p>
 				</div>
 			</div>
 			{/* another section */}
