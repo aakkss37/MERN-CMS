@@ -158,13 +158,13 @@ const Home = () => {
       md:max-w-[600px]  items-start justify-start' >
 					<div style={{ marginTop: 50 }}>
 						{/* <p className='text-[34px] md:text-[56px]  font-bold leading-[78px]'>{bannerData?.title}</p> */}
-						<p className='text-[34px] md:text-[56px]  font-bold leading-[78px]'>INNOVATION</p>
+						<p className='text-[34px] md:text-[36px]  font-bold leading-[68px]'>INNOVATION</p>
 						{/* <p className='flex text-[18px] leading-9'>{bannerData?.text}</p> */}
-						<p className='flex text-[18px] leading-9'>Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT</p>
-						<img className='w-[156px] h-[122px] py-2 sm:py-3 md:w-[219px] md:h-[137px] lg:ml-5 lg:h-[150px] lg:w-[229px]' src={homeHeroArrow} alt="" />
+						<p className='flex text-[14px] leading-9'>Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT Use integrated credit card processing and keep your clients safe with bank level security</p>
+						<img className='w-[156px] h-[122px] py-2 sm:py-3 md:w-[219px] md:h-[137px] lg:ml-5 lg:h-[120px] lg:w-[180px]' src={homeHeroArrow} alt="" />
 						{/* know more button div */}
 						<div className=' w-full flex items-center justify-center'>
-							<button className='flex items-center justify-center home-hero-know-btn font-bold text-[24px] px-5 py-2 md:px-8 md:py-4 lg:px-14 '>Know More</button>
+							<button className='flex items-center justify-center home-hero-know-btn font-bold text-[18px] px-2 py-2 md:px-8 md:py-2 lg:px-8 '>Know More</button>
 						</div>
 					</div>
 
@@ -174,10 +174,10 @@ const Home = () => {
 			<section data-aos="fade-up" className=' px-3 md:px-10 lg:px-28 xl:px-36'>
 				{/* agile global solution 4 card div */}
 				<div className='flex flex-col items-center justify-center mt-10 md:mt-16 lg:my-14'>
-					<h2 className='text-[24px] md:text-[36px] leading-[43px] text-center'>AGILE GLOBAL SOLUTIONS, INC</h2>
+					<h2 className='text-[24px] md:text-[28px] leading-[35px] text-center'>AGILE GLOBAL SOLUTIONS, INC</h2>
 					{/* <p className='text-center text-[18px] md:text-[24px] leading-[32px] mt-5 md:mt-10 lg:mt-14 '>
 						{overViewText?.text}</p> */}
-					<p className='text-center text-[16px] md:text-[18px] leading-[32px] mt-5 md:mt-10 lg:mt-14 '>
+					<p className='text-center text-[14px] md:text-[14px] leading-[32px] mt-5 md:mt-10 lg:mt-14 '>
 						Current Value : Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT solutions provider headquartered in Folsom, CA (a suburb of Sacramento) servicing prestigious clients all over the world.Current Value : Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT solutions provider headquartered in Folsom, CA (a suburb of Sacramento) servicing prestigious clients all over the world.Current Value : Agile Global Solutions, Inc (AGILE GLOBAL) founded in 2003 is a global Business and IT solutions provider headquartered in Folsom, CA (a suburb of Sacramento) servicing prestigious clients all over the world.</p>
 				</div>
 
@@ -186,13 +186,13 @@ const Home = () => {
 					{/* card  */}
 					{
 						overViewCard?.map((item, index) => (
-							<div className=' relative rounded-[8px] home-sol-outter-card-1-eff   w-[321px] h-[238px] lg:w-[261px] lg:h-[238px] text-white'>
+							<div className=' relative rounded-[8px] home-sol-outter-card-1-eff   w-[321px] h-[238px] lg:w-[240px] lg:h-[211px] text-white'>
 								<img className='w-full h-full rounded-[8px] home-card-1-image-eff' src={imgArr[index]} alt="" />
 								{/* text div */}
 								<div className='absolute rounded-[8px] px-3   home-sol-card-1 w-full h-full bottom-0 flex flex-col items-start justify-center gap-2'>
-									<p className='text-[24px] mt-[20px]'>{item.title}</p>
-									<p className='text-[16px]'>{item.text}</p>
-									<p className='text-[16px] '>Read more...</p>
+									<p className='text-[16px] mt-[20px]'>{item.title}</p>
+									<p className='text-[12px]'>{item.text}</p>
+									<p className='text-[12px] '>Read more...</p>
 								</div>
 
 							</div>
@@ -206,19 +206,19 @@ const Home = () => {
 
 				{/* our recognition and awards..... */}
 				<div className='flex flex-col items-center justify-center my-20 md:my-14 lg:my-20'>
-					<p className='text-[24px] md:text-[36px] lg:text-[48px] text-center font-bold mb-10 md:mb-10'>OUR RECOGNITION & AWARDS</p>
+					<p className='text-[24px] md:text-[28px] lg:text-[38px] text-center font-bold mb-10 md:mb-10'>OUR RECOGNITION & AWARDS</p>
 					{/* content divs starts*/}
 					{/* first starts */}
 					<div data-aos="fade-up" className=' flex flex-col md:flex-row items-center justify-center gap-5 md:gap-10 lg:gap-20 '>
 
-						<img className='md:w-[336px] lg:w-[410px] xl:w-[500px]' src={homeRecoDate} alt="" />
+						<img className='md:w-[330px] lg:w-[400px] xl:w-[400px]' src={homeRecoDate} alt="" />
 
 						<div className=' flex flex-col items-center justify-center text-center md:text-start md:items-start md:justify-start lg:w-[46%]'>
-							<h3 className='text-[28px] md:text-[36px] font-bold my-6'>Set your schedule</h3>
-							<p className='text-[#7D7987] text-[18px] leading-[30px]'>Take complete control over available hours and services</p>
-							<p className='text-[#7D7987] text-[18px] leading-[30px] my-2'>Accept or reject new clients at your convenience
+							<h3 className='text-[28px] md:text-[30px] font-bold my-6'>Set your schedule</h3>
+							<p className='text-[#7D7987] text-[16px] leading-[30px]'>Take complete control over available hours and services</p>
+							<p className='text-[#7D7987] text-[16px] leading-[30px] my-2'>Accept or reject new clients at your convenience
 								Manage schedule with built in task management tools </p>
-							<p className='text-[#7D7987] text-[18px] leading-[30px]'>
+							<p className='text-[#7D7987] text-[16px] leading-[30px]'>
 								Manage your schedule using any device</p>
 						</div>
 
@@ -229,13 +229,13 @@ const Home = () => {
 					{/* second starts */}
 					<div data-aos="fade-up" className=' flex flex-col md:flex-row-reverse items-center justify-center gap-5 md:gap-10 lg:gap-20 md:my-[-50px] lg:[-100px] '>
 
-						<img className='md:w-[336px] lg:w-[410px] xl:w-[500px]' src={homeReco2} alt="" />
+						<img className='md:w-[336px] lg:w-[410px] xl:w-[400px]' src={homeReco2} alt="" />
 
 						<div className=' flex flex-col items-center justify-center text-center md:text-start md:items-start md:justify-start lg:w-[46%]'>
-							<h3 className='text-[28px] md:text-[36px] font-bold my-6'>Manage Documents</h3>
-							<p className='text-[#7D7987] text-[18px] leading-[30px]'>Manage your forms, plans, and evaluations with our customizable library</p>
-							<p className='text-[#7D7987] text-[18px] leading-[30px] my-2'>Manage progress notes with the click of a button from any device </p>
-							<p className='text-[#7D7987] text-[18px] leading-[30px]'>
+							<h3 className='text-[28px] md:text-[30px] font-bold my-6'>Manage Documents</h3>
+							<p className='text-[#7D7987] text-[16px] leading-[30px]'>Manage your forms, plans, and evaluations with our customizable library</p>
+							<p className='text-[#7D7987] text-[16px] leading-[30px] my-2'>Manage progress notes with the click of a button from any device </p>
+							<p className='text-[#7D7987] text-[16px] leading-[30px]'>
 								Create your own evaluations or use built in templates for your clients</p>
 						</div>
 
@@ -246,13 +246,13 @@ const Home = () => {
 					{/* third starts */}
 					<div data-aos="fade-up" className=' flex flex-col md:flex-row items-center justify-center gap-5 md:gap-10 lg:gap-20 '>
 
-						<img className='md:w-[336px] lg:w-[410px] xl:w-[500px]' src={homeRecoDate} alt="" />
+						<img className='md:w-[336px] lg:w-[410px] xl:w-[400px]' src={homeRecoDate} alt="" />
 
 						<div className=' flex flex-col items-center justify-center text-center md:text-start md:items-start md:justify-start lg:w-[46%]'>
-							<h3 className='text-[28px] md:text-[36px] font-bold my-6'>Manage Billing</h3>
-							<p className='text-[#7D7987] text-[18px] leading-[30px]'>Save time, prevent disputes and stop chasing payments with automatic subscriptions</p>
-							<p className='text-[#7D7987] text-[18px] leading-[30px] my-2'>Use integrated credit card processing and keep your clients safe with bank level security </p>
-							<p className='text-[#7D7987] text-[18px] leading-[30px]'>
+							<h3 className='text-[28px] md:text-[30px] font-bold my-6'>Manage Billing</h3>
+							<p className='text-[#7D7987] text-[16px] leading-[30px]'>Save time, prevent disputes and stop chasing payments with automatic subscriptions</p>
+							<p className='text-[#7D7987] text-[16px] leading-[30px] my-2'>Use integrated credit card processing and keep your clients safe with bank level security </p>
+							<p className='text-[#7D7987] text-[16px] leading-[30px]'>
 								Allow clients to setup auto billing from their client portal</p>
 						</div>
 
