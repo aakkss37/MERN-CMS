@@ -9,7 +9,7 @@ import {AiOutlineTwitter} from 'react-icons/ai'
 const Footer = () => {
     return (
         <>
-            <section className='relative footer-bg mt-10 flex  flex-col-reverse items-center sm:flex-row sm:flex-wrap sm:items-start justify-evenly pt-14 pb-36 md:px-5 lg:py-28 lg:pt-20  lg:px-10 gap-14 sm:gap-5 xl:gap-0'>
+            <section className='relative footer-bg mt-10 flex  flex-col-reverse items-center sm:flex-row sm:flex-wrap sm:items-start justify-evenly pt-14 pb-36 md:px-5 lg:py-28 lg:pt-10  lg:px-10 gap-14 sm:gap-5 xl:gap-0'>
                 {/* company */}
                 <div className=' sm:w-[230px] md:w-[140px] lg:w-[150px] flex flex-col items-start justify-start'>
                     <p className='text-[24px] font-bold mb-2  md:mb-10'>Company</p>
