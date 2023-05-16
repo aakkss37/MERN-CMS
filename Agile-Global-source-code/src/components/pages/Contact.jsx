@@ -3,8 +3,6 @@ import React, { useEffect, useState, useRef } from 'react'
 import axios from "axios"
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { gsap } from 'gsap';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import bg from '../../images/contact/hero-bg.svg'
 import fb from '../../images/contact/contact-fb.svg'
@@ -14,24 +12,15 @@ import tw from '../../images/contact/contact-tw.svg'
 
 import ourHeadquater from '../../images/contact/contact-our-headquater.png'
 import officeImg1 from '../../images/contact/contact-office-1.svg'
+import hq1 from '../../images/contact/hq1.jpg'
+import hq2 from '../../images/contact/hq2.jpg'
+import hq3 from '../../images/contact/hq3.jpg'
+
+import OfficeAdd from './utils/OfficeAdd';
 
 
-const headerBox = {
-	position: 'relative',
-	width: '300px',
-	height: '300px',
-	border: '5px solid rgb(47 87 130)',
-	borderRadius: '50%',
-}
 
-const headerImage = {
-	position: 'absolute',
-	top: 0,
-	left: 0,
-	width: '100%',
-	height: '100%',
-	zIndex: 100,
-}
+
 
 // const headerAddress = {
 // 	position: 'absolute',
@@ -51,49 +40,6 @@ const Contact = () => {
 	}, [])
 
 
-
-	const boxRef = useRef(null);
-	const imageRef = useRef(null);
-	const textRef = useRef(null);
-	useEffect(() => {
-		const boxElement = boxRef.current;
-		const imageElement = imageRef.current;
-		const textElement = textRef.current;
-
-		gsap.set(boxElement, { position: "relative" });
-		gsap.set(imageElement, {
-			position: "absolute",
-			border: "none",
-			width: "100%",
-			height: "100%",
-			objectFit: "cover",
-			top: 0,
-			left: 0
-		});
-		gsap.set(textElement, {
-			position: "absolute",
-			top: "30%",
-			left: "50%",
-			transform: "translate(-50%, -50%)",
-			autoAlpha: 0
-		});
-
-		const tl = gsap.timeline({ paused: true });
-
-		tl.to(imageElement, { y: "60%", duration: 1, ease: "power2.out" }).to(
-			textElement,
-			{ autoAlpha: 2, duration: 0.5 },
-			"-=0.5"
-		);
-
-		boxElement.addEventListener("mouseenter", () => tl.play());
-		boxElement.addEventListener("mouseleave", () => tl.reverse());
-
-		return () => {
-			boxElement.removeEventListener("mouseenter", () => tl.play());
-			boxElement.removeEventListener("mouseleave", () => tl.reverse());
-		};
-	}, []);
 
 
 
@@ -208,33 +154,9 @@ const Contact = () => {
 
 			{/* headquater div starts */}
 			<div data-aos="fade-up" className='flex flex-col md:flex-row md:flex-wrap items-center justify-center md:justify-evenly gap-[165px] md:gap-x-[150px] xl:gap-5' >
-				<div ref={boxRef} style={headerBox}>
-					<img ref={imageRef} src={officeImg1} alt="" style={headerImage} />
-					<div ref={textRef} >
-						<p className='text-[20px] leading-[32px] my-2' style={{fontWeight: 800}}>California</p>
-						<p className='text-[14px]'>(546) 341-3546 [Work]</p>
-						<p className='text-[14px]'>(546) 134-6534 [Fax]</p>
-					</div>
-				</div>
-
-				<div ref={boxRef} style={headerBox}>
-					<img ref={imageRef} src={officeImg1} alt="" style={headerImage} />
-					<div ref={textRef} >
-						<p className='text-[20px] leading-[32px] my-2' style={{ fontWeight: 800 }}>London</p>
-						<p className='text-[14px]'>(376) 655-2393 [Work]</p>
-						<p className='text-[14px]'>(378) 848-4564 [Fax]</p>
-					</div>
-				</div>
-
-				<div ref={boxRef} style={headerBox}>
-					<img ref={imageRef} src={officeImg1} alt="" style={headerImage} />
-					<div ref={textRef} >
-						<p className='text-[20px] leading-[32px] my-2' style={{fontWeight: 800}}>Patna</p>
-						<p className='text-[14px]'>(916) 655-7745 [Work]</p>
-						<p className='text-[14px]'>(916) 848-3659 [Fax]</p>
-					</div>
-				</div>
-
+				<OfficeAdd hq={hq1} place="Landan"/>
+				<OfficeAdd hq={hq2} place="California"/>
+				<OfficeAdd hq={hq3} place="Patna"/>
 			</div>
 
 
