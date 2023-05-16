@@ -15,7 +15,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 // core styles
 import "./scss/volt.scss";
@@ -27,9 +27,9 @@ import HomePage from "./pages/HomePage";
 import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.render(
-	<BrowserRouter>
-		<ScrollToTop />
-		<HomePage />
-	</BrowserRouter>,
-	document.getElementById("root")
+  <HashRouter>
+    <ScrollToTop />
+    <HomePage />
+  </HashRouter>,
+  document.getElementById("root")
 );

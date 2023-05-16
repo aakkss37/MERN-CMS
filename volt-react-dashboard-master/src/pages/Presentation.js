@@ -450,7 +450,7 @@ export default () => {
                     <ListGroup.Item className="bg-white border-0 ps-0">
                       <FontAwesomeIcon icon={faCheckCircle} className="text-success me-2" /> Widgets
                     </ListGroup.Item>
-                    <ListGroup.Item className="bg-white border-0 ps-0 pb-0">
+                    <ListGroup.Item className="bg-white border-0 border-0 ps-0 pb-0">
                       <FontAwesomeIcon icon={faCheckCircle} className="text-success me-2" /> Premium Support
                     </ListGroup.Item>
                   </ListGroup>

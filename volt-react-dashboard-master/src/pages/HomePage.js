@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, } from "react-router-dom";
 import { Routes } from "../routes";
 
 // pages
@@ -81,43 +81,45 @@ const RouteWithSidebar = ({ component: Component, ...rest }) => {
 		localStorage.setItem('settingsVisible', !showSettings);
 	}
 
+	const [isAuthanticated, setAuthantication] = useState(false)
+	// useEffect(() => {
+	// 	console.log("authanticated: " ,isAuthanticated)
+	// 	console.log(location)
+	// 	if (!isAuthanticated) {
+	// 		return <Redirect to={Routes.Signin.path} />
+	// 	}
+	// }, [location])
+
+
 	return (
 		<Route {...rest} render={props => (
 			<>
 				<Preloader show={loaded ? false : true} />
 				<Sidebar />
-
-				<main className="content">
-					<Navbar />
-					<Component {...props} />
-					<Footer toggleSettings={toggleSettings} showSettings={showSettings} />
-				</main>
+				{
+					!isAuthanticated ? <Redirect to={Routes.Signin.path} /> :
+					<main className="content">
+						<Navbar />
+						<Component {...props} />
+						<Footer toggleSettings={toggleSettings} showSettings={showSettings} />
+					</main>
+				}
 			</>
 		)}
 		/>
 	);
 };
 
-
-
-
-
 export default () => {
 
 
-	const [isUserAuthanticated, setUserAuthanticated] = useState(false);
 
-	const checkAuthantication = ()=> {
-		
-	}
-
-	console.log(isUserAuthanticated)
 	return (
-
 
 		<Switch>
 
 			<RouteWithLoader exact path={Routes.Presentation.path} component={Presentation} />
+
 			<RouteWithLoader exact path={Routes.Signin.path} component={Signin} />
 			<RouteWithLoader exact path={Routes.Signup.path} component={Signup} />
 			<RouteWithLoader exact path={Routes.ForgotPassword.path} component={ForgotPassword} />
@@ -126,14 +128,12 @@ export default () => {
 			<RouteWithLoader exact path={Routes.NotFound.path} component={NotFoundPage} />
 			<RouteWithLoader exact path={Routes.ServerError.path} component={ServerError} />
 
-
 			{/* pages */}
 			<RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
 			<RouteWithSidebar exact path={Routes.Upgrade.path} component={Upgrade} />
 			<RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
 			<RouteWithSidebar exact path={Routes.Settings.path} component={Settings} />
 			<RouteWithSidebar exact path={Routes.BootstrapTables.path} component={BootstrapTables} />
-
 
 			{/* components */}
 			<RouteWithSidebar exact path={Routes.Accordions.path} component={Accordion} />
@@ -152,7 +152,6 @@ export default () => {
 			<RouteWithSidebar exact path={Routes.Tabs.path} component={Tabs} />
 			<RouteWithSidebar exact path={Routes.Tooltips.path} component={Tooltips} />
 			<RouteWithSidebar exact path={Routes.Toasts.path} component={Toasts} />
-
 
 			{/* documentation */}
 			<RouteWithSidebar exact path={Routes.DocsOverview.path} component={DocsOverview} />
