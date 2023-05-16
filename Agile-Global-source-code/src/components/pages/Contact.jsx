@@ -18,8 +18,8 @@ import officeImg1 from '../../images/contact/contact-office-1.svg'
 
 const headerBox = {
 	position: 'relative',
-	width: '400px',
-	height: '400px',
+	width: '300px',
+	height: '300px',
 	border: '5px solid rgb(47 87 130)',
 	borderRadius: '50%',
 }
@@ -33,15 +33,15 @@ const headerImage = {
 	zIndex: 100,
 }
 
-const  headerAddress = {
-  position: 'absolute',
-  bottom: 0,
-  left: 0,
-  width: '100%',
-  padding: '20px',
-  color: 'black',
-  opacity: 0,
-}
+// const headerAddress = {
+// 	position: 'absolute',
+// 	bottom: 0,
+// 	left: 0,
+// 	width: '100%',
+// 	padding: '20px',
+// 	color: 'black',
+// 	opacity: 0,
+// }
 
 
 const Contact = () => {
@@ -50,57 +50,6 @@ const Contact = () => {
 		Aos.init({ duration: 2000 })
 	}, [])
 
-
-	// gsap.registerPlugin(ScrollTrigger);
-	// const firstCircle = useRef();
-	// const secondCircle = useRef();
-	// const thirdCircle = useRef();
-
-
-
-	// useLayoutEffect(() => {
-
-
-	// 	let ctx = gsap.context(() => {
-	// 		gsap.to(firstCircle.current, {
-	// 			y: -200,
-	// 			scrollTrigger: {
-	// 				trigger: "#test",
-	// 				// markers: true,
-	// 				start: "top 78%",
-	// 				end: "top 40%",
-	// 				scrub: true,
-	// 			}
-	// 		});
-
-
-	// 		gsap.to(secondCircle.current, {
-	// 			y: -200,
-	// 			scrollTrigger: {
-	// 				trigger: "#test2",
-	// 				// markers: true,
-	// 				start: "top 78%",
-	// 				end: "top 40%",
-	// 				scrub: true,
-	// 			}
-	// 		});
-
-	// 		gsap.to(thirdCircle.current, {
-	// 			y: -200,
-	// 			scrollTrigger: {
-	// 				trigger: "#test3",
-	// 				// markers: true,
-	// 				start: "top 78%",
-	// 				end: "top 40%",
-	// 				scrub: true,
-	// 			}
-	// 		});
-
-
-	// 	});
-	// 	return () => ctx.revert();
-
-	// }, []);
 
 
 	const boxRef = useRef(null);
@@ -260,14 +209,13 @@ const Contact = () => {
 			{/* headquater div starts */}
 			<div data-aos="fade-up" className='flex flex-col md:flex-row md:flex-wrap items-center justify-center md:justify-evenly gap-[165px] md:gap-x-[150px] xl:gap-5' >
 				<div ref={boxRef} style={headerBox}>
-						<img ref={imageRef} src={officeImg1} alt="" style={headerImage} />
+					<img ref={imageRef} src={officeImg1} alt="" style={headerImage} />
 					<div ref={textRef} >
-						<h2 className='text-[24px] leading-[32px] my-2'>California</h2>
-						<p className='text-[16px]'>(916) 655-7745 [Work]</p>
-						<p className='text-[16px]'>(916) 848-3659 [Fax]</p>
-						{/* </div> */} 
+						<p className='text-[20px] leading-[32px] my-2' style={{fontWeight: 800}}>California</p>
+						<p className='text-[14px]'>(916) 655-7745 [Work]</p>
+						<p className='text-[14px]'>(916) 848-3659 [Fax]</p>
+						{/* </div> */}
 					</div>
-					
 				</div>
 
 			</div>
