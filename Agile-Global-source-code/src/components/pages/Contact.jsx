@@ -201,7 +201,7 @@ const Contact = () => {
 			{/* our inter natioal offices div sarts  */}
 			<div data-aos="fade-up" className='mt-16 mb-16 flex items-center justify-center'>
 				<div className='px-3'>
-					<p className='text-[34px] md:text-[48px] font-semibold mb-2 text-center'>Our International Office</p>
+					<p className='text-[34px] md:text-[34px] font-semibold mb-2 text-center'>Our International Office</p>
 				</div>
 			</div>
 
