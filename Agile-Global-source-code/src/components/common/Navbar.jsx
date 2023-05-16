@@ -13,9 +13,9 @@ const Navbar = () => {
 
 
 
-	// useEffect(() => {
-	// 	document.addEventListener('click', handleOnClickedOutsideMobMenu, true)
-	// }, [])
+	useEffect(() => {
+		document.addEventListener('click', handleOnClickedOutsideMobMenu, true)
+	}, [])
 
 
 
