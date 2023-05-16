@@ -69,18 +69,18 @@ const [closeMenuMobile , setCloseMenuMObile] = useState(false)
 
 
             {/* // main div starts */}
-            <div  className='relative flex justify-between px-4 items-center lg:justify-start  gap-x-20'>
+            <div  className='relative flex justify-between px-4 items-center lg:justify-start  gap-x-40' style={{height: '65px'}}>
                 {/* logo div */}
                 <div>
-                  <Link to='/'> <img className='md:ml-4 w-[150px] h-[45px] my-3 lg:my-0' src={logo} alt="logo" /></Link> 
+                  <Link to='/'> <img className='md:ml-4 w-[120px] h-[35px] my-3 lg:my-0' src={logo} alt="logo" /></Link> 
                 </div>
                 {/* links div */}
                 <div className='hidden lg:flex '>
-                    <ul className='flex items-center justify-center text-[18px] gap-x-14'>
+                    <ul className='flex items-center justify-center text-[14px] gap-x-10'>
                         <li onMouseEnter={()=> setShowHomeMenu(true)} onMouseLeave={()=> setShowHomeMenu(false)} className='home-nav-desk-animation-ul flex items-center justify-center h-[93px]'><Link className='flex items-center justify-center' to="/"> Home <MdOutlineKeyboardArrowDown></MdOutlineKeyboardArrowDown></Link>
                          {/* home drop down menues start */}
                        { showHomeMenu && <div onMouseEnter={()=> setShowHomeMenu(true)} className='home-nav-desk-animation-links absolute z-10 top-[90px] bg-white '>
-                            <ul className=' flex flex-col items-center justify-center gap-2 p-4 emerging-tech-white-div-drop-shadow text-[18px]'>
+                            <ul className=' flex flex-col items-center justify-center gap-2 p-4 emerging-tech-white-div-drop-shadow text-[12px]'>
                                 <li className='cursor-pointer px-2 py-1 rounded-[6px] hover:w-full hover:text-center hover:bg-[#E8E8E8]'><Link to='/our-driver'>Driver</Link></li>
                                 <li className='cursor-pointer px-2 py-1 rounded-[6px] hover:w-full hover:text-center hover:bg-[#E8E8E8]'><Link to='/services'>Services</Link></li>
                                 <li className='cursor-pointer px-2 py-1 rounded-[6px] hover:w-full hover:text-center hover:bg-[#E8E8E8]'><Link to='/about'>About Us</Link></li>
@@ -96,7 +96,7 @@ const [closeMenuMobile , setCloseMenuMObile] = useState(false)
 
                         <li onMouseEnter={()=> setShowSolutionMenu(true)} onMouseLeave={()=> setShowSolutionMenu(false)} className='flex items-center justify-center  h-[93px]'>Solutions  <MdOutlineKeyboardArrowDown></MdOutlineKeyboardArrowDown> {/* home drop down menues start */}
                        { showSolutionMenu && <div onMouseEnter={()=> setShowSolutionMenu(true)} className='home-nav-desk-animation-links absolute z-10 top-[90px] bg-white '>
-                            <ul className=' flex flex-col items-center justify-center gap-2 p-4 emerging-tech-white-div-drop-shadow text-[18px]'>
+                            <ul className=' flex flex-col items-center justify-center gap-2 p-4 emerging-tech-white-div-drop-shadow text-[12px]'>
                                 <li className='cursor-pointer px-2 py-1 rounded-[6px] hover:w-full hover:text-center hover:bg-[#E8E8E8]'><Link to='/emerging-tehcnologies'>Emerging Technologies</Link></li>
                                 <li className='cursor-pointer px-2 py-1 rounded-[6px] hover:w-full hover:text-center hover:bg-[#E8E8E8]'><Link to='/virtual-and-agumented-reality'>Virtual & Agumented Reality</Link></li>
                                 <li className='cursor-pointer px-2 py-1 rounded-[6px] hover:w-full hover:text-center hover:bg-[#E8E8E8]'><Link to='/custom-application'>Custom Application</Link></li>
@@ -119,19 +119,24 @@ const [closeMenuMobile , setCloseMenuMObile] = useState(false)
                 </div>
                 {/* search and language div */}
                 <div className='hidden xl:flex ml-10 items-center justify-center gap-1'>
-                    <AiOutlineSearch className='text-[20px] '></AiOutlineSearch>
-                    <p>English/Other language</p>
-                    <VscGlobe className='text-[23px] font-bold'></VscGlobe>
+                    <AiOutlineSearch className='text-[18px] '></AiOutlineSearch>
+					<p className='text-[14px]'>English/Other language</p>
+                    <VscGlobe className='text-[16px] font-bold'></VscGlobe>
                 </div>
 
-                <VscGlobe className='text-[23px] font-bold hidden lg:flex xl:hidden'></VscGlobe>
+                <VscGlobe className='text-[18px] font-bold hidden lg:flex xl:hidden'></VscGlobe>
 
 
                 {/* mobile responsive  */}
                 <div  className='lg:hidden'>
-                   {menuIcon ? ( <RxCross2 onClick={handleCrossIcon} className='text-[27px] font-bold'></RxCross2>) : <GiHamburgerMenu onClick={handleHamburgerIcon} className='text-[27px] font-bold'></GiHamburgerMenu> } 
+                   {menuIcon ? ( <RxCross2 onClick={handleCrossIcon} className='text-[22px] font-bold'></RxCross2>) : <GiHamburgerMenu onClick={handleHamburgerIcon} className='text-[22px] font-bold'></GiHamburgerMenu> } 
                 </div>
             </div>
+
+
+
+
+
 
 
 
@@ -185,9 +190,9 @@ const [closeMenuMobile , setCloseMenuMObile] = useState(false)
                     <li onClick={handleCrossIcon} className='flex items-center justify-center text-[22px] sm:text-[24px] p-2'>
                      {/* search and language div */}
                 <div className='flex  items-center justify-center gap-1'>
-                    <AiOutlineSearch className='text-[20px] '></AiOutlineSearch>
-                    <p className='text-[18px]'>English/Other language</p>
-                    <VscGlobe className='text-[24px] font-bold mt-2'></VscGlobe>
+                    <AiOutlineSearch className='text-[14px] '></AiOutlineSearch>
+                    <p className='text-[14px]'>English/Other language</p>
+                    <VscGlobe className='text-[18px] font-bold mt-2'></VscGlobe>
                 </div>
 
                 
