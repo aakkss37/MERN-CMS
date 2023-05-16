@@ -212,24 +212,24 @@ const Contact = () => {
 					<img ref={imageRef} src={officeImg1} alt="" style={headerImage} />
 					<div ref={textRef} >
 						<p className='text-[20px] leading-[32px] my-2' style={{fontWeight: 800}}>California</p>
-						<p className='text-[14px]'>(916) 655-7745 [Work]</p>
-						<p className='text-[14px]'>(916) 848-3659 [Fax]</p>
+						<p className='text-[14px]'>(546) 341-3546 [Work]</p>
+						<p className='text-[14px]'>(546) 134-6534 [Fax]</p>
 					</div>
 				</div>
 
 				<div ref={boxRef} style={headerBox}>
 					<img ref={imageRef} src={officeImg1} alt="" style={headerImage} />
 					<div ref={textRef} >
-						<p className='text-[20px] leading-[32px] my-2' style={{fontWeight: 800}}>California</p>
-						<p className='text-[14px]'>(916) 655-7745 [Work]</p>
-						<p className='text-[14px]'>(916) 848-3659 [Fax]</p>
+						<p className='text-[20px] leading-[32px] my-2' style={{ fontWeight: 800 }}>London</p>
+						<p className='text-[14px]'>(376) 655-2393 [Work]</p>
+						<p className='text-[14px]'>(378) 848-4564 [Fax]</p>
 					</div>
 				</div>
-				
+
 				<div ref={boxRef} style={headerBox}>
 					<img ref={imageRef} src={officeImg1} alt="" style={headerImage} />
 					<div ref={textRef} >
-						<p className='text-[20px] leading-[32px] my-2' style={{fontWeight: 800}}>California</p>
+						<p className='text-[20px] leading-[32px] my-2' style={{fontWeight: 800}}>Patna</p>
 						<p className='text-[14px]'>(916) 655-7745 [Work]</p>
 						<p className='text-[14px]'>(916) 848-3659 [Fax]</p>
 					</div>
