@@ -13,9 +13,9 @@ const Navbar = () => {
 
 
 
-	useEffect(() => {
-		document.addEventListener('click', handleOnClickedOutsideMobMenu, true)
-	}, [])
+	// useEffect(() => {
+	// 	document.addEventListener('click', handleOnClickedOutsideMobMenu, true)
+	// }, [])
 
 
 
@@ -55,8 +55,8 @@ const Navbar = () => {
 
 	//   close menu when clicked outside
 	const handleOnClickedOutsideMobMenu = (e) => {
-
-		if (!oneRef.current.contains(e.target)) {
+		console.log(oneRef)
+		if (oneRef.current.contains(e.target)) {
 			setMenuIcon(false)
 			setShowMobileNavDiv(false)
 			console.log("clicked outside")

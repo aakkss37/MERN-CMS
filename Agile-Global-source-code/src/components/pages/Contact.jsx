@@ -1,5 +1,5 @@
-import { useRef, useLayoutEffect } from 'react'
-import React, { useEffect, useState } from 'react'
+// import { useRef, useLayoutEffect,  } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import axios from "axios"
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -16,6 +16,34 @@ import ourHeadquater from '../../images/contact/contact-our-headquater.png'
 import officeImg1 from '../../images/contact/contact-office-1.svg'
 
 
+const headerBox = {
+	position: 'relative',
+	width: '400px',
+	height: '400px',
+	border: '5px solid rgb(47 87 130)',
+	borderRadius: '50%',
+}
+
+const headerImage = {
+	position: 'absolute',
+	top: 0,
+	left: 0,
+	width: '100%',
+	height: '100%',
+	zIndex: 100,
+}
+
+const  headerAddress = {
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  width: '100%',
+  padding: '20px',
+  color: 'black',
+  opacity: 0,
+}
+
+
 const Contact = () => {
 
 	useEffect(() => {
@@ -23,56 +51,102 @@ const Contact = () => {
 	}, [])
 
 
-	gsap.registerPlugin(ScrollTrigger);
-	const firstCircle = useRef();
-	const secondCircle = useRef();
-	const thirdCircle = useRef();
+	// gsap.registerPlugin(ScrollTrigger);
+	// const firstCircle = useRef();
+	// const secondCircle = useRef();
+	// const thirdCircle = useRef();
 
 
 
-	useLayoutEffect(() => {
+	// useLayoutEffect(() => {
 
 
-		let ctx = gsap.context(() => {
-			gsap.to(firstCircle.current, {
-				y: -200,
-				scrollTrigger: {
-					trigger: "#test",
-					// markers: true,
-					start: "top 78%",
-					end: "top 40%",
-					scrub: true,
-				}
-			});
+	// 	let ctx = gsap.context(() => {
+	// 		gsap.to(firstCircle.current, {
+	// 			y: -200,
+	// 			scrollTrigger: {
+	// 				trigger: "#test",
+	// 				// markers: true,
+	// 				start: "top 78%",
+	// 				end: "top 40%",
+	// 				scrub: true,
+	// 			}
+	// 		});
 
 
-			gsap.to(secondCircle.current, {
-				y: -200,
-				scrollTrigger: {
-					trigger: "#test2",
-					// markers: true,
-					start: "top 78%",
-					end: "top 40%",
-					scrub: true,
-				}
-			});
+	// 		gsap.to(secondCircle.current, {
+	// 			y: -200,
+	// 			scrollTrigger: {
+	// 				trigger: "#test2",
+	// 				// markers: true,
+	// 				start: "top 78%",
+	// 				end: "top 40%",
+	// 				scrub: true,
+	// 			}
+	// 		});
 
-			gsap.to(thirdCircle.current, {
-				y: -200,
-				scrollTrigger: {
-					trigger: "#test3",
-					// markers: true,
-					start: "top 78%",
-					end: "top 40%",
-					scrub: true,
-				}
-			});
+	// 		gsap.to(thirdCircle.current, {
+	// 			y: -200,
+	// 			scrollTrigger: {
+	// 				trigger: "#test3",
+	// 				// markers: true,
+	// 				start: "top 78%",
+	// 				end: "top 40%",
+	// 				scrub: true,
+	// 			}
+	// 		});
 
 
+	// 	});
+	// 	return () => ctx.revert();
+
+	// }, []);
+
+
+	const boxRef = useRef(null);
+	const imageRef = useRef(null);
+	const textRef = useRef(null);
+	useEffect(() => {
+		const boxElement = boxRef.current;
+		const imageElement = imageRef.current;
+		const textElement = textRef.current;
+
+		gsap.set(boxElement, { position: "relative" });
+		gsap.set(imageElement, {
+			position: "absolute",
+			border: "none",
+			width: "100%",
+			height: "100%",
+			objectFit: "cover",
+			top: 0,
+			left: 0
 		});
-		return () => ctx.revert();
+		gsap.set(textElement, {
+			position: "absolute",
+			top: "30%",
+			left: "50%",
+			transform: "translate(-50%, -50%)",
+			autoAlpha: 0
+		});
 
+		const tl = gsap.timeline({ paused: true });
+
+		tl.to(imageElement, { y: "60%", duration: 1, ease: "power2.out" }).to(
+			textElement,
+			{ autoAlpha: 2, duration: 0.5 },
+			"-=0.5"
+		);
+
+		boxElement.addEventListener("mouseenter", () => tl.play());
+		boxElement.addEventListener("mouseleave", () => tl.reverse());
+
+		return () => {
+			boxElement.removeEventListener("mouseenter", () => tl.play());
+			boxElement.removeEventListener("mouseleave", () => tl.reverse());
+		};
 	}, []);
+
+
 
 
 	const [firstName, setFirstName] = useState("")
@@ -184,62 +258,19 @@ const Contact = () => {
 
 
 			{/* headquater div starts */}
-			<div data-aos="fade-up" className='flex flex-col md:flex-row md:flex-wrap items-center justify-center md:justify-evenly gap-[165px] md:gap-x-[150px] xl:gap-5'>
-				{/* both circle div 1 */}
-				<div className=' relative'>
-					{/* static circle 1 */}
-					<div className='static-c-1 w-[354px] h-[354px] rounded-full flex items-center justify-center '>
-						<div className='  w-[346px] h-[346px] rounded-full  bg-white flex flex-col items-center pt-[50px]'>
-							<p className='text-[24px] leading-[32px] my-2'>California</p>
-							<p className='text-[16px]'>(916) 655-7745 [Work]</p>
-							<p className='text-[16px]'>(916) 848-3659 [Fax]</p>
-						</div>
+			<div data-aos="fade-up" className='flex flex-col md:flex-row md:flex-wrap items-center justify-center md:justify-evenly gap-[165px] md:gap-x-[150px] xl:gap-5' >
+				<div ref={boxRef} style={headerBox}>
+						<img ref={imageRef} src={officeImg1} alt="" style={headerImage} />
+					<div ref={textRef} >
+						<h2 className='text-[24px] leading-[32px] my-2'>California</h2>
+						<p className='text-[16px]'>(916) 655-7745 [Work]</p>
+						<p className='text-[16px]'>(916) 848-3659 [Fax]</p>
+						{/* </div> */} 
 					</div>
-					{/* dynamic circle 1 */}
-					<span id='test' ></span>
-					<div ref={firstCircle} className='dynamic-c-1 absolute bottom-[-200px]'>
-						<img src={officeImg1} alt="" />
-					</div>
+					
 				</div>
 
-				{/* both circle div 2 */}
-				<div className=' relative'>
-					{/* static circle 2 */}
-					<div className='static-c-1 w-[354px] h-[354px] rounded-full flex items-center justify-center '>
-						<div className='  w-[346px] h-[346px] rounded-full  bg-white flex flex-col items-center pt-[50px]'>
-							<p className='text-[24px] leading-[32px] my-2'>California</p>
-							<p className='text-[16px]'>(916) 655-7745 [Work]</p>
-							<p className='text-[16px]'>(916) 848-3659 [Fax]</p>
-						</div>
-					</div>
-					{/* dynamic circle 2 */}
-					<span id='test2'></span>
-					<div ref={secondCircle} className='dynamic-c-1 absolute bottom-[-200px]'>
-						<img src={officeImg1} alt="" />
-					</div>
-				</div>
-
-
-
-				{/* both circle div 3*/}
-				<div className=' relative'>
-					{/* static circle 3 */}
-					<div className='static-c-1 w-[354px] h-[354px] rounded-full flex items-center justify-center '>
-						<div className='  w-[346px] h-[346px] rounded-full  bg-white flex flex-col items-center pt-[50px]'>
-							<p className='text-[24px] leading-[32px] my-2'>California</p>
-							<p className='text-[16px]'>(916) 655-7745 [Work]</p>
-							<p className='text-[16px]'>(916) 848-3659 [Fax]</p>
-						</div>
-					</div>
-					{/* dynamic circle 3 */}
-					<span id='test3'></span>
-					<div ref={thirdCircle} className='dynamic-c-1 absolute bottom-[-200px]'>
-						<img src={officeImg1} alt="" />
-					</div>
-				</div>
 			</div>
-
-
 
 
 
