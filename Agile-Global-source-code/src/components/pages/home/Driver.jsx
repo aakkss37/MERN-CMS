@@ -90,8 +90,8 @@ const Driver = () => {
             <div data-aos="fade-up" className='text-[16px] sm:text-[18px] text-center md:text-start leading-[30px]  flex flex-col items-center justify-center gap-5 md:gap-10 md:flex-row my-5  py-10 px-3 md:px-6 lg:px-10 xl:px-44'>
 
                 <div className='text-start flex items-center md:items-start flex-col justify-center gap-6'>
-                    <p className='text-[32px] sm:text-[40px] md:text-[48px] font-bold leading-[58px] text-center md:text-start'>OUR DRIVERS</p>
-                    <p className='text-[24px] leading-[30px] text-center md:text-start'>Since our inception there are certain Drivers that have constantly pushed our business to be a constantly evolving Solutions provider. The insatiable quest to outperform and over-deliver coupled with incorporating lessons-learnt to offer best of breed solutions with the customer’s best interest in mind, has been the recipe for success to both our clients and workforce.</p>
+                    <p className='text-[26px] sm:text-[32px] md:text-[38px] font-bold leading-[58px] text-center md:text-start'>OUR DRIVERS</p>
+                    <p className='text-[16px] leading-[30px] text-center md:text-start'>Since our inception there are certain Drivers that have constantly pushed our business to be a constantly evolving Solutions provider. The insatiable quest to outperform and over-deliver coupled with incorporating lessons-learnt to offer best of breed solutions with the customer’s best interest in mind, has been the recipe for success to both our clients and workforce.</p>
                 </div>
 
                 <img className='transition ease-in-out delay-150  hover:scale-110  md:w-[300px] rounded-xl lg:w-[500px] xl:w-full' src={firstImg} alt="" />
@@ -103,7 +103,7 @@ const Driver = () => {
                 {/* only 1 card div */}
                 <div className='w-full sm:w-[350px] xl:w-[426px]'>
                     <img className='transition  ease-in-out delay-150  hover:scale-110' src={thirdImg} alt="" />
-                    <p className='mt-[-40px] text-[24px] text-center sm:text-start leading-[29px]'>Ranked and recognized as the FASTEST growing company among Sacramento’s 100 fastest, Sacramento Business Journal – 2007, 2010, 2011, 2012, 2013 and 2016.</p>
+                    <p className='mt-[-40px] text-[16px] text-center sm:text-start leading-[29px]'>Ranked and recognized as the FASTEST growing company among Sacramento’s 100 fastest, Sacramento Business Journal – 2007, 2010, 2011, 2012, 2013 and 2016.</p>
                 </div>
 
 
@@ -112,12 +112,12 @@ const Driver = () => {
                     {/* card 1 */}
                     <div className='w-full sm:w-[350px] xl:w-[426px]'>
                         <img className='transition  ease-in-out delay-150  hover:scale-110' src={secondImg} alt="" />
-                        <p className='mt-10 text-[24px] text-center sm:text-start leading-[29px]'>Ranked and recognized as the FASTEST growing company among Sacramento’s 100 fastest, Sacramento Business Journal – 2007, 2010, 2011, 2012, 2013 and 2016.</p>
+                        <p className='mt-10 text-[16px] text-center sm:text-start leading-[29px]'>Ranked and recognized as the FASTEST growing company among Sacramento’s 100 fastest, Sacramento Business Journal – 2007, 2010, 2011, 2012, 2013 and 2016.</p>
                     </div>
                     {/* card 2 */}
                     <div data-aos="fade-up" className='w-full sm:w-[350px] xl:w-[426px]'>
                         <img className='transition  ease-in-out delay-150  hover:scale-110' src={forthImg} alt="" />
-                        <p className='mt-[-40px] text-[24px] text-center sm:text-start leading-[29px]'>Ranked and recognized as the FASTEST growing company among Sacramento’s 100 fastest, Sacramento Business Journal – 2007, 2010, 2011, 2012, 2013 and 2016.</p>
+                        <p className='mt-[-40px] text-[16px] text-center sm:text-start leading-[29px]'>Ranked and recognized as the FASTEST growing company among Sacramento’s 100 fastest, Sacramento Business Journal – 2007, 2010, 2011, 2012, 2013 and 2016.</p>
                     </div>
                 </div>
             </div>
@@ -125,11 +125,11 @@ const Driver = () => {
 
             <section data-aos="fade-up" className='  mt-20 flex flex-col items-center justify-center p-3 '>
                 {/* title */}
-                <h2 className='text-[28px] md:text-[48px] font-bold my-4'>OUR PARTIAL CLIENT LIST</h2>
+                <h2 className='text-[28px] md:text-[38px] font-bold my-4'>OUR PARTIAL CLIENT LIST</h2>
                 {/* hr line */}
                 <div className='line w-[85vw] md:w-[70vw] lg:w-[40vw] bg-black h-[2px] my-3 ' ></div>
 
-                <p className='text-[18px] md:text-[24px] text-center my-2 mb-10 leading-[25px] w-full md:w-[80vw] lg:w-[70vw]'>AGILE GLOBAL has assisted numerous Fortune/Global 1000 and mid-sized firms in their application development, integration, conversion, consolidation and support efforts. We are also dedicated to partnering with early stage and emerging growth enterprise software companies, working with them to bring to market the best technology solutions possible.</p>
+                <p className='text-[18px] md:text-[16px] text-center my-2 mb-10 leading-[25px] w-full md:w-[80vw] lg:w-[70vw]'>AGILE GLOBAL has assisted numerous Fortune/Global 1000 and mid-sized firms in their application development, integration, conversion, consolidation and support efforts. We are also dedicated to partnering with early stage and emerging growth enterprise software companies, working with them to bring to market the best technology solutions possible.</p>
 
 
 
