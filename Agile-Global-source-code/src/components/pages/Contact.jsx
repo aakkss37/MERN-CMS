@@ -152,6 +152,8 @@ const Contact = () => {
 			</div>
 
 
+
+
 			{/* headquater div starts */}
 			<div data-aos="fade-up" className='flex flex-col md:flex-row md:flex-wrap items-center justify-center md:justify-evenly gap-[165px] md:gap-x-[150px] xl:gap-5' >
 				<OfficeAdd hq={hq1} place="Landan"/>
@@ -161,19 +163,21 @@ const Contact = () => {
 
 
 
+
+
 			{/* form section */}
 			<div data-aos="fade-up" className=' py-10 contact-form-drop-shadow flex flex-col items-center justify-center mt-32 px-3 md:px-10  sm:mx-5 md:mx-20 lg:mx-36 xl:mx-64'>
 				{/* inner div */}
 				{/* headidng */}
-				<p className='text-[34px] sm:text-[48px] font-bold mb-11'>Have any queries?</p>
+				<p className='text-[34px] sm:text-[40px] font-bold mb-11'>Have any queries?</p>
 				{/* form input fields */}
 				<div className=' w-full flex flex-col items-center justify-center gap-2'>
 					{/* full name */}
 					<div className='flex w-full  flex-col sm:flex-row items-center justify-evenly  sm:gap-3 my-2'>
 						{/* first name div */}
 						<div className='flex w-full sm:w-[50%] flex-col items-start justify-start'>
-							<p className='text-[18px]  '>First Name</p>
-							<input className='px-3 w-full h-[40px] rounded-[8px]'
+							<p className='text-[16px]  '>First Name</p>
+							<input className='px-3 w-full h-[30px] rounded-[8px]'
 								type="text"
 								value={firstName}
 								onChange={(e) => setFirstName(e.target.value)}
@@ -182,8 +186,8 @@ const Contact = () => {
 
 						{/* last name div */}
 						<div className='flex w-full sm:w-[50%] flex-col items-start justify-start '>
-							<p className='text-[18px]'>Last Name</p>
-							<input className='px-3 w-full h-[40px] rounded-[8px]'
+							<p className='text-[16px]'>Last Name</p>
+							<input className='px-3 w-full h-[30px] rounded-[8px]'
 								type="text"
 								value={lastName}
 								onChange={(e) => setLastName(e.target.value)}
@@ -194,8 +198,8 @@ const Contact = () => {
 					<div className='flex w-full flex-col sm:flex-row  gap-3 my-2'>
 						{/* femaildiv */}
 						<div className='flex flex-col sm:w-[50%] items-start justify-start '>
-							<p className='text-[18px]'>email</p>
-							<input className='px-3 w-full h-[40px] rounded-[8px]'
+							<p className='text-[16px]'>email</p>
+							<input className='px-3 w-full h-[30px] rounded-[8px]'
 								type="email"
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
@@ -203,8 +207,8 @@ const Contact = () => {
 						</div>
 						{/* number div */}
 						<div className='flex w-full sm:w-[50%] flex-col items-start justify-start'>
-							<p className='text-[18px]'>Phone Number</p>
-							<input className='px-3 w-full h-[40px] rounded-[8px]'
+							<p className='text-[16px]'>Phone Number</p>
+							<input className='px-3 w-full h-[30px] rounded-[8px]'
 								type="tel"
 								value={phone}
 								onChange={(e) => setPhone(e.target.value)}
@@ -214,8 +218,8 @@ const Contact = () => {
 					{/* subjects */}
 					{/* subject div */}
 					<div className='flex w-full flex-col items-start justify-start '>
-						<p className='text-[18px]'>Subject</p>
-						<input className='px-3 w-full h-[40px] rounded-[8px]'
+						<p className='text-[16px]'>Subject</p>
+						<input className='px-3 w-full h-[30px] rounded-[8px]'
 							type="text"
 							value={subject}
 							onChange={(e) => setSubject(e.target.value)}
@@ -223,11 +227,11 @@ const Contact = () => {
 					</div>
 					{/*  checkbox */}
 					<div className='flex items-center justify-start gap-3 mt-3 sm:items-start sm:justify-start'>
-						<input className='text-[18px] h-[20px] w-[20px]' type="checkbox" />
-						<p className='text-[18px]'>You accept the terms of service and the privacy policy</p>
+						<input className='text-[18px] h-[14px] w-[14px]' type="checkbox" />
+						<p className='text-[14px]'>You accept the terms of service and the privacy policy</p>
 					</div>
 
-					<button className='my-4 font-bold w-[216px] h-[60px] rounded-[55px] text-white bg-[#094C99] '
+					<button className='my-4 font-bold w-[170px] h-[40px] rounded-[55px] text-white bg-[#094C99] '
 						onClick={messageSendHandler}
 					>Send message</button>
 				</div>
