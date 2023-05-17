@@ -211,7 +211,7 @@ const Career = () => {
         {/* custom application bg div  */}
         <div className='w-full h-[50dvh] md:h-[43dvh] xl:h-[54dvh] careers-bg-img flex flex-col items-center justify-center px-3 lg:px-40'>
 
-          <h1 className='text-[24px]  sm:text-[47px] md:text-[49px] xl:text-[72px] leading-[58px] xl:px-20 font-bold text-white text-center mt-5 mb-4'>Achieve Highest with us
+          <h1 className='text-[24px]  sm:text-[32px] md:text-[39px] xl:text-[62px] leading-[58px] xl:px-20 font-bold text-white text-center mt-5 mb-4'>Achieve Highest with us
           </h1>
 
 
@@ -222,9 +222,9 @@ const Career = () => {
 
       {/* Ready to make impact? */}
       <div data-aos="zoom-in" className='mt-9'>
-        <p className='text-[25px] sm:text-[30px] md:text-[36px] text-center text-[#023267]  font-semibold  '>Ready to make impact?</p>
+        <p className='text-[25px] sm:text-[28px] md:text-[30px] text-center text-[#023267]  font-semibold  '>Ready to make impact?</p>
 
-        <p className='mt-3 text-[18px] leading-[25px] text-center px-3 sm:px-5 md:px-10 lg:px-20 xl:px-64 '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque semper vestibulum fermentum. Cras venenatis, nisl sit amet molestie viverra, </p>
+        <p className='mt-3 text-[16px] leading-[25px] text-center px-3 sm:px-5 md:px-10 lg:px-20 xl:px-64 '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque semper vestibulum fermentum. Cras venenatis, nisl sit amet molestie viverra, </p>
 
         {/* text and video div */}
         <div className=' px-3 flex flex-col items-center justify-center text-center md:flex-row  md:items-center md:justify-center mt-16 gap-5'>
@@ -260,11 +260,11 @@ const Career = () => {
 
       {/* current openings  */}
       <div data-aos="fade-up" className='mt-10 flex flex-col items-center justify-center px-3 '>
-        <p className='text-[24px] sm:text-[30px] md:text-[36px] text-center text-[#023267]  ' >Current Openings</p>
+        <p className='text-[24px] sm:text-[28px] md:text-[32px] text-center text-[#023267]  ' >Current Openings</p>
 
         {/* view all div  */}
         <div className='flex flex-col md:flex-row items-center justify-center gap-0 px-3 sm:px-5 md:px-10 lg:px-20 xl:px-44'>
-          <p className='text-[18px] sm:text-[20px] text-start leading-[27px] mt-7 md:w-[70%] lg:w-[84%] '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque semper vestibulum fermentum. Cras venenatis, nisl sit amet molestie viverra, </p>
+          <p className='text-[18px] sm:text-[18px] text-start leading-[27px] mt-7 md:w-[70%] lg:w-[84%] '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque semper vestibulum fermentum. Cras venenatis, nisl sit amet molestie viverra, </p>
 
           <Link to='/career-open-job'><button className='text-[18px] text-white font-semibold flex
             items-center justify-center gap-2 py-2 px-4 bg-[#023267] rounded-[10px] '>View all  <HiArrowRight></HiArrowRight>
