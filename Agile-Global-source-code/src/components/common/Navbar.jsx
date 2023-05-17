@@ -79,7 +79,7 @@ const Navbar = () => {
 					<ul className='flex items-center justify-center text-[14px] gap-x-10'>
 						<li onMouseEnter={() => setShowHomeMenu(true)} onMouseLeave={() => setShowHomeMenu(false)} className='home-nav-desk-animation-ul flex items-center justify-center h-[93px]'><Link className='flex items-center justify-center' to="/"> Home <MdOutlineKeyboardArrowDown></MdOutlineKeyboardArrowDown></Link>
 							{/* home drop down menues start */}
-							{showHomeMenu && <div onMouseEnter={() => setShowHomeMenu(true)} className='home-nav-desk-animation-links absolute z-10 top-[90px] bg-white '>
+							{showHomeMenu && <div onMouseEnter={() => setShowHomeMenu(true)} className='home-nav-desk-animation-links absolute z-10 top-[65px] bg-white '>
 								<ul className=' flex flex-col items-center justify-center gap-2 p-4 emerging-tech-white-div-drop-shadow text-[12px]'>
 									<li className='cursor-pointer px-2 py-1 rounded-[6px] hover:w-full hover:text-center hover:bg-[#E8E8E8]'><Link to='/our-driver'>Driver</Link></li>
 									<li className='cursor-pointer px-2 py-1 rounded-[6px] hover:w-full hover:text-center hover:bg-[#E8E8E8]'><Link to='/services'>Services</Link></li>
@@ -95,7 +95,7 @@ const Navbar = () => {
 
 
 						<li onMouseEnter={() => setShowSolutionMenu(true)} onMouseLeave={() => setShowSolutionMenu(false)} className='flex items-center justify-center  h-[93px]'>Solutions  <MdOutlineKeyboardArrowDown></MdOutlineKeyboardArrowDown> {/* home drop down menues start */}
-							{showSolutionMenu && <div onMouseEnter={() => setShowSolutionMenu(true)} className='home-nav-desk-animation-links absolute z-10 top-[90px] bg-white '>
+							{showSolutionMenu && <div onMouseEnter={() => setShowSolutionMenu(true)} className='home-nav-desk-animation-links absolute z-10 top-[65px] bg-white '>
 								<ul className=' flex flex-col items-center justify-center gap-2 p-4 emerging-tech-white-div-drop-shadow text-[12px]'>
 									<li className='cursor-pointer px-2 py-1 rounded-[6px] hover:w-full hover:text-center hover:bg-[#E8E8E8]'><Link to='/emerging-tehcnologies'>Emerging Technologies</Link></li>
 									<li className='cursor-pointer px-2 py-1 rounded-[6px] hover:w-full hover:text-center hover:bg-[#E8E8E8]'><Link to='/virtual-and-agumented-reality'>Virtual & Agumented Reality</Link></li>
