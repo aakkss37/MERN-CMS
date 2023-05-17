@@ -264,10 +264,10 @@ const Career = () => {
 
         {/* view all div  */}
         <div className='flex flex-col md:flex-row items-center justify-center gap-0 px-3 sm:px-5 md:px-10 lg:px-20 xl:px-44'>
-          <p className='text-[18px] sm:text-[18px] text-start leading-[27px] mt-7 md:w-[70%] lg:w-[84%] '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque semper vestibulum fermentum. Cras venenatis, nisl sit amet molestie viverra, </p>
+          <p className='text-[16px] sm:text-[16px] text-start leading-[27px] mt-7 md:w-[70%] lg:w-[84%] '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque semper vestibulum fermentum. Cras venenatis, nisl sit amet molestie viverra, </p>
 
-          <Link to='/career-open-job'><button className='text-[18px] text-white font-semibold flex
-            items-center justify-center gap-2 py-2 px-4 bg-[#023267] rounded-[10px] '>View all  <HiArrowRight></HiArrowRight>
+          <Link to='/career-open-job'><button className='text-[14px] text-white font-semibold flex
+            items-center justify-center gap-2 py-1.5 px-3 bg-[#023267] rounded-[10px] '>View all  <HiArrowRight></HiArrowRight>
           </button> </Link>
         </div>
 
@@ -277,6 +277,7 @@ const Career = () => {
 
 
       {/* slider  */}
+
       <div data-aos="fade-up" className=' flex items-center justify-center my-[44px] md:px-10 lg:px-20 xl:px-44'>
         <Slider className='slider-outter-bus w-[80vw]   ' {...settings}>
 
@@ -290,9 +291,9 @@ const Career = () => {
               {/* text div */}
               <div className='relative ml-2 z-20 flex flex-col items-start justify-center gap-2 p-3 bg-[#98989849]  '>
                 <p className=' text-[18px] font-bold'>Architectural 1 technologist</p>
-                <p className='text-[15px] text-start leading-[14px] w-[260px] mb-3'>Bring your talents to the forefront of business and technology and go as far as your ambition takes you.</p>
+                <p className='text-[14px] text-start leading-[14px] w-[260px] mb-3'>Bring your talents to the forefront of business and technology and go as far as your ambition takes you.</p>
 
-                <p className='flex items-center justify-center text-[#17519B] text-[18px] font-semibold gap-2'>LEARN MORE  <HiArrowRight></HiArrowRight> </p>
+                <p className='flex items-center justify-center text-[#17519B] text-[16px] font-semibold gap-2'>LEARN MORE  <HiArrowRight></HiArrowRight> </p>
               </div>
             </div>
 
@@ -310,9 +311,9 @@ const Career = () => {
               {/* text div */}
               <div className='ml-2 z-20 flex flex-col items-start justify-center gap-2 p-3 bg-[#98989849]  '>
                 <p className=' text-[18px] font-bold'>Architectural technologist</p>
-                <p className='text-[15px] text-start leading-[14px] w-[260px] mb-3'>Bring your talents to the forefront of business and technology and go as far as your ambition takes you.</p>
+                <p className='text-[14px] text-start leading-[14px] w-[260px] mb-3'>Bring your talents to the forefront of business and technology and go as far as your ambition takes you.</p>
 
-                <p className='flex items-center justify-center text-[#17519B] text-[18px] font-semibold gap-2'>LEARN MORE  <HiArrowRight></HiArrowRight> </p>
+                <p className='flex items-center justify-center text-[#17519B] text-[16px] font-semibold gap-2'>LEARN MORE  <HiArrowRight></HiArrowRight> </p>
               </div>
             </div>
 
@@ -329,9 +330,9 @@ const Career = () => {
               {/* text div */}
               <div className='ml-2 z-20 flex flex-col items-start justify-center gap-2 p-3 bg-[#98989849]  '>
                 <p className=' text-[18px] font-bold'>Architectural technologist</p>
-                <p className='text-[15px] text-start leading-[14px] w-[260px] mb-3'>Bring your talents to the forefront of business and technology and go as far as your ambition takes you.</p>
+                <p className='text-[14px] text-start leading-[14px] w-[260px] mb-3'>Bring your talents to the forefront of business and technology and go as far as your ambition takes you.</p>
 
-                <p className='flex items-center justify-center text-[#17519B] text-[18px] font-semibold gap-2'>LEARN MORE  <HiArrowRight></HiArrowRight> </p>
+                <p className='flex items-center justify-center text-[#17519B] text-[16px] font-semibold gap-2'>LEARN MORE  <HiArrowRight></HiArrowRight> </p>
               </div>
             </div>
 
@@ -365,9 +366,9 @@ const Career = () => {
       {/* Take a snapshot of daily life at Agile Global  */}
 
       <div data-aos="fade-up" className='mt-16 px-3 sm:px-7 md:px-10 lg:px-20 xl:px-44'>
-        <p className='text-[24px] sm:text-[30px] md:text-[32px] leading-[44px] text-[#17519B] text-center font-semibold mt- '>Take a snapshot of daily life at Agile Global</p>
+        <p className='text-[24px] sm:text-[28px] md:text-[28px] leading-[44px] text-[#17519B] text-center font-semibold mt- '>Take a snapshot of daily life at Agile Global</p>
 
-        <p className='text-[20px] text-center leading-[27px]   mt-6 '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque semper vestibulum fermentum. Cras venenatis, nisl sit amet molestie viverra, </p>
+        <p className='text-[16px] text-center leading-[27px]   mt-6 '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque semper vestibulum fermentum. Cras venenatis, nisl sit amet molestie viverra, </p>
       </div>
 
 
@@ -427,8 +428,8 @@ const Career = () => {
 				  {comment.map((data) => (
 					  <div className='center-card'>
 						  <h2 className='px-4 text-[18px]  font-bold '> {data.title} </h2>
-						  <p className='px-4 text-[15px] leading-[14px]  '> {data.disc}</p>
-						  <button className='px-4 text-[#17519B] text-[18px] flex items-center justify-center gap-2 font-semibold'>LEARN MORE <HiArrowRight></HiArrowRight></button>
+						  <p className='px-4 text-[14px] leading-[14px]  '> {data.disc}</p>
+						  <button className='px-4 text-[#17519B] text-[16px] flex items-center justify-center gap-2 font-semibold'>LEARN MORE <HiArrowRight></HiArrowRight></button>
 					  </div>
 				  ))}
 
@@ -461,7 +462,7 @@ const Career = () => {
 		  <br /><br /><br /><br />
       {/* Perks and Benefits */}
       <div data-aos="fade-up" className='flex flex-col items-center justify-center mt-[-50px]'>
-        <p className='text-[24px] sm:text-[30px] md:text-[32px] text-center leading-[44px] '>Perks and Benefits</p>
+        <p className='text-[24px] sm:text-[24px] md:text-[28px] text-center leading-[44px] '>Perks and Benefits</p>
 
         {/* hr line */}
         <div className='line w-[85vw] md:w-[80vw] lg:w-[70vw] xl:w-[70vw] bg-black h-[2px] mt-3 mb-12 ' ></div>
@@ -474,36 +475,36 @@ const Career = () => {
           <div className='flex flex-col items-center justify-center gap-3'>
             {/* no 1 */}
             <div className='flex items-start justify-center gap-1 flex-col'>
-              <p className='text-[16px] text-[#17519B] text-start md:text-[18px] '>1. Healthcare Insurance</p>
-              <p className='ml-4 text-[14px] leading-[17px] md:text-[16px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
+              <p className='text-[14px] text-[#17519B] text-start md:text-[16px] '>1. Healthcare Insurance</p>
+              <p className='ml-4 text-[12px] leading-[17px] md:text-[14px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
             </div>
 
             {/* no 2 */}
             <div className='flex items-start justify-center gap-1 flex-col'>
-              <p className='text-[16px] text-[#17519B] text-start md:text-[18px] '>2. Vacation / Paid Time Off</p>
-              <p className='ml-4 text-[14px] leading-[17px] md:text-[16px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
+              <p className='text-[14px] text-[#17519B] text-start md:text-[16px] '>2. Vacation / Paid Time Off</p>
+              <p className='ml-4 text-[12px] leading-[17px] md:text-[14px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
             </div>
 
 
             {/* no 3 */}
             <div className='flex items-start justify-center gap-1 flex-col'>
-              <p className='text-[16px] text-[#17519B] text-start md:text-[18px] '>3. Performance Bonus</p>
-              <p className='ml-4 text-[14px] leading-[17px] md:text-[16px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
+              <p className='text-[14px] text-[#17519B] text-start md:text-[16px] '>3. Performance Bonus</p>
+              <p className='ml-4 text-[12px] leading-[17px] md:text-[14px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
             </div>
 
 
             {/* no 4 */}
             <div className='flex items-start justify-center gap-1 flex-col'>
-              <p className='text-[16px] text-[#17519B] text-start md:text-[18px] '>4. Paid Sick Days</p>
-              <p className='ml-4 text-[14px] leading-[17px] md:text-[16px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
+              <p className='text-[14px] text-[#17519B] text-start md:text-[16px] '>4. Paid Sick Days</p>
+              <p className='ml-4 text-[12px] leading-[17px] md:text-[14px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
             </div>
 
 
 
             {/* no 5 */}
             <div className='flex items-start justify-center gap-1 flex-col'>
-              <p className='text-[16px] text-[#17519B] text-start md:text-[18px] '>5. 401(K) Plan, Retirement Plan and/or Pension</p>
-              <p className='ml-4 text-[14px] leading-[17px] md:text-[16px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
+              <p className='text-[14px] text-[#17519B] text-start md:text-[16px] '>5. 401(K) Plan, Retirement Plan and/or Pension</p>
+              <p className='ml-4 text-[12px] leading-[17px] md:text-[14px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
             </div>
 
 
@@ -520,36 +521,36 @@ const Career = () => {
           <div className='flex flex-col items-center justify-center gap-3'>
             {/* no 6*/}
             <div className='flex items-start justify-center gap-1 flex-col'>
-              <p className='text-[16px] text-[#17519B] text-start md:text-[18px] '>6. Flexible Schedule (WFH/WFO)</p>
-              <p className='ml-4 text-[14px] leading-[17px] md:text-[16px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
+              <p className='text-[16px] text-[#17519B] text-start md:text-[16px] '>6. Flexible Schedule (WFH/WFO)</p>
+              <p className='ml-4 text-[14px] leading-[17px] md:text-[14px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
             </div>
 
             {/* no 7 */}
             <div className='flex items-start justify-center gap-1 flex-col'>
-              <p className='text-[16px] text-[#17519B] text-start md:text-[18px] '>7. Office Perks</p>
-              <p className='ml-4 text-[14px] leading-[17px] md:text-[16px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
+              <p className='text-[16px] text-[#17519B] text-start md:text-[16px] '>7. Office Perks</p>
+              <p className='ml-4 text-[14px] leading-[17px] md:text-[14px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
             </div>
 
 
             {/* no 8 */}
             <div className='flex items-start justify-center gap-1 flex-col'>
-              <p className='text-[16px] text-[#17519B] text-start md:text-[18px] '>8. Employee Development Plans</p>
-              <p className='ml-4 text-[14px] leading-[17px] md:text-[16px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
+              <p className='text-[16px] text-[#17519B] text-start md:text-[16px] '>8. Employee Development Plans</p>
+              <p className='ml-4 text-[14px] leading-[17px] md:text-[14px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
             </div>
 
 
             {/* no 9*/}
             <div className='flex items-start justify-center gap-1 flex-col'>
-              <p className='text-[16px] text-[#17519B] text-start md:text-[18px] '>9. Tuition Reimbursement</p>
-              <p className='ml-4 text-[14px] leading-[17px] md:text-[16px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
+              <p className='text-[16px] text-[#17519B] text-start md:text-[16px] '>9. Tuition Reimbursement</p>
+              <p className='ml-4 text-[14px] leading-[17px] md:text-[14px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
             </div>
 
 
 
             {/* no 10 */}
             <div className='flex items-start justify-center gap-1 flex-col'>
-              <p className='text-[16px] text-[#17519B] text-start md:text-[18px] '>10. Employee Discounts</p>
-              <p className='ml-4 text-[14px] leading-[17px] md:text-[16px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
+              <p className='text-[16px] text-[#17519B] text-start md:text-[16px] '>10. Employee Discounts</p>
+              <p className='ml-4 text-[14px] leading-[17px] md:text-[14px]'>40% of employees across the globe say that they value health insurance more than a pay raise as one of the top employee.</p>
             </div>
 
 
