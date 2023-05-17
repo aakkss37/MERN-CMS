@@ -86,15 +86,15 @@ const Contact = () => {
 				{/* contact bg div  */}
 				<div className='w-full h-[50dvh] md:h-[43dvh] xl:h-[74dvh] contact-bg-img flex items-center justify-center'>
 
-					<h1 className='text-[34px]  sm:text-[64px] font-bold text-white'>Contact Us</h1>
+					<h1 className='text-[34px]  sm:text-[48px] font-bold text-white'>Contact Us</h1>
 
 				</div>
 
 				{/* we want to hear div  */}
 				<div data-aos="fade-up" className='px-3 sm:px-20 md:px-44 '>
-					<p className='text-[28px] font-semibold leading-[38px] sm:leading-[58px] lg:my-9 text-center mt-5'>WE WANT TO HEAR FROM YOU</p>
+					<p className='text-[24px] font-semibold leading-[38px] sm:leading-[58px] lg:my-9 text-center mt-5'>WE WANT TO HEAR FROM YOU</p>
 
-					<p className='text-[18px] md:text-[20px] text-center my-3 mt-5 lg:px-54'>  Have a question for us?
+					<p className='text-[16px] md:text-[16px] text-center my-3 mt-5 lg:px-54'>  Have a question for us?
 						Want to learn more about what we do or how to partner with us?
 						<br className='my-2' />
 						OR
@@ -114,23 +114,23 @@ const Contact = () => {
 			<div data-aos="fade-up" className='contact-our-headquater-bg w-screen   mt-24 md:mt-24 flex flex-col-reverse items-center justify-center md:flex-row md:items-center md:justify-evenly md:h-[450px] '>
 				{/* text content */}
 				<div className=' text-white flex flex-col items-center justify-center md:items-start md:justify-start gap-1 mt-[50px] mb-[-10px] lg:mb-[-30px] px-5'>
-					<p className='text-[34px] md:text-[48px] font-bold mb-2'>Our Headquater</p>
-					<p className='text-[24px] text-center md:text-start md:w-[317px] lg:w-[327px] xl:w-full'>California Office
+					<p className='text-[30px] md:text-[40px] font-bold mb-2'>Our Headquater</p>
+					<p className='text-[20px] text-center md:text-start md:w-[317px] lg:w-[327px] xl:w-full'>California Office
 						<br />
 						193 Blue Ravine Road, Suite 160, Folsom, CA 95630</p>
 					<br />
-					<p className='text-[24px]'>
+					<p className='text-[18px]'>
 						(916) 655-7745 [Office]
 						<br />
 						(916) 848-3659 [Fax]</p>
 					<br />
-					<p className='text-[24px] mb-3'><a className='underline' href="mailto:info@agileglobal.com">info@agileglobal.com</a></p>
+					<p className='text-[18px] mb-3'><a className='underline' href="mailto:info@agileglobal.com">info@agileglobal.com</a></p>
 					{/* social imgs */}
 					<div className='flex items-center justify-center gap-4'>
-						<img src={fb} alt="" />
-						<img src={linkedin} alt="" />
-						<img src={ig} alt="" />
-						<img src={tw} alt="" />
+						<img src={fb} alt="" className='h-[30px] w-[30px]'/>
+						<img src={linkedin} alt="" className='h-[30px] w-[30px]'/>
+						<img src={ig} alt="" className='h-[30px] w-[30px]'/>
+						<img src={tw} alt=""className='h-[30px] w-[30px]' />
 					</div>
 				</div>
 				{/* img div */}
