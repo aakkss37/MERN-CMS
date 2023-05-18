@@ -1,14 +1,18 @@
 /* eslint-disable prettier/prettier */
-import React, {useState} from 'react'
+import React, { useContext } from 'react'
 import { Navigate, Outlet } from 'react-router-dom/dist'
+import AuthDataprovider  from '../context/authDataprovider.js'
 
 
 // validate used login  
 const PrivateRoute = () => {
-	const [isLogin, setIsLosin] = useState(true)
+	
+	console.log(AuthDataprovider)
+	const contextData = useContext(AuthDataprovider)
+	console.log("kdchsklad==========>",  contextData)
 
 	return (
-		isLogin
+		false
 			?
 			<>
 				<Outlet />

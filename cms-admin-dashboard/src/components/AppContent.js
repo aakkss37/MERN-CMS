@@ -5,6 +5,8 @@ import { CContainer, CSpinner } from '@coreui/react'
 
 // routes config
 import routes from '../routes'
+
+// Components
 import PrivateRoute from 'src/auth/PrivateRoute';
 
 

@@ -1,21 +1,21 @@
 /* eslint-disable prettier/prettier */
 import React,  { createContext, useState } from "react";
 import PropTypes from 'prop-types';
-export const DataContext = createContext(null);
+export const AuthContext = createContext(null);
 
 
 
 const AuthDataprovider = (props) => {
 	// USER ACCCUNT
-	const [isUserValid, setIsUserValid] = useState(false);
-	// console.log("loged in account ----> ", userAccount)
+	const [isUserValid, setIsUserValid] = useState(true);
+	console.log("loged  ----> ", isUserValid)
 
 
 
 	return (
-		<DataContext.Provider value={{ isUserValid, setIsUserValid }}>
+		<AuthContext.Provider value={{ isUserValid, setIsUserValid }}>
 			{props.children}
-		</DataContext.Provider>
+		</AuthContext.Provider>
 	)
 }
 

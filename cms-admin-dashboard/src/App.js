@@ -2,7 +2,7 @@
 import React, { Component, Suspense } from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import './scss/style.scss'
-import AuthDataprovider from './context/AuthDataprovider.js'
+import AuthDataprovider from './context/authDataprovider.js'
 
 const loading = (
 	<div className="pt-3 text-center">
