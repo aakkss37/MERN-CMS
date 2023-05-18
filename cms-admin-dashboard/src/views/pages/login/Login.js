@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import {
 	CButton,
@@ -18,14 +18,30 @@ import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import { AuthContext } from 'src/context/authDataprovider'
 
+const initialInput = {
+	password: "" ,
+	email: "",
+}
+
 const Login = () => {
 	const navigate = useNavigate()  //--> to rediract to specified page
+
+	// login handling
 	const { setIsUserValid } = useContext(AuthContext)
 	const handleLogin = () => {
 		setIsUserValid(true)
 		navigate('/dashboard')
 	}
 
+	// user input handling
+	const [userInput, setUserInput] = useState(initialInput)
+	const handleUserInput = (name, value)=>{
+		setUserInput((prevState)=>({
+			...prevState,
+			[name] : value
+		}))
+	}
+	// console.log(userInput)
 	return (
 		<div className="bg-light min-vh-100 d-flex flex-row align-items-center">
 			<CContainer>
@@ -41,7 +57,12 @@ const Login = () => {
 											<CInputGroupText>
 												<CIcon icon={cilUser} />
 											</CInputGroupText>
-											<CFormInput placeholder="Username" autoComplete="username" />
+											<CFormInput 
+												placeholder="Email" 
+												name="email"
+												value={userInput.email}
+												onChange={(e) => handleUserInput(e.target.name, e.target.value)}
+											/>
 										</CInputGroup>
 										<CInputGroup className="mb-4">
 											<CInputGroupText>
@@ -50,7 +71,9 @@ const Login = () => {
 											<CFormInput
 												type="password"
 												placeholder="Password"
-												autoComplete="current-password"
+												name="password"
+												value={userInput.password}
+												onChange={(e) => handleUserInput(e.target.name, e.target.value)}
 											/>
 										</CInputGroup>
 										<CRow>
