@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react'
+import React, {useContext} from 'react'
 import {
 	CAvatar,
 	CBadge,
@@ -25,7 +25,14 @@ import CIcon from '@coreui/icons-react'
 
 import avatar8 from './../../assets/images/avatars/8.jpg'
 
+import { AuthContext } from 'src/context/authDataprovider'
+
 const AppHeaderDropdown = () => {
+	const { setIsUserValid } = useContext(AuthContext)
+	const handleLogout=()=> {
+		console.log('logout')
+		setIsUserValid(false)
+	}
 	return (
 		<CDropdown variant="nav-item">
 			<CDropdownToggle placement="bottom-end" className="py-0" caret={false}>
@@ -85,7 +92,7 @@ const AppHeaderDropdown = () => {
 					</CBadge>
 				</CDropdownItem>
 				<CDropdownDivider />
-				<CDropdownItem href="/login" >
+				<CDropdownItem onClick={handleLogout}>
 					<CIcon icon={cilLockLocked} className="me-2" />
 					LOGOUT
 				</CDropdownItem>
