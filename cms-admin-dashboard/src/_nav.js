@@ -4,35 +4,36 @@ import CIcon from '@coreui/icons-react'
 import {
 	// cilBell,
 	// cilCalculator,
-	// cilChartPie,
+	cilChartPie,
 	// cilCursor,
 	// cilDescription,
 	// cilDrop,
 	// cilNotes,
 	// cilPencil,
 	// cilPuzzle,
-	// cilSpeedometer,
 	// cilStar,
-	cilHome,
-	cilDialpad,
-	cilCoffee,
-	cilEducation,
-	cilEnvelopeClosed,
-	cilContact,
+	cilSpeedometer,
+	cilColorBorder,
+	// cilHome,
+	// cilDialpad,
+	// cilCoffee,
+	// cilEducation,
+	// cilEnvelopeClosed,
+	// cilContact,
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
 const _nav = [
-	// {
-	// 	component: CNavItem,
-	// 	name: 'Dashboard',
-	// 	to: '/cms/',
-	// 	icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-	// 	// badge: {
-	// 	// 	color: 'info',
-	// 	// 	text: 'NEW',
-	// 	// },
-	// },
+	{
+		component: CNavItem,
+		name: 'Dashboard',
+		to: '/cms/',
+		icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+		// badge: {
+		// 	color: 'info',
+		// 	text: 'NEW',
+		// },
+	},
 	// {
 	// 	component: CNavTitle,
 	// 	name: 'Theme',
@@ -301,47 +302,121 @@ const _nav = [
 	// 		},
 	// 	],
 	// },
+
+	// CMS MANAGEMENT
+	{
+		component: CNavGroup,
+		name: 'CMS ',
+		icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
+		items: [
+			{
+				component: CNavItem,
+				name: 'Home',
+				to: '/cms/home',
+			},
+			{
+				component: CNavItem,
+				name: 'Solution',
+				to: '/cms/solution',
+			},
+			{
+				component: CNavItem,
+				name: 'Partner Model',
+				to: '/cms/partner-model',
+			},
+			{
+				component: CNavItem,
+				name: 'Career',
+				to: '/cms/career',
+			},
+			{
+				component: CNavItem,
+				name: 'Contact Us',
+				to: '/cms/contact-us',
+			},
+			{
+				component: CNavItem,
+				name: 'Contact Info',
+				to: '/cms/contact-info',
+			},
+
+		],
+	},
+
+	// INQUIRY MANAGEMENT
 	{
 		component: CNavTitle,
-		name: 'CMS Management',
-	},
-	
-	{
-		component: CNavItem,
-		name: 'HOME',
-		to: '/cms/home',
-		icon: <CIcon icon={cilHome} customClassName="nav-icon" />,
+		name: 'INQUIRY MANAGEMENT',
 	},
 	{
 		component: CNavItem,
-		name: 'SOLUTIONS',
-		to: '/cms/solution',
-		icon: <CIcon icon={cilDialpad} customClassName="nav-icon" />,
+		name: 'Leads Management',
+		to: '/inquiry-management/leads',
+		icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+
 	},
 	{
 		component: CNavItem,
-		name: 'PARTNER MODEL',
-		to: '/cms/partner-model',
-		icon: <CIcon icon={cilCoffee} customClassName="nav-icon" />,
+		name: 'Partnership Management',
+		to: '/inquiry-management/partnership',
+		icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+
+	},
+
+	// CARRER MANAGEMENT
+	{
+		component: CNavTitle,
+		name: 'CARRER MANAGEMENT',
 	},
 	{
 		component: CNavItem,
-		name: 'CAREER',
-		to: '/cms/career',
-		icon: <CIcon icon={cilEducation} customClassName="nav-icon" />,
+		name: 'Job Post',
+		to: '/career-management/job-post',
+		icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+
 	},
 	{
 		component: CNavItem,
-		name: 'CONTACT US',
-		to: '/cms/contact-us',
-		icon: <CIcon icon={cilEnvelopeClosed} customClassName="nav-icon" />,
+		name: 'Applicants',
+		to: '/career-management/applications',
+		icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+
+	},
+
+	// SETTING
+	{
+		component: CNavTitle,
+		name: 'SETTING',
 	},
 	{
 		component: CNavItem,
-		name: 'CONTACT INFO',
-		to: '/cms/contact-info',
-		icon: <CIcon icon={cilContact} customClassName="nav-icon" />,
+		name: 'Role Management',
+		to: '/setting/role-management',
+		icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+
 	},
+	{
+		component: CNavItem,
+		name: 'Password Update',
+		to: '/setting/password-update',
+		icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+
+	},
+
+	// SUPPORT
+	{
+		component: CNavTitle,
+		name: 'SUPPORT',
+	},
+	{
+		component: CNavItem,
+		name: 'Tickets',
+		to: '/support/tickets',
+		icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+
+	},
+
+
 
 	// {
 	// 	component: CNavItem,
