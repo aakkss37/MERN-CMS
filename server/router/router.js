@@ -4,6 +4,7 @@ import uploadFile from "../utils/uploadFile.js";
 import { getImage } from "../controller/imageController/imageController.js";
 import { getOverviewCardData, getOverviewText, updateOverviewCards, updateOverviewText } from "../controller/homePageController/overviewController.js";
 import { addContactQuery, getContactQuery } from "../controller/contactQueryController/contactController.js";
+import { createUser, forgotPassword, loginUser } from "../controller/userController/userController.js";
 const router = express.Router();
 
 
@@ -17,7 +18,7 @@ router.get('/file/:filename', getImage);
 
 
 
-/* COMPANY OVERVIEW */ 
+/* COMPANY OVERVIEW */
 router.post('/home-page/overView/update/overViewText', updateOverviewText)
 router.get('/home-page/get-overViewText', getOverviewText)
 router.get('/home-page/get-overViewText/card-data', getOverviewCardData)
@@ -27,5 +28,10 @@ router.post('/home-page/overViewText/card-data/update', updateOverviewCards)
 // CONTACT QUERY
 router.post('/contact-page/add-query', addContactQuery);
 router.get('/contact-page/add-query/get', getContactQuery);
+
+// Authentication Routes
+router.post("/registration", createUser);         // register user
+router.post("/login", loginUser);                 // login user
+router.post("/password/forgot", forgotPassword); // Forgot password
 
 export default router
