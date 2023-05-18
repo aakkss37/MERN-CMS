@@ -98,15 +98,15 @@ const handleServiceSocialBtn = () =>{
 
     
    <div data-aos="zoom-in" className='mt-6 flex flex-col items-center justify-center '>
-        <p className='text-[48px] leading-[58px] text-[#023267] font-semibold text-center'>Our Services</p>
+        <p className='text-[38px] leading-[58px] text-[#023267] font-semibold text-center'>Our Services</p>
          
          {/* buttons */}
           <div className='mt-12 flex items-center justify-center flex-wrap gap-3 md:gap-10'>
-            <button onClick={handleServiceTalkBtn} className={` ${TalkBtn ? 'text-center text-[18px] w-[229px] font-semibold leading-[22px] bg-[#023267] border-[#114590] border-[2px] text-white  py-[20px] rounded-[52px]' : 'w-[229px] text-center font-semibold  text-[18px] leading-[22px] bg-[white] border-[#114590] border-[2px] text-[#023267]  py-[20px] rounded-[52px]' }`}>AGILE GLOBAL Talk </button>
+            <button onClick={handleServiceTalkBtn} className={` ${TalkBtn ? 'text-center text-[14px] w-[229px] font-semibold leading-[22px] bg-[#023267] border-[#114590] border-[2px] text-white  py-[20px] rounded-[52px]' : 'w-[229px] text-center font-semibold  text-[14px] leading-[22px] bg-[white] border-[#114590] border-[2px] text-[#023267]  py-[20px] rounded-[52px]' }`}>AGILE GLOBAL Talk </button>
 
-            <button onClick={handleServiceConnectBtn} className={` ${ConnectBtn ? 'w-[229px] text-center text-[18px] font-semibold leading-[22px] bg-[#023267] border-[#114590] border-[2px] text-white py-[20px] rounded-[52px]' : 'w-[229px] text-center font-semibold  text-[18px] leading-[22px] bg-[white] border-[#114590] border-[2px] text-[#023267]  py-[20px] rounded-[52px]' }`}>AGILE GLOBAL Connect </button>
+            <button onClick={handleServiceConnectBtn} className={` ${ConnectBtn ? 'w-[229px] text-center text-[14px] font-semibold leading-[22px] bg-[#023267] border-[#114590] border-[2px] text-white py-[20px] rounded-[52px]' : 'w-[229px] text-center font-semibold  text-[14px] leading-[22px] bg-[white] border-[#114590] border-[2px] text-[#023267]  py-[20px] rounded-[52px]' }`}>AGILE GLOBAL Connect </button>
 
-            <button  onClick={handleServiceSocialBtn} className={` ${SocialBtn ? 'w-[229px] text-center text-[18px] font-semibold leading-[22px] bg-[#023267] border-[#114590] border-[2px] text-white  py-[20px] rounded-[52px]' : 'w-[229px] text-center font-semibold  text-[18px] leading-[22px] bg-[white] border-[#114590] border-[2px] text-[#023267]  py-[20px] rounded-[52px]' }`}>AGILE GLOBAL Social </button>
+            <button  onClick={handleServiceSocialBtn} className={` ${SocialBtn ? 'w-[229px] text-center text-[14px] font-semibold leading-[22px] bg-[#023267] border-[#114590] border-[2px] text-white  py-[20px] rounded-[52px]' : 'w-[229px] text-center font-semibold  text-[14px] leading-[22px] bg-[white] border-[#114590] border-[2px] text-[#023267]  py-[20px] rounded-[52px]' }`}>AGILE GLOBAL Social </button>
           </div>
        </div>
 
@@ -116,11 +116,11 @@ const handleServiceSocialBtn = () =>{
     <div data-aos="fade-up" className='flex flex-col items-center justify-center gap-5 md:gap-1 lg:gap-10 md:flex-row px-3 mt-10'>
  
          <div className='flex flex-col items-center md:items-start justify-center gap-5 md:w-[40%]'>
-            <p className='text-[24px] sm:text-[30px] md:text-[30px] lg:text-[36px] font-semibold leading-[56px]'>{(item.title)}</p>
-            <p className='text-[16px] leading-[30px] text-center md:text-start'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem duis velit urna, ut amet. Et quisque mi urna cras scelerisque enim. Id justo, lectus cras sed ullamcorper congue. Sit id volutpat ultrices suspendisse suspendisse etiam fringilla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem duis velit urna, ut amet. Et quisque mi urna cras scelerisque enim. Id justo, lectus cras sed ullamcorper congue. Sit id volutpat ultrices suspendisse suspendisse etiam fringilla.</p>
+            <p className='text-[24px] sm:text-[24px] md:text-[26px] lg:text-[30px] font-semibold leading-[56px]'>{(item.title)}</p>
+            <p className='text-[14px] leading-[30px] text-center md:text-start'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem duis velit urna, ut amet. Et quisque mi urna cras scelerisque enim. Id justo, lectus cras sed ullamcorper congue. Sit id volutpat ultrices suspendisse suspendisse etiam fringilla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem duis velit urna, ut amet. Et quisque mi urna cras scelerisque enim. Id justo, lectus cras sed ullamcorper congue. Sit id volutpat ultrices suspendisse suspendisse etiam fringilla.</p>
 
             {/* get started btn */}
-            <button className='flex items-center justify-center gap-1 text-center font-bold text-[18px] px-[16px] py-[8px] bg-[#023267] text-white rounded-[60px]'>Get Started <HiOutlineArrowNarrowRight></HiOutlineArrowNarrowRight> </button>
+            <button className='flex items-center justify-center gap-1 text-center font-bold text-[14px] px-[16px] py-[8px] bg-[#023267] text-white rounded-[60px]'>Get Started <HiOutlineArrowNarrowRight></HiOutlineArrowNarrowRight> </button>
          </div>
          {/* img div */}
          <img className='md:w-[300px] lg:w-auto' src={talkImg} alt="" />
