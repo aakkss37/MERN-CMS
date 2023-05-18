@@ -10,8 +10,6 @@ const AuthDataprovider = (props) => {
 	const [isUserValid, setIsUserValid] = useState(true);
 	console.log("loged  ----> ", isUserValid)
 
-
-
 	return (
 		<AuthContext.Provider value={{ isUserValid, setIsUserValid }}>
 			{props.children}
