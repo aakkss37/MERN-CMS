@@ -1,7 +1,8 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { CSidebar, CSidebarBrand, CSidebarNav, CSidebarToggler } from '@coreui/react'
+// CSidebarToggler ==> use if Toguler is required
+import { CSidebar, CSidebarBrand, CSidebarNav } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
 import { AppSidebarNav } from './AppSidebarNav'
@@ -38,10 +39,10 @@ const AppSidebar = () => {
           <AppSidebarNav items={navigation} />
         </SimpleBar>
       </CSidebarNav>
-      <CSidebarToggler
+      {/* <CSidebarToggler
         className="d-none d-lg-flex"
         onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
-      />
+      /> */}
     </CSidebar>
   )
 }
