@@ -52,7 +52,7 @@ const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 // Page not found
-const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
+const Page404 = React.lazy(() => import('./pages/page404/Page404'))
 
 const routes = [
 	{ path: '/', exact: true, name: 'Home' },

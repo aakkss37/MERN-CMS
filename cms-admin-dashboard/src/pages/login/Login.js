@@ -33,13 +33,13 @@ const Login = () => {
 	const handleLogin = async () => {
 		console.log("login ----> ")
 		try {
-			const resp = await axios.post('http://localhost:8000/login', {
-				email: userInput.email, 
-				password: userInput.password
-			} )
-			console.log(resp.data)
-			// setIsUserValid(true)
-			// navigate('/dashboard')
+			// const resp = await axios.post('http://localhost:8000/login', {
+			// 	email: userInput.email, 
+			// 	password: userInput.password
+			// } )
+			// console.log(resp.data)
+			setIsUserValid(true)
+			navigate('/dashboard')
 		} catch (error) {
 			console.log(error.message)
 		}
