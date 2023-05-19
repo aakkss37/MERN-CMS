@@ -11,6 +11,7 @@ const app = express()
 
 
 // APP CONFIGURATION
+app.use(cors());
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
@@ -24,7 +25,7 @@ mongoseConnection();
 import router from './router/router.js';
 app.use('/', router)
 
-app.use(cors());
+
 app.use(ErrorHandler);
 
 

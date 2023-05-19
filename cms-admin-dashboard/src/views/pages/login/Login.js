@@ -16,29 +16,40 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
+import axios from "axios";
 import { AuthContext } from 'src/context/authDataprovider'
 
 const initialInput = {
-	password: "" ,
+	password: "",
 	email: "",
 }
 
 const Login = () => {
 	const navigate = useNavigate()  //--> to rediract to specified page
+	const [userInput, setUserInput] = useState(initialInput)
 
 	// login handling
 	const { setIsUserValid } = useContext(AuthContext)
-	const handleLogin = () => {
-		setIsUserValid(true)
-		navigate('/dashboard')
+	const handleLogin = async () => {
+		console.log("login ----> ")
+		try {
+			const resp = await axios.post('http://localhost:8000/login', {
+				email: userInput.email, 
+				password: userInput.password
+			} )
+			console.log(resp.data)
+			// setIsUserValid(true)
+			// navigate('/dashboard')
+		} catch (error) {
+			console.log(error.message)
+		}
 	}
 
 	// user input handling
-	const [userInput, setUserInput] = useState(initialInput)
-	const handleUserInput = (name, value)=>{
-		setUserInput((prevState)=>({
+	const handleUserInput = (name, value) => {
+		setUserInput((prevState) => ({
 			...prevState,
-			[name] : value
+			[name]: value
 		}))
 	}
 	// console.log(userInput)
@@ -57,8 +68,8 @@ const Login = () => {
 											<CInputGroupText>
 												<CIcon icon={cilUser} />
 											</CInputGroupText>
-											<CFormInput 
-												placeholder="Email" 
+											<CFormInput
+												placeholder="Email"
 												name="email"
 												value={userInput.email}
 												onChange={(e) => handleUserInput(e.target.name, e.target.value)}

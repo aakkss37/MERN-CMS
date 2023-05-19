@@ -7,8 +7,8 @@ export const AuthContext = createContext(null);
 
 const AuthDataprovider = (props) => {
 	// USER ACCCUNT
-	const [isUserValid, setIsUserValid] = useState(true);
-	console.log("login  ----> ", isUserValid)
+	const [isUserValid, setIsUserValid] = useState(false);
+	// console.log("login  ----> ", isUserValid)
 
 	return (
 		<AuthContext.Provider value={{ isUserValid, setIsUserValid }}>
