@@ -30,8 +30,8 @@ const Banner = () => {
 						<strong>BANNER</strong>
 					</CCardHeader>
 					<CCardBody>
-						<div className='cms__home__flex__containner'>
-							<div className='cms__home__flex__item_left'>
+						<div className='cms__home__banner__flex__containner'>
+							<div className='cms__home__banner__flex__item_left'>
 								<CForm>
 									<div className="mb-3">
 										<CFormLabel htmlFor="homeBannerTitle">Banner Title</CFormLabel>
@@ -55,7 +55,7 @@ const Banner = () => {
 
 								</CForm>
 							</div>
-							<div className='cms__home__flex__item_right'>
+							<div className='cms__home__banner__flex__item_right'>
 								{
 									selectedImage ?
 										<img src={URL.createObjectURL(selectedImage)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />

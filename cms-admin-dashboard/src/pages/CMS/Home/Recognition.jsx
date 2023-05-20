@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './Home.css'
 import {
 	CCol,
@@ -16,9 +16,10 @@ import QuillEditor from 'src/components/quill/Quill';
 // QUILL MODULES/TOOLBAR
 const modules = {
 	toolbar: [
-		["bold", "italic", "underline", "strike", ],
+		["bold", "italic", "underline", "strike",],
 		[{
-			color: ['black', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'brown', 'gray', 'magenta', 'teal', 'navy', 'olive', 'silver', 'maroon', 'lime', 'aqua', 'indigo', 'coral', 'white',] }],   // dropdown with defaults from theme
+			color: ['black', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'brown', 'gray', 'magenta', 'teal', 'navy', 'olive', 'silver', 'maroon', 'lime', 'aqua', 'indigo', 'coral', 'white',]
+		}],   // dropdown with defaults from theme
 		[{ background: ['black', 'red', 'orange', 'yellow', 'green', 'blue', 'purple'] }]     // dropdown with defaults from theme
 		['clean']                                         // remove formatting button
 	]
@@ -65,7 +66,7 @@ const Recognition = () => {
 										</div>
 									</div>
 
-									
+
 								</CForm>
 							</div>
 							<div className='cms__home__flex__item_right'>

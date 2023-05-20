@@ -1,17 +1,17 @@
 /* * HOME BANNER */
 
-.cms__home__flex__containner {
+.cms__home__banner__flex__containner {
 	display: flex;
 	justify-content: space-between;
 	gap: 10px;
 }
 
-.cms__home__flex__item_left {
+.cms__home__banner__flex__item_left {
 	flex-grow: 1;
 	/* border: 1px solid red; */
 }
 
-.cms__home__flex__item_right {
+.cms__home__banner__flex__item_right {
 	width: 45%;
 	height: 340px;
 	display: flex;
@@ -28,11 +28,11 @@
 }
 
 @media only screen and (max-width: 768px) {
-	.cms__home__flex__containner {
+	.cms__home__banner__flex__containner {
 		flex-direction: column;
 	}
 
-	.cms__home__flex__item_right {
+	.cms__home__banner__flex__item_right {
 		height: auto;
 		width: 100%;
 		display: flex;
