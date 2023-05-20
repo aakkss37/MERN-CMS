@@ -41,35 +41,37 @@ const Banner = () => {
 											placeholder="Eg: Innovation"
 										/>
 									</div>
+									<br />
 									<div className="mb-3">
 										<CFormLabel htmlFor="homeBannerTitle">Banner Text</CFormLabel>
 										<CFormTextarea id="homeBannerTitle" rows="3"></CFormTextarea>
 									</div>
+									<br />
 									<div className="mb-3">
 										<CFormLabel htmlFor="formFile">Choose Banner Background</CFormLabel>
-										<CFormInput type="file" id="formFile" onChange={handleFileChange}/>
+										<CFormInput type="file" id="formFile" onChange={handleFileChange} />
 									</div>
 
-									<CButton 
-										color="primary" 
-										className='col-2 save_button' 
-										style={{marginTop: "50px"}}
-									>
-										Save
-									</CButton>
+
 								</CForm>
 							</div>
 							<div className='cms__home__flex__item_right'>
 								{
 									selectedImage ?
-									 <img src={URL.createObjectURL(selectedImage)} alt="Selected" style={{width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px"}}/>
-									 :
-									 <span>
-										No File Chosen
-									</span>
+										<img src={URL.createObjectURL(selectedImage)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
+										:
+										<span>
+											No File Chosen
+										</span>
 								}
 							</div>
 						</div>
+						<CButton
+							color="primary"
+							className='save_button'
+						>
+							Save
+						</CButton>
 					</CCardBody>
 				</CCard>
 			</CCol>
