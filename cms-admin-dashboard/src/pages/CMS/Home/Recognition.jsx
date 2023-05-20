@@ -43,57 +43,57 @@ const Recognition = () => {
 						<strong>RECOGNITION & AWARDS</strong>
 					</CCardHeader>
 					<CCardBody>
-						<div className='cms__home__flex__containner'>
-							<div className='cms__home__flex__item_left'>
-								<CForm>
-									<div>
-										<div className="mb-3">
-											<CFormLabel htmlFor="homeBannerTitle">Title</CFormLabel>
-											<CFormInput
-												type="text"
-												id="homeBannerTitle"
-												placeholder="Eg: Innovation"
+						<CCard className="mb-4" style={{ padding: "10px", boxShadow: "0px 0px 9px 1px rgba(0,0,0,0.20)"}}>
+							<div className='cms__home__recognition__flex__containner'>
+								<div className='cms__home__recognition__flex__item_left'>
+									<CForm>
+										<div>
+											<div className="mb-3">
+												<CFormLabel htmlFor="homeBannerTitle">Title</CFormLabel>
+												<CFormInput
+													type="text"
+													id="homeBannerTitle"
+													placeholder="Eg: Innovation"
+												/>
+											</div>
+											{/* QUILL */}
+											<QuillEditor
+												modules={modules}
+												value={quillValue}
 											/>
+											<div className="mb-3">
+												<CFormLabel htmlFor="formFile">Choose Banner Background</CFormLabel>
+												<CFormInput type="file" id="formFile" onChange={handleFileChange} />
+											</div>
 										</div>
-										{/* QUILL */}
-										<QuillEditor
-											modules={modules}
-											value={quillValue}
-										/>
-										<div className="mb-3">
-											<CFormLabel htmlFor="formFile">Choose Banner Background</CFormLabel>
-											<CFormInput type="file" id="formFile" onChange={handleFileChange} />
-										</div>
-									</div>
 
 
-								</CForm>
+									</CForm>
+								</div>
+								<div className='cms__home__recognition__flex__item_right'>
+									{
+										selectedImage ?
+											<img src={URL.createObjectURL(selectedImage)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
+											:
+											<span>
+												No File Chosen
+											</span>
+									}
+								</div>
 							</div>
-							<div className='cms__home__flex__item_right'>
-								{
-									selectedImage ?
-										<img src={URL.createObjectURL(selectedImage)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
-										:
-										<span>
-											No File Chosen
-										</span>
-								}
-							</div>
-						</div>
-						<div className='cms__home__flex__containner'>
+						</CCard>
+						<div >
 							<CButton
 								color="primary"
-								className='col-1 save_button'
-								style={{ marginTop: "50px" }}
+								className='cms__home__recognition__save_button'
 							>
 								Save
 							</CButton>
 							<CButton
 								color="primary"
-								className='col-3 save_button'
-								style={{ marginTop: "50px" }}
+								className='cms__home__recognition__add_button'
 							>
-								Add New Award
+								Add New Recognition Award
 							</CButton>
 						</div>
 					</CCardBody>

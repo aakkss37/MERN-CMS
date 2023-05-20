@@ -1,4 +1,6 @@
+/*  *//*  *//*  *//*  *//*  *//*  */
 /* * HOME BANNER */
+/*  *//*  *//*  *//*  *//*  *//*  */
 
 .cms__home__banner__flex__containner {
 	display: flex;
@@ -22,7 +24,7 @@
 	border-radius: 5px;
 }
 
-.save_button {
+.cms__home__banner__save_button {
 	margin-top: 2rem;
 	width: 6rem;
 }
@@ -33,17 +35,70 @@
 	}
 
 	.cms__home__banner__flex__item_right {
-		height: auto;
+		min-height: 340px;
 		width: 100%;
 		display: flex;
 	}
 
-	.save_button {
+	.cms__home__banner__save_button {
 		width: 100%;
 	}
 }
 
 
 
-
+/*  *//*  *//*  *//*  *//*  *//*  */
 /* * HOME RECOGNITION AND AWARD */
+/*  *//*  *//*  *//*  *//*  *//*  */
+
+.cms__home__recognition__flex__containner {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.cms__home__recognition__flex__item_left {
+	flex-grow: 1;
+	/* border: 1px solid red; */
+}
+
+.cms__home__recognition__flex__item_right {
+	width: 45%;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* border: 1px solid red; */
+	background-color: rgb(220, 221, 221);
+	border-radius: 5px;
+}
+
+.cms__home__recognition__save_button {
+	width: 6rem;
+}
+
+.cms__home__recognition__add_button {
+	width: 45%;
+	float: right;
+}
+
+@media only screen and (max-width: 768px) {
+	.cms__home__recognition__flex__containner {
+		flex-direction: column;
+	}
+
+	.cms__home__recognition__flex__item_right {
+		height: 300px;
+		width: 100%;
+		display: flex;
+	}
+
+	.cms__home__recognition__save_button {
+		width: 100%;
+	}
+
+	.cms__home__recognition__add_button {
+		width: 100%;
+		margin-top: 1rem;
+	}
+}

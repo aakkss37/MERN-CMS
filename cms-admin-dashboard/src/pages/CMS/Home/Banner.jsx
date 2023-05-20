@@ -68,7 +68,7 @@ const Banner = () => {
 						</div>
 						<CButton
 							color="primary"
-							className='save_button'
+							className='cms__home__banner__save_button'
 						>
 							Save
 						</CButton>
