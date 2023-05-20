@@ -35,7 +35,6 @@ const Layout = React.lazy(() => import('./views/forms/layout/Layout'))
 const Range = React.lazy(() => import('./views/forms/range/Range'))
 const Select = React.lazy(() => import('./views/forms/select/Select'))
 const Validation = React.lazy(() => import('./views/forms/validation/Validation'))
-
 const Charts = React.lazy(() => import('./views/charts/Charts'))
 
 // Icons
@@ -53,6 +52,11 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 // Page not found
 const Page404 = React.lazy(() => import('./pages/page404/Page404'))
+
+
+// CMS Items
+const HomePageCMS = React.lazy(()=> import('./pages/CMS/Home/Home'))
+
 
 const routes = [
 	{ path: '/', exact: true, name: 'Home' },
@@ -100,6 +104,10 @@ const routes = [
 	{ path: '/notifications/toasts', name: 'Toasts', element: Toasts },
 	{ path: '/widgets', name: 'Widgets', element: Widgets },
 	{ path: '*', name: 'Not Found', element: Page404 },
+	
+	// CMS ROUTES
+	{ path: '/cms/home', name: 'Home', element: HomePageCMS },
+
 ]
 
 export default routes
