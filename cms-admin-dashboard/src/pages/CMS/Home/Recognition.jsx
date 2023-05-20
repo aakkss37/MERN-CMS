@@ -16,8 +16,9 @@ import QuillEditor from 'src/components/quill/Quill';
 // QUILL MODULES/TOOLBAR
 const modules = {
 	toolbar: [
-		["bold", "italic", "underline", "strike", "blockquote"],
-		[{ color: ['black', 'red', 'orange', 'yellow', 'green', 'blue', 'purple'] }],   // dropdown with defaults from theme
+		["bold", "italic", "underline", "strike", ],
+		[{
+			color: ['black', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'brown', 'gray', 'magenta', 'teal', 'navy', 'olive', 'silver', 'maroon', 'lime', 'aqua', 'indigo', 'coral', 'white',] }],   // dropdown with defaults from theme
 		[{ background: ['black', 'red', 'orange', 'yellow', 'green', 'blue', 'purple'] }]     // dropdown with defaults from theme
 		['clean']                                         // remove formatting button
 	]
@@ -26,6 +27,7 @@ const modules = {
 
 const Recognition = () => {
 	const [selectedImage, setSelectedImage] = useState(null);
+	const [quillValue, setQuillValue] = useState("<strong>Hey there</strong>")
 
 	const handleFileChange = (e) => {
 		const file = e.target.files[0];
@@ -43,31 +45,27 @@ const Recognition = () => {
 						<div className='cms__home__flex__containner'>
 							<div className='cms__home__flex__item_left'>
 								<CForm>
-									<div className="mb-3">
-										<CFormLabel htmlFor="homeBannerTitle">Title</CFormLabel>
-										<CFormInput
-											type="text"
-											id="homeBannerTitle"
-											placeholder="Eg: Innovation"
+									<div>
+										<div className="mb-3">
+											<CFormLabel htmlFor="homeBannerTitle">Title</CFormLabel>
+											<CFormInput
+												type="text"
+												id="homeBannerTitle"
+												placeholder="Eg: Innovation"
+											/>
+										</div>
+										{/* QUILL */}
+										<QuillEditor
+											modules={modules}
+											value={quillValue}
 										/>
-									</div>
-									{/* QUILL */}
-									<QuillEditor
-										modules={modules}
-										// value={"hello world"}
-									/>
-									<div className="mb-3">
-										<CFormLabel htmlFor="formFile">Choose Banner Background</CFormLabel>
-										<CFormInput type="file" id="formFile" onChange={handleFileChange} />
+										<div className="mb-3">
+											<CFormLabel htmlFor="formFile">Choose Banner Background</CFormLabel>
+											<CFormInput type="file" id="formFile" onChange={handleFileChange} />
+										</div>
 									</div>
 
-									<CButton
-										color="primary"
-										className='col-3 save_button'
-										style={{ marginTop: "50px" }}
-									>
-										Save
-									</CButton>
+									
 								</CForm>
 							</div>
 							<div className='cms__home__flex__item_right'>
@@ -80,6 +78,22 @@ const Recognition = () => {
 										</span>
 								}
 							</div>
+						</div>
+						<div className='cms__home__flex__containner'>
+							<CButton
+								color="primary"
+								className='col-1 save_button'
+								style={{ marginTop: "50px" }}
+							>
+								Save
+							</CButton>
+							<CButton
+								color="primary"
+								className='col-3 save_button'
+								style={{ marginTop: "50px" }}
+							>
+								Add New Award
+							</CButton>
 						</div>
 					</CCardBody>
 				</CCard>

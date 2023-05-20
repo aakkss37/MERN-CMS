@@ -52,7 +52,7 @@ const Banner = () => {
 
 									<CButton 
 										color="primary" 
-										className='col-3 save_button' 
+										className='col-2 save_button' 
 										style={{marginTop: "50px"}}
 									>
 										Save
