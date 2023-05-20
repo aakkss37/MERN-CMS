@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import PropTypes from 'prop-types';
+import './quillStyle.css'
 
 
 
@@ -18,7 +19,30 @@ function QuillEditor (props) {
 			[{ list: "ordered" }, { list: "bullet" }],
 			["link", "image"],
 			[{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
-			[{ color: ['black', 'red', 'orange', 'yellow', 'green', 'blue', 'purple'] }],   // dropdown with defaults from theme
+			[{
+				color: [
+					'black',
+					'red',
+					'orange',
+					'yellow',
+					'green',
+					'blue',
+					'purple',
+					'pink',
+					'brown',
+					'gray',
+					'magenta',
+					'teal',
+					'navy',
+					'olive',
+					'silver',
+					'maroon',
+					'lime',
+					'aqua',
+					'indigo',
+					'coral'
+				]
+			}],   // dropdown with defaults from theme
 			[{ background: ['black', 'red', 'orange', 'yellow', 'green', 'blue', 'purple'] }]     // dropdown with defaults from theme
 			['clean']                                         // remove formatting button
 		]
@@ -52,17 +76,19 @@ function QuillEditor (props) {
 		console.log("source ===>", source)
 		console.log("editor===>", editor)
 	}
-	
+
 	console.log("code ===>", code)
 
 	return (
 		<>
+			<label>Text</label>
 			<ReactQuill
 				theme="snow"
-				modules={props.modules}
+				modules={props.modules ? props.modules : modules}
 				formats={formats}
-				value={code}
+				value={props.value}
 				onChange={handleQuillChange}
+				className="home_recognition"
 			/>
 		</>
 	);
@@ -70,7 +96,7 @@ function QuillEditor (props) {
 
 
 QuillEditor.propTypes = {
-	// value: PropTypes.node.isRequired,
+	value: PropTypes.node,
 	modules: PropTypes.object.isRequired,
 };
 

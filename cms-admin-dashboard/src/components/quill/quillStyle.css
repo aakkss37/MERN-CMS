@@ -1,0 +1,29 @@
+
+
+
+/* ! HOME RECOGNITION STYLE */
+.home_recognition {
+	margin-bottom: 1rem ;
+}
+
+.home_recognition .ql-container {
+	border-bottom-left-radius: 0.5em;
+	border-bottom-right-radius: 0.5em;
+	/* background: #fefcfc; */
+}
+
+/* Snow Theme */
+.home_recognition .ql-snow.ql-toolbar {
+	display: block;
+	background: #eaecec;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+}
+
+.home_recognition .ql-editor {
+	min-height: 12.3em;
+}
+
+
+
+
