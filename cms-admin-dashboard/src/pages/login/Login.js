@@ -20,8 +20,8 @@ import axios from "axios";
 import { AuthContext } from 'src/context/authDataprovider'
 
 const initialInput = {
-	password: "",
-	email: "",
+	password: "123456789",
+	email: "test@email.com",
 }
 
 const Login = () => {
@@ -29,17 +29,17 @@ const Login = () => {
 	const [userInput, setUserInput] = useState(initialInput)
 
 	// login handling
-	const { setIsUserValid } = useContext(AuthContext)
+	const { setUser } = useContext(AuthContext)
+
 	const handleLogin = async () => {
 		console.log("login ----> ")
 		try {
-			// const resp = await axios.post('http://localhost:8000/login', {
-			// 	email: userInput.email, 
-			// 	password: userInput.password
-			// } )
-			// console.log(resp.data)
-			setIsUserValid(true)
-			navigate('/dashboard')
+			const resp = await axios.post("http://localhost:8000/login", userInput) 
+			console.log(resp)
+			if (resp.data.success) {
+				setUser(resp.data)
+				navigate('/dashboard')
+			}
 		} catch (error) {
 			console.log(error.message)
 		}
@@ -52,6 +52,7 @@ const Login = () => {
 			[name]: value
 		}))
 	}
+
 	// console.log(userInput)
 	return (
 		<div className="bg-light min-vh-100 d-flex flex-row align-items-center">
@@ -59,6 +60,22 @@ const Login = () => {
 				<CRow className="justify-content-center">
 					<CCol md={8}>
 						<CCardGroup>
+							<CCard className="text-white bg-primary py-5" >
+								<CCardBody className="text-center">
+									<div>
+										<h2>Sign up</h2>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua.
+										</p>
+										<Link to="/register">
+											<CButton color="primary" className="mt-3" active tabIndex={-1}>
+												Register Now!
+											</CButton>
+										</Link>
+									</div>
+								</CCardBody>
+							</CCard>
 							<CCard className="p-4">
 								<CCardBody>
 									<CForm>
@@ -102,22 +119,7 @@ const Login = () => {
 									</CForm>
 								</CCardBody>
 							</CCard>
-							<CCard className="text-white bg-primary py-5" style={{ width: '44%' }}>
-								<CCardBody className="text-center">
-									<div>
-										<h2>Sign up</h2>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-											tempor incididunt ut labore et dolore magna aliqua.
-										</p>
-										<Link to="/register">
-											<CButton color="primary" className="mt-3" active tabIndex={-1}>
-												Register Now!
-											</CButton>
-										</Link>
-									</div>
-								</CCardBody>
-							</CCard>
+							
 						</CCardGroup>
 					</CCol>
 				</CRow>

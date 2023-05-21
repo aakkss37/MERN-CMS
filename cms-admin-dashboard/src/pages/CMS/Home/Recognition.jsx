@@ -28,7 +28,6 @@ const modules = {
 
 const Recognition = () => {
 	const [selectedImage, setSelectedImage] = useState(null);
-	const [quillValue, setQuillValue] = useState("<strong>Hey there</strong>")
 
 	const handleFileChange = (e) => {
 		const file = e.target.files[0];
@@ -59,7 +58,7 @@ const Recognition = () => {
 											{/* QUILL */}
 											<QuillEditor
 												modules={modules}
-												value={quillValue}
+												value={"<strong>Hey there</strong>"}
 											/>
 											<div className="mb-3">
 												<CFormLabel htmlFor="formFile">Choose Banner Background</CFormLabel>

@@ -28,10 +28,19 @@ import avatar8 from './../../assets/images/avatars/8.jpg'
 import { AuthContext } from 'src/context/authDataprovider'
 
 const AppHeaderDropdown = () => {
-	const { setIsUserValid } = useContext(AuthContext)
+	const { setUser } = useContext(AuthContext)
 	const handleLogout = () => {
 		console.log('logout')
-		setIsUserValid(false)
+		setUser({
+			success: false,
+			token: '',
+			userDetails: {
+				email: '',
+				role: '',
+				username: '',
+				userId: '',
+			}
+		})
 	}
 	return (
 		<CDropdown variant="nav-item">
@@ -93,7 +102,7 @@ const AppHeaderDropdown = () => {
 					</CBadge>
 				</CDropdownItem> */}
 				<CDropdownDivider />
-				<CDropdownItem onClick={handleLogout}>
+				<CDropdownItem onClick={handleLogout} style={{cursor: 'pointer', color: "red", }}>
 					<CIcon icon={cilLockLocked} className="me-2" />
 					LOGOUT
 				</CDropdownItem>
