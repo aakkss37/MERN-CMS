@@ -30,7 +30,7 @@ import { AuthContext } from 'src/context/authDataprovider'
 const AppHeaderDropdown = () => {
 	const { setUser } = useContext(AuthContext)
 	const handleLogout = () => {
-		console.log('logout')
+		// console.log('logout')
 		setUser({
 			success: false,
 			token: '',
