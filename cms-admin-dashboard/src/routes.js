@@ -56,6 +56,7 @@ const Page404 = React.lazy(() => import('./pages/page404/Page404'))
 
 // CMS Items
 const HomePageCMS = React.lazy(()=> import('./pages/CMS/Home/Home'))
+const PartnerModelCMS = React.lazy(()=> import('./pages/CMS/PartnerModel/PartnerModel'))
 const ContactUsPageCMS = React.lazy(()=> import('./pages/CMS/ContactUs/ContactUs'))
 
 
@@ -108,6 +109,7 @@ const routes = [
 	
 	// CMS ROUTES
 	{ path: '/cms/home', name: 'Home', element: HomePageCMS },
+	{ path: '/cms/partner-model', name: 'partner Model', element: PartnerModelCMS },
 	{ path: '/cms/contact-us', name: 'Contact Us', element: ContactUsPageCMS },
 
 ]
