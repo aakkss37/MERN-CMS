@@ -81,14 +81,14 @@ function QuillEditor (props) {
 
 	return (
 		<>
-			<label>Text</label>
+			<label>{props.text}</label>
 			<ReactQuill
 				theme="snow"
 				modules={props.modules ? props.modules : modules}
 				formats={formats}
 				value={props.value}
 				onChange={handleQuillChange}
-				className="home_recognition"
+				className={props.className}
 			/>
 		</>
 	);
@@ -98,6 +98,8 @@ function QuillEditor (props) {
 QuillEditor.propTypes = {
 	value: PropTypes.node,
 	modules: PropTypes.object.isRequired,
+	className: PropTypes.string,
+	text: PropTypes.string,
 };
 
 

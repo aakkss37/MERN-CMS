@@ -44,11 +44,11 @@ const Banner = () => {
 							</div>
 							<br />
 							<div className="mb-3">
-								<CFormLabel htmlFor="homeBannerTitle">Banner Title</CFormLabel>
+								<CFormLabel htmlFor="contactusBannerTitle">Banner Title</CFormLabel>
 								<CFormInput
 									type="text"
-									id="homeBannerTitle"
-									placeholder="Eg: Innovation"
+									id="contactusBannerTitle"
+									placeholder="Eg: CONTACT US"
 								/>
 							</div>
 						</CForm>

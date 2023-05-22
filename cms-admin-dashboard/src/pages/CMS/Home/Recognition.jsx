@@ -59,6 +59,8 @@ const Recognition = () => {
 											<QuillEditor
 												modules={modules}
 												value={"<strong>Hey there</strong>"}
+												className='home_recognition'
+												text='Text'
 											/>
 											<div className="mb-3">
 												<CFormLabel htmlFor="formFile">Choose Banner Background</CFormLabel>
