@@ -1,14 +1,14 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
 import Banner from './Banner'
-import Office from './Office'
+import Headquater from './Headquater'
 import EnqueryTable from './EnqueryTable'
 
 const ContactUs = () => {
 	return (
 		<div>
 			<Banner />
-			<Office />
+			<Headquater />
 			<EnqueryTable />
 		</div>
 	)
