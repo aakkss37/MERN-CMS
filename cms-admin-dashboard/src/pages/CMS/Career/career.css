@@ -1,0 +1,35 @@
+/*  *//*  *//*  *//*  *//*  *//*  */
+/* * CAREER BANNER */
+/*  *//*  *//*  *//*  *//*  *//*  */
+
+.cms__career__banner__flex__item_right {
+	width: 100%;
+	height: 340px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* border: 1px solid red; */
+	background-color: rgb(220, 221, 221);
+	border-radius: 5px;
+}
+
+.cms__career__banner__save_button {
+	margin-top: 2rem;
+	width: 6rem;
+}
+
+@media only screen and (max-width: 768px) {
+	.cms__career__banner__flex__containner {
+		flex-direction: column;
+	}
+
+	.cms__career__banner__flex__item_right {
+		min-height: 340px;
+		width: 100%;
+		display: flex;
+	}
+
+	.cms__career__banner__save_button {
+		width: 100%;
+	}
+}
