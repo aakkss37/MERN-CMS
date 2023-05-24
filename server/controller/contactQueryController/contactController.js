@@ -22,3 +22,4 @@ export const getContactQuery = async (request, response) => {
 		response.status(500).json({ msg: "Error while Updating Title." });
 	}
 }
+

@@ -11,6 +11,7 @@ import {
 	CButton,
 } from '@coreui/react'
 import './partnerModel.css'
+import PartnerLogoCard from './PartnerLogoCard';
 
 
 import QuillEditor from 'src/components/quill/Quill';
@@ -28,12 +29,14 @@ const modules = {
 
 
 const PartnerModel = () => {
-	const [selectedImage, setSelectedImage] = useState(null);
+	const [partnerLogo, setPartnerLogo] = useState([{}])
 
-	const handleFileChange = (e) => {
-		const file = e.target.files[0];
-		setSelectedImage(file);
-	}
+	const addNewPartnerHandler=()=> {
+		console.log('click')
+		setPartnerLogo((prevState)=> ([...prevState, {}]))
+	}	
+
+
 	return (
 		<div>
 			<CCol xs={12}>
@@ -63,27 +66,15 @@ const PartnerModel = () => {
 						</CForm>
 						<CCard className="mb-4" >
 							<div className='partners__logos_container'>
-								<div className='partners__logos'>
-									<div className='partner__logo__display'>
-										{
-											selectedImage ?
-												<img src={URL.createObjectURL(selectedImage)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
-												:
-												<span>
-													No File Chosen
-												</span>
-
-										}
-									</div>
-									<div className="mb-3 partner__logo__choose__input">
-										<CFormInput type="file" size="sm" id="formFile" onChange={handleFileChange} />
-									</div>
-								</div>
+								{
+									partnerLogo.map((item, index) => (<PartnerLogoCard key={index}/>))
+								}
 							</div>
 							<br />
 							<CButton
 								color="primary"
 								className='partner__model__add__logo__button'
+								onClick={addNewPartnerHandler}
 							>
 								Add New
 							</CButton>
@@ -109,5 +100,6 @@ const PartnerModel = () => {
 		</div>
 	)
 }
+
 
 export default PartnerModel
