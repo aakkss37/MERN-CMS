@@ -55,7 +55,7 @@ const MakeImpact = () => {
 								/>
 								<QuillEditor
 									modules={modules}
-									value={"<strong>Hey there</strong>"}
+									value={"<p> Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Pellentesque semper vestibulum fermentum. Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Pellentesque semper vestibulum fermentum.</p>"}
 									className='career__make__impact career__make__impact__head'
 									text='Text'
 								/>
@@ -66,16 +66,16 @@ const MakeImpact = () => {
 								{
 									dummyArray.map((item, index) => (
 										<div className="mb-3" key={index}>
-											<CFormLabel htmlFor="careerBannerTitle">Banner Title</CFormLabel>
+											<CFormLabel htmlFor="careerImpact">Impact {index+1}</CFormLabel>
 											<CFormInput
 												type="text"
-												id="careerBannerTitle"
-												placeholder="Eg: Achieve Highest with us"
+												id="careerImpact"
+												placeholder="Eg: Ready to make impact?"
 											/>
 											{/* QUILL */}
 											<QuillEditor
 												modules={modules}
-												value={"<strong>Hey there</strong>"}
+												value={"<p> Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Pellentesque semper vestibulum fermentum."}
 												className='career__make__impact'
 												text='Text'
 											/>
