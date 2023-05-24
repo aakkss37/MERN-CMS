@@ -74,4 +74,32 @@
 
 
 
+/* ! CAREER STYLE */
+.career__make__impact {
+	margin-bottom: 1rem ;
+}
+
+.career__make__impact .ql-container {
+	border-bottom-left-radius: 0.5em;
+	border-bottom-right-radius: 0.5em;
+	/* background: #fefcfc; */
+}
+
+/* Snow Theme */
+.career__make__impact .ql-snow.ql-toolbar {
+	display: block;
+	background: #eaecec;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+}
+
+.career__make__impact .ql-editor {
+	min-height: 6em;
+}
+.career__make__impact__head .ql-editor {
+	min-height: 20em;
+}
+
+
+
 

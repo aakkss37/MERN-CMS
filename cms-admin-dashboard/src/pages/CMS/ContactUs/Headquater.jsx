@@ -57,7 +57,7 @@ const Office = () => {
 							<div className='cms__contactus__hq__img'>
 								{
 									selectedImage ?
-										<img src={URL.createObjectURL(selectedImage)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%", padding: "5px" }} />
+										<img src={URL.createObjectURL(selectedImage)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
 										:
 										<span>
 											No File Chosen
