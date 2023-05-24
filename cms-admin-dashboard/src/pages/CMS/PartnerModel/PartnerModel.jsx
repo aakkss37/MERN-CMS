@@ -44,11 +44,11 @@ const PartnerModel = () => {
 					<CCardBody>
 						<CForm>
 							<div className="mb-3">
-								<CFormLabel htmlFor="officeCityName">City Name</CFormLabel>
+								<CFormLabel htmlFor="officeCityName">Module Title</CFormLabel>
 								<CFormInput
 									type="text"
 									id="officeCityName"
-									placeholder="Eg: Delhi"
+									placeholder="Eg: OUT PARTNERS"
 								/>
 							</div>
 							{/* QUILL */}
@@ -80,12 +80,12 @@ const PartnerModel = () => {
 									</div>
 								</div>
 							</div>
-							<br/>
+							<br />
 							<CButton
 								color="primary"
-								className=''
+								className='partner__model__add__logo__button'
 							>
-								Add New Company
+								Add New
 							</CButton>
 						</CCard>
 
@@ -96,14 +96,12 @@ const PartnerModel = () => {
 							className='partner__model'
 							text='Text'
 						/>
-						<div className='cms__contactus__office__button' >
-							<CButton
-								color="primary"
-								className='cms__contactus__office__save_button'
-							>
-								Save
-							</CButton>
-						</div>
+						<CButton
+							color="primary"
+							className='partner__model__save_button'
+						>
+							Save
+						</CButton>
 
 					</CCardBody>
 				</CCard>

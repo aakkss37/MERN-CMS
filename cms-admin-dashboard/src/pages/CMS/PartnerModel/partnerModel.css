@@ -40,9 +40,21 @@
 	align-items: center;
 }
 
+.partner__model__save_button {
+	margin-top: 1rem;
+	width: 6rem;
+}
+.partner__model__add__logo__button {
+	margin-top: 1rem;
+	width: 10rem;
+	margin: 10px;
+}
 
 @media only screen and (max-width: 768px) {
-	.cms__contactus__banner__save_button {
+	.partner__model__save_button {
 		width: 100%;
+	}
+	.partner__model__add__logo__button {
+		width: 95%;
 	}
 }

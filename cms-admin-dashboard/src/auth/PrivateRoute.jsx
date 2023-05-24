@@ -8,6 +8,7 @@ import {AuthContext}  from '../context/authDataprovider.js'
 const PrivateRoute = () => {
 	
 	const { user } = useContext(AuthContext)
+	
 
 	return (
 		user.success

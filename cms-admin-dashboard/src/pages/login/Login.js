@@ -36,6 +36,7 @@ const Login = () => {
 		try {
 			const resp = await axios.post("http://localhost:8000/login", userInput) 
 			console.log(resp)
+			
 			if (resp.data.success) {
 				setUser(resp.data)
 				navigate('/dashboard')
