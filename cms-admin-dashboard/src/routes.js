@@ -58,7 +58,7 @@ const Page404 = React.lazy(() => import('./pages/page404/Page404'))
 const HomePageCMS = React.lazy(()=> import('./pages/CMS/Home/Home'))
 const PartnerModelCMS = React.lazy(()=> import('./pages/CMS/PartnerModel/PartnerModel'))
 const ContactUsPageCMS = React.lazy(()=> import('./pages/CMS/ContactUs/ContactUs'))
-const CareerPageCMS = React.lazy(()=> import('./pages/CMS/Career/Career'))
+const CareerPageCMS = React.lazy(()=> import('./pages/CMS/Career/CareerPage/Career'))
 const Modal = React.lazy(()=> import('./pages/CMS/ContactInfo/Modal'))
 
 
@@ -110,10 +110,23 @@ const routes = [
 	{ path: '*', name: 'Not Found', element: Page404 },
 	
 	// CMS ROUTES
+
+	/********* HOME *********/
 	{ path: '/cms/home', name: 'Home', element: HomePageCMS },
+
+	/********* SOLUTION *********/
+
+
+	/********* PARTNER MODEL *********/
 	{ path: '/cms/partner-model', name: 'partner Model', element: PartnerModelCMS },
+
+	/********* CONTACT US *********/
 	{ path: '/cms/contact-us', name: 'Contact Us', element: ContactUsPageCMS },
-	{ path: '/cms/career', name: 'Career', element: CareerPageCMS },
+
+	/********* CAREER *********/
+	{ path: '/cms/career/career-page', name: 'Career Page', element: CareerPageCMS },
+
+	/********* CONTACT INFO *********/
 	{ path: '/cms/contact-info', name: 'Contact Info', element: Modal },
 
 ]
