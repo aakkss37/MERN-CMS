@@ -58,8 +58,7 @@ const Page404 = React.lazy(() => import('./pages/page404/Page404'))
 const HomePageCMS = React.lazy(()=> import('./pages/CMS/Home/Home'))
 const PartnerModelCMS = React.lazy(()=> import('./pages/CMS/PartnerModel/PartnerModel'))
 const ContactUsPageCMS = React.lazy(()=> import('./pages/CMS/ContactUs/ContactUs'))
-const CareerPageCMS = React.lazy(()=> import('./pages/CMS/Career/CareerPage/Career'))
-const currentOpeningCMS = React.lazy(()=> import('./pages/CMS/Career/CurrentOpening/CurrentOpening'))
+const CareerPageCMS = React.lazy(()=> import('./pages/CMS/Career/Career'))
 const Modal = React.lazy(()=> import('./pages/CMS/ContactInfo/Modal'))
 
 
@@ -125,8 +124,7 @@ const routes = [
 	{ path: '/cms/contact-us', name: 'Contact Us', element: ContactUsPageCMS },
 
 	/********* CAREER *********/
-	{ path: '/cms/career/career-page', name: 'Career Page', element: CareerPageCMS },
-	{ path: '/cms/career/current-opening', name: 'Current Opening', element: currentOpeningCMS },
+	{ path: '/cms/career', name: 'Career Page', element: CareerPageCMS },
 
 	/********* CONTACT INFO *********/
 	{ path: '/cms/contact-info', name: 'Contact Info', element: Modal },
