@@ -11,6 +11,7 @@ import {
 	CModalHeader,
 	CModalTitle,
 	CModalFooter,
+	CModalBody,
 } from '@coreui/react'
 import QuillEditor from 'src/components/quill/Quill';
 
@@ -26,7 +27,7 @@ const modules = {
 	]
 };
 
-const Modal = ({ modalVisible, setModalVisible, data,}) => {
+const Modal = ({ modalVisible, setModalVisible, data, }) => {
 
 	const [selectedImage, setSelectedImage] = useState(null);
 	const handleFileChange = (e) => {
@@ -40,39 +41,42 @@ const Modal = ({ modalVisible, setModalVisible, data,}) => {
 				<CModalHeader>
 					<CModalTitle>{data.title}</CModalTitle>
 				</CModalHeader>
-				<div className='cms__career__life__modal____flex__containner'>
-					<div className='cms__career__life__modal__flex__item_left'>
-						<CForm>
-							<div>
-								<div className="mb-3">
-									<CFormLabel htmlFor="careerLifeAtAgileTitle">Title</CFormLabel>
-									<CFormInput
-										type="text"
-										id="careerLifeAtAgileTitle"
-										placeholder="Eg: Innovation"
-										value={data.title}
+
+				<CModalBody>
+					<div className='cms__career__life__modal____flex__containner'>
+						<div className='cms__career__life__modal__flex__item_left'>
+							<CForm>
+								<div>
+									<div className="mb-3">
+										<CFormLabel htmlFor="careerLifeAtAgileTitle">Title</CFormLabel>
+										<CFormInput
+											type="text"
+											id="careerLifeAtAgileTitle"
+											placeholder="Eg: Innovation"
+											value={data.title}
+										/>
+									</div>
+									{/* QUILL */}
+									<QuillEditor
+										modules={modules}
+										value={data.text}
+										className='career__life__at__agile'
+										text='Text'
 									/>
+									<div className="mb-3">
+										<CFormLabel htmlFor="formFile">Choose Banner Background</CFormLabel>
+										<CFormInput type="file" id="formFile" onChange={handleFileChange} />
+									</div>
 								</div>
-								{/* QUILL */}
-								<QuillEditor
-									modules={modules}
-									value={data.text}
-									className='career__life__at__agile'
-									text='Text'
-								/>
-								<div className="mb-3">
-									<CFormLabel htmlFor="formFile">Choose Banner Background</CFormLabel>
-									<CFormInput type="file" id="formFile" onChange={handleFileChange} />
-								</div>
-							</div>
 
 
-						</CForm>
+							</CForm>
+						</div>
+						<div className='cms__career__life__modal__flex__item_right'>
+							<img src={selectedImage ? selectedImage : data.img} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
+						</div>
 					</div>
-					<div className='cms__career__life__modal__flex__item_right'>
-						<img src={selectedImage ? selectedImage : data.img } alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />								
-					</div>
-				</div>
+				</CModalBody>
 				<CModalFooter>
 					<CButton color="secondary" onClick={() => setModalVisible(false)}>
 						Close

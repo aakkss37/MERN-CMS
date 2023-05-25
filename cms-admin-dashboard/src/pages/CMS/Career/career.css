@@ -153,6 +153,7 @@
 .cms__career__life__modal____flex__containner {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 	gap: 10px;
 	padding: 15px;
 }
@@ -171,4 +172,9 @@
 	/* border: 1px solid red; */
 	background-color: rgb(220, 221, 221);
 	border-radius: 5px;
+}
+@media only screen and (max-width: 991px) {
+	.cms__career__life__modal__flex__item_right {
+		width: 100%;
+	}
 }
