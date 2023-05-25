@@ -422,7 +422,7 @@ const _nav = [
 		component: CNavItem,
 		name: 'CAREER ',
 		icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
-		to: '/cms/career/career-page',
+		to: '/cms/career',
 	},
 	
 	{

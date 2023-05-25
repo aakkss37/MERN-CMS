@@ -71,13 +71,8 @@ function QuillEditor (props) {
 
 	const handleQuillChange = (content, delta, source, editor) => {
 		setCode(content);
-		console.log("content ===>", content)
-		console.log("delta ===>", delta)
-		console.log("source ===>", source)
-		console.log("editor===>", editor)
 	}
-
-	console.log("code ===>", code)
+	// console.log("quill code =====> ", code)
 
 	return (
 		<>

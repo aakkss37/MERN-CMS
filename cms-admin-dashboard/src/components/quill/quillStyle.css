@@ -102,4 +102,28 @@
 
 
 
+/* ! CAREER LIFE AT AGILE GLOBAL */
+.career__life__at__agile {
+	margin-bottom: 1rem;
+}
+
+.career__life__at__agile .ql-container {
+	border-bottom-left-radius: 0.5em;
+	border-bottom-right-radius: 0.5em;
+	/* background: #fefcfc; */
+}
+
+/* Snow Theme */
+.career__life__at__agile .ql-snow.ql-toolbar {
+	display: block;
+	background: #eaecec;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+}
+.career__life__at__agile .ql-editor {
+	min-height: 12em;
+}
+
+
+
 

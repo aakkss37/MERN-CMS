@@ -97,3 +97,78 @@
 		width: 100%;
 	}
 }
+
+
+
+/*  *//*  *//*  *//*  *//*  *//*  */
+/* * LIFE AT AGILE GLOBAL */
+/*  *//*  *//*  *//*  *//*  *//*  */
+
+.cms__career__life__flex__containner {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.cms__career__life__flex__item_left {
+	flex-grow: 1;
+	/* border: 1px solid red; */
+}
+
+.cms__career__life__flex__item_right {
+	width: 45%;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* border: 1px solid red; */
+	background-color: rgb(220, 221, 221);
+	border-radius: 5px;
+}
+
+
+.cms__career__life__add_button {
+	width: 20%;
+}
+
+
+@media only screen and (max-width: 768px) {
+	.cms__career__life__flex__containner {
+		flex-direction: column;
+	}
+
+	.cms__career__life__flex__item_right {
+		height: 300px;
+		width: 100%;
+		display: flex;
+	}
+
+	.cms__career__life__add_button {
+		width: 100%;
+		margin-top: 1rem;
+	}
+}
+
+
+.cms__career__life__modal____flex__containner {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 15px;
+}
+
+.cms__career__life__modal__flex__item_left {
+	flex-grow: 1;
+	/* border: 1px solid red; */
+}
+
+.cms__career__life__modal__flex__item_right {
+	width: 45%;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* border: 1px solid red; */
+	background-color: rgb(220, 221, 221);
+	border-radius: 5px;
+}
