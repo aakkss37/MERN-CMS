@@ -85,7 +85,7 @@ const LifeAtAgileGlobal = () => {
 					<div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "10px" }}>
 						{
 							cardDummyData?.map((item, index) => (
-								<CCard style={{ width: '15rem', margin: "15px", boxShadow: "0px 0px 9px 1px rgba(0,0,0,0.20)" }} key={index}>
+								<CCard className='cms__career__life__cards' key={index}>
 									<CCardImage orientation="top" src={item.img} />
 									<CCardBody>
 										<CCardTitle>{item.title}</CCardTitle>
