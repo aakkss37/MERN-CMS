@@ -108,7 +108,7 @@ const PerksAndBenifits = () => {
 							color="primary"
 							className='cms__career__life__add_button'
 						>
-							Add New Card
+							Add New Perks and Benifits
 						</CButton>
 					</CCardBody>
 				</CCard>

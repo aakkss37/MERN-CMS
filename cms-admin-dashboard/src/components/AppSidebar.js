@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux'
 
 // CSidebarToggler ==> use if Toguler is required
 import { CSidebar, CSidebarBrand, CSidebarNav } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
 
 import { AppSidebarNav } from './AppSidebarNav'
 
