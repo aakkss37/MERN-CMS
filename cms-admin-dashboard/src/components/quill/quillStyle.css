@@ -1,23 +1,20 @@
-
-
-
-/* ! HOME RECOGNITION STYLE */
-.home_recognition {
-	margin-bottom: 1rem ;
-}
-
-.home_recognition .ql-container {
+.ql-container {
 	border-bottom-left-radius: 0.5em;
 	border-bottom-right-radius: 0.5em;
 	/* background: #fefcfc; */
 }
 
-/* Snow Theme */
-.home_recognition .ql-snow.ql-toolbar {
+.ql-snow.ql-toolbar {
 	display: block;
 	background: #eaecec;
 	border-top-left-radius: 0.5em;
 	border-top-right-radius: 0.5em;
+}
+
+
+/* ! HOME RECOGNITION STYLE */
+.home_recognition {
+	margin-bottom: 1rem;
 }
 
 .home_recognition .ql-editor {
@@ -25,23 +22,10 @@
 }
 
 
+
 /* ! CONTACT US HEADQUATER STYLE */
 .contactus__headquater {
-	margin-bottom: 1rem ;
-}
-
-.contactus__headquater .ql-container {
-	border-bottom-left-radius: 0.5em;
-	border-bottom-right-radius: 0.5em;
-	/* background: #fefcfc; */
-}
-
-/* Snow Theme */
-.contactus__headquater .ql-snow.ql-toolbar {
-	display: block;
-	background: #eaecec;
-	border-top-left-radius: 0.5em;
-	border-top-right-radius: 0.5em;
+	margin-bottom: 1rem;
 }
 
 .contactus__headquater .ql-editor {
@@ -51,21 +35,7 @@
 
 /* ! PARTNER MODEL STYLE */
 .partner__model {
-	margin-bottom: 1rem ;
-}
-
-.partner__model .ql-container {
-	border-bottom-left-radius: 0.5em;
-	border-bottom-right-radius: 0.5em;
-	/* background: #fefcfc; */
-}
-
-/* Snow Theme */
-.partner__model .ql-snow.ql-toolbar {
-	display: block;
-	background: #eaecec;
-	border-top-left-radius: 0.5em;
-	border-top-right-radius: 0.5em;
+	margin-bottom: 1rem;
 }
 
 .partner__model .ql-editor {
@@ -76,54 +46,22 @@
 
 /* ! CAREER STYLE */
 .career__make__impact {
-	margin-bottom: 1rem ;
-}
-
-.career__make__impact .ql-container {
-	border-bottom-left-radius: 0.5em;
-	border-bottom-right-radius: 0.5em;
-	/* background: #fefcfc; */
-}
-
-/* Snow Theme */
-.career__make__impact .ql-snow.ql-toolbar {
-	display: block;
-	background: #eaecec;
-	border-top-left-radius: 0.5em;
-	border-top-right-radius: 0.5em;
+	margin-bottom: 1rem;
 }
 
 .career__make__impact .ql-editor {
 	min-height: 6em;
 }
+
 .career__make__impact__head .ql-editor {
 	min-height: 20em;
 }
-
-
 
 /* ! CAREER LIFE AT AGILE GLOBAL */
 .career__life__at__agile {
 	margin-bottom: 1rem;
 }
 
-.career__life__at__agile .ql-container {
-	border-bottom-left-radius: 0.5em;
-	border-bottom-right-radius: 0.5em;
-	/* background: #fefcfc; */
-}
-
-/* Snow Theme */
-.career__life__at__agile .ql-snow.ql-toolbar {
-	display: block;
-	background: #eaecec;
-	border-top-left-radius: 0.5em;
-	border-top-right-radius: 0.5em;
-}
 .career__life__at__agile .ql-editor {
 	min-height: 12em;
 }
-
-
-
-
