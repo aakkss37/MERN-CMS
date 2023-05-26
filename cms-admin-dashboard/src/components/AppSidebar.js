@@ -8,9 +8,7 @@ import CIcon from '@coreui/icons-react'
 
 import { AppSidebarNav } from './AppSidebarNav'
 
-import { logoNegative } from 'src/assets/brand/logo-negative'
-import { sygnet } from 'src/assets/brand/sygnet'
-
+import logo from '../assets/images/agileGlobalLogoWhite.png'
 import SimpleBar from 'simplebar-react'
 import 'simplebar/dist/simplebar.min.css'
 
@@ -32,8 +30,7 @@ const AppSidebar = () => {
 			}}
 		>
 			<CSidebarBrand className="d-none d-md-flex" to="/">
-				<CIcon className="sidebar-brand-full" icon={logoNegative} height={35} />
-				<CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
+				<img src={logo} alt='img' width={180} />
 			</CSidebarBrand>
 			<CSidebarNav>
 				<SimpleBar>
