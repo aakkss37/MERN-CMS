@@ -13,11 +13,8 @@ const app = express()
 
 
 // APP CONFIGURATION
-<<<<<<< HEAD
 app.use(cookieParser());
-=======
 app.use(cors());
->>>>>>> 6a29d4e5f3a66fe0929ceec8da1eb36056a8c1a1
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
