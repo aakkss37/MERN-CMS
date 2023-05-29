@@ -41,4 +41,8 @@ export const SERVICE_URL = {
 		url: '/login',
 		method: 'POST',
 	},
+	setHomePageBanner: {
+		url: '/home-page/banner/add-banner-data',
+		method: 'POST',
+	},
 }

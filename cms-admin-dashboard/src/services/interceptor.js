@@ -7,7 +7,7 @@ import { API_NOTIFICATION_MESSAGE, SERVICE_URL } from './configConst';
 const API_URL = 'http://localhost:8000';
 const axiosInstance = axios.create({ // axios.create --> You can create a new instance of axios with a custom config.
 	baseURL: API_URL,
-	timeout: 10000,
+	timeout: 15000,
 });
 
 

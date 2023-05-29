@@ -11,16 +11,22 @@ import {
 	CFormLabel,
 	CFormTextarea,
 	CButton,
+	CSpinner,
 } from '@coreui/react'
 
 const Banner = () => {
 
 	const [selectedImage, setSelectedImage] = useState(null);
+	const [showLoader, setShowLoader] = useState(false)
 
 	const handleFileChange = (e) => {
 		const file = e.target.files[0];
 		setSelectedImage(file);
 	};
+
+	const handleBannerUpdate = ()=> {
+		setShowLoader(true)
+	}
 
 	return (
 		<div>
@@ -66,12 +72,20 @@ const Banner = () => {
 								}
 							</div>
 						</div>
-						<CButton
-							color="primary"
-							className='cms__home__banner__save_button'
-						>
-							Save
-						</CButton>
+						{
+							showLoader ?
+								<CButton color="primary" className="px-4 cms__home__banner__save_button">
+									<CSpinner color="light" size="sm" />
+								</CButton>
+								:
+								<CButton
+									color="primary"
+									className='cms__home__banner__save_button'
+									onClick={handleBannerUpdate}
+								>
+									Save
+								</CButton>
+						}
 					</CCardBody>
 				</CCard>
 			</CCol>
