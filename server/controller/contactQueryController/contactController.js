@@ -1,24 +1,28 @@
+import catchAsyncError from "../../middleware/catchAsyncError.js";
 import ContactQuery from "../../model/ContectQuery/contectQuerySchema.js";
+import ErrorHandler from "../../utils/ErrorHandler.js";
 
 
 
 
-export const addContactQuery = async (request, response) => {
-	console.log(request.body)
-	try {
-		const updated = await ContactQuery.create(request.body)
-		response.status(200).json({ msg: "Banner Title Updated sucessfully.", data: updated });
-	} catch (error) {
-		response.status(500).json({ msg: "Error while Updating Title." });
-	}
-}
+export const addContactQuery = catchAsyncError(async (req, res, next) => {
+	const { fname, lname, email, phone, subject } = req.body;
+	const result = await ContactQuery.create({
+		firstName: fname,
+		lastName: lname,
+		email: email,
+		phone: phone,
+		subject: subject,
+	})
 
-export const getContactQuery = async (request, response) => {
-	console.log(request.body)
-	try {
-		const updated = await ContactQuery.find()
-		response.status(200).json({ msg: "Banner Title Updated sucessfully.", data: updated });
-	} catch (error) {
-		response.status(500).json({ msg: "Error while Updating Title." });
-	}
-}
+	if (!result) return (next(new ErrorHandler("something went wrong while creating contact data")));
+	res.status(200).json({ success: true, message: "data inserted successfully" });
+
+})
+
+export const getContactQuery = catchAsyncError(async (req, res, next) => {
+	const result = await ContactQuery.find();
+
+	if (!result) return next(new ErrorHandler("No query found", 404))
+	res.status(200).json({ success: true, data: result });
+})
