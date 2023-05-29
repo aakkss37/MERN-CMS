@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import axios from 'axios';
-import { API_NOTIFICATION_MESSAGE, SERVICE_URL } from '../constants/configConstant';
-import { getAccessToken, getType } from '../utils/commenUtils';
+import { API_NOTIFICATION_MESSAGE, SERVICE_URL } from './configConst';
+// import { getAccessToken, getType } from '../utils/commenUtils';
 
 
 const API_URL = 'http://localhost:8000';
@@ -15,13 +15,14 @@ const axiosInstance = axios.create({ // axios.create --> You can create a new in
 axiosInstance.interceptors.request.use(
 	(config) => {
 
-		if (config.TYPE.query) {
+		if (config?.TYPE?.query) {
 			config.url = config.url + "?post_id=" + config.TYPE.query
 		}
-		else if (config.TYPE.params) {
+		else if (config?.TYPE?.params) {
 			config.params = config.TYPE.params
 		}
-		console.log("config url ==>> ", config.url);
+
+		console.log("config  ==>> ", config);
 		return config;
 	},
 	(error) => {
@@ -33,7 +34,7 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
 	function (response) {
 		// Stop global loader here
-		// console.log("reasponce for api request ---> ", response)
+		console.log("reasponce for api request ---> ", response)
 		return processResponse(response);
 	},
 	function (error) {
@@ -47,7 +48,7 @@ axiosInstance.interceptors.response.use(
 
 const processResponse = (response) => {
 	// rasponce sucessful
-	if (response?.status === 200) {
+	if (response?.status >= 200) {
 		return {
 			isSuccess: true,
 			data: response.data
@@ -104,22 +105,22 @@ for (const [key, value] of Object.entries(SERVICE_URL)) {
 			method: value.method,
 			data: body,
 			responseType: value.responceType,
-			headers: {
-				authorization: getAccessToken()
-			},
-			TYPE: getType(value, body),
-			onUploadProgress: (ProgressEvent) => {
-				if (showUploadProgress) {
-					let percentComplete = Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total);
-					showUploadProgress(percentComplete);
-				}
-			},
-			onDownloadProgress: (ProgressEvent) => {
-				if (showDownloadProgress) {
-					let percentComplete = Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total);
-					showDownloadProgress(percentComplete)
-				}
-			}
+			// headers: {
+			// 	authorization: getAccessToken()
+			// },
+			// TYPE: getType(value, body),
+			// onUploadProgress: (ProgressEvent) => {
+			// 	if (showUploadProgress) {
+			// 		let percentComplete = Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total);
+			// 		showUploadProgress(percentComplete);
+			// 	}
+			// },
+			// onDownloadProgress: (ProgressEvent) => {
+			// 	if (showDownloadProgress) {
+			// 		let percentComplete = Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total);
+			// 		showDownloadProgress(percentComplete)
+			// 	}
+			// }
 		})
 	}
 }

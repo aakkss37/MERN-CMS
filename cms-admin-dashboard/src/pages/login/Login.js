@@ -13,36 +13,42 @@ import {
 	CInputGroup,
 	CInputGroupText,
 	CRow,
+	CSpinner,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
-import axios from "axios";
 import { AuthContext } from 'src/context/authDataprovider'
+import { API } from 'src/services/interceptor'
 
 const initialInput = {
 	password: "123456789",
 	email: "test@email.com",
 }
 
+
 const Login = () => {
 	const navigate = useNavigate()  //--> to rediract to specified page
 	const [userInput, setUserInput] = useState(initialInput)
+	const [showLoader, setShowLoader] = useState(false)
 
 	// login handling
 	const { setUser } = useContext(AuthContext)
 
 	const handleLogin = async () => {
 		console.log("login ----> ")
+		setShowLoader(true)
 		try {
-			const resp = await axios.post("http://localhost:8000/login", userInput) 
+			const resp = await API.userLogin(userInput)
 			console.log(resp)
-			
+
 			if (resp.data.success) {
 				setUser(resp.data)
 				navigate('/dashboard')
 			}
+			setShowLoader(false)
 		} catch (error) {
-			console.log(error.message)
+			setShowLoader(false)
+			console.log(error)
 		}
 	}
 
@@ -107,9 +113,20 @@ const Login = () => {
 										</CInputGroup>
 										<CRow>
 											<CCol xs={6}>
-												<CButton color="primary" className="px-4" onClick={handleLogin}>
-													Login
-												</CButton>
+												{
+													showLoader ?
+														<CButton color="primary" className="px-4" >
+															<CSpinner color="light" size="sm" />
+														</CButton>
+														:
+														<CButton
+															color="primary"
+															className="px-4"
+															onClick={handleLogin}
+														>
+															Login
+														</CButton>
+												}
 											</CCol>
 											<CCol xs={6} className="text-right">
 												<CButton color="link" className="px-0">
@@ -120,7 +137,7 @@ const Login = () => {
 									</CForm>
 								</CCardBody>
 							</CCard>
-							
+
 						</CCardGroup>
 					</CCol>
 				</CRow>
