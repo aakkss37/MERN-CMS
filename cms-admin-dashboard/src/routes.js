@@ -35,7 +35,6 @@ const Layout = React.lazy(() => import('./views/forms/layout/Layout'))
 const Range = React.lazy(() => import('./views/forms/range/Range'))
 const Select = React.lazy(() => import('./views/forms/select/Select'))
 const Validation = React.lazy(() => import('./views/forms/validation/Validation'))
-
 const Charts = React.lazy(() => import('./views/charts/Charts'))
 
 // Icons
@@ -52,7 +51,18 @@ const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 // Page not found
-const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
+const Page404 = React.lazy(() => import('./pages/page404/Page404'))
+
+
+// CMS Items
+const HomePageCMS = React.lazy(()=> import('./pages/CMS/Home/Home'))
+const HomeDriverPageCMS = React.lazy(()=> import('./pages/CMS/Home/Drivers/Drivers'))
+const HomeServicesPageCMS = React.lazy(()=> import('./pages/CMS/Home/Services/Services'))
+const PartnerModelCMS = React.lazy(()=> import('./pages/CMS/PartnerModel/PartnerModel'))
+const ContactUsPageCMS = React.lazy(()=> import('./pages/CMS/ContactUs/ContactUs'))
+const CareerPageCMS = React.lazy(()=> import('./pages/CMS/Career/Career'))
+const Modal = React.lazy(()=> import('./pages/CMS/ContactInfo/Modal'))
+
 
 const routes = [
 	{ path: '/', exact: true, name: 'Home' },
@@ -100,6 +110,29 @@ const routes = [
 	{ path: '/notifications/toasts', name: 'Toasts', element: Toasts },
 	{ path: '/widgets', name: 'Widgets', element: Widgets },
 	{ path: '*', name: 'Not Found', element: Page404 },
+	
+	// CMS ROUTES
+
+	/********* HOME *********/
+	{ path: '/cms/home', name: 'Home', element: HomePageCMS },
+	{ path: '/cms/home/drivers', name: 'Driver', element: HomeDriverPageCMS },
+	{ path: '/cms/home/services', name: 'Services', element: HomeServicesPageCMS },
+
+	/********* SOLUTION *********/
+
+
+	/********* PARTNER MODEL *********/
+	{ path: '/cms/partner-model', name: 'partner Model', element: PartnerModelCMS },
+
+	/********* CONTACT US *********/
+	{ path: '/cms/contact-us', name: 'Contact Us', element: ContactUsPageCMS },
+
+	/********* CAREER *********/
+	{ path: '/cms/career', name: 'Career Page', element: CareerPageCMS },
+
+	/********* CONTACT INFO *********/
+	{ path: '/cms/contact-info', name: 'Contact Info', element: Modal },
+
 ]
 
 export default routes

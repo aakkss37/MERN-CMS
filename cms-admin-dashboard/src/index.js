@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import 'react-app-polyfill/stable'
 import 'core-js'
 import React from 'react'
@@ -8,9 +9,9 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+	<Provider store={store}>
+		<App />
+	</Provider>,
 )
 
 // If you want to start measuring performance in your app, pass a function

@@ -7,6 +7,7 @@ import crypto from 'crypto';
 
 
 export const createUser = catchAsyncError(async (req, res, next) => {
+	console.log(req.body)
     try {
         const { username, email, password } = req.body;
 
@@ -37,6 +38,7 @@ export const createUser = catchAsyncError(async (req, res, next) => {
 
 export const loginUser = catchAsyncError(async (req, res, next) => {
     const { email, password } = req.body;
+	console.log(req.body)
     if (!email || !password) {
         return next(new ErrorHandler("Please Enter your email and password", 400));
     }

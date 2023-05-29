@@ -7,10 +7,11 @@ import {AuthContext}  from '../context/authDataprovider.js'
 // validate used login  
 const PrivateRoute = () => {
 	
-	const { isUserValid } = useContext(AuthContext)
+	const { user } = useContext(AuthContext)
+	
 
 	return (
-		isUserValid
+		user.success
 			?
 			<>
 				<Outlet />

@@ -1,4 +1,4 @@
-import AppBreadcrumb from './AppBreadcrumb'
+/* eslint-disable prettier/prettier */
 import AppContent from './AppContent'
 import AppFooter from './AppFooter'
 import AppHeader from './AppHeader'
@@ -9,13 +9,12 @@ import DocsLink from './DocsLink'
 import DocsExample from './DocsExample'
 
 export {
-  AppBreadcrumb,
-  AppContent,
-  AppFooter,
-  AppHeader,
-  AppHeaderDropdown,
-  AppSidebar,
-  DocsCallout,
-  DocsLink,
-  DocsExample,
+	AppContent,
+	AppFooter,
+	AppHeader,
+	AppHeaderDropdown,
+	AppSidebar,
+	DocsCallout,
+	DocsLink,
+	DocsExample,
 }
