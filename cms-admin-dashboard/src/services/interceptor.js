@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import axios from 'axios';
 import { API_NOTIFICATION_MESSAGE, SERVICE_URL } from './configConst';
-// import { getAccessToken, getType } from '../utils/commenUtils';
+import { getAccessToken, getType } from '../utils/commonUtils';
 
 
 const API_URL = 'http://localhost:8000';
@@ -22,7 +22,7 @@ axiosInstance.interceptors.request.use(
 			config.params = config.TYPE.params
 		}
 
-		console.log("config  ==>> ", config);
+		// console.log("config  ==>> ", config);
 		return config;
 	},
 	(error) => {
@@ -100,14 +100,15 @@ export const API = {};
 
 for (const [key, value] of Object.entries(SERVICE_URL)) {
 	API[key] = (body, showUploadProgress, showDownloadProgress) => {  
+		// console.log("*******************************",getAccessToken())
 		return axiosInstance({
 			url: value.url,
 			method: value.method,
 			data: body,
 			responseType: value.responceType,
-			// headers: {
-			// 	authorization: getAccessToken()
-			// },
+			headers: {
+				authorization: getAccessToken()
+			},
 			// TYPE: getType(value, body),
 			// onUploadProgress: (ProgressEvent) => {
 			// 	if (showUploadProgress) {

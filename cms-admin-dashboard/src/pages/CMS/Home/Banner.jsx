@@ -13,19 +13,48 @@ import {
 	CButton,
 	CSpinner,
 } from '@coreui/react'
-
+import { API } from 'src/services/interceptor'
+const initialBannerData = {
+	title: "",
+	text: "",
+	bannerImg: "",
+}
 const Banner = () => {
-
-	const [selectedImage, setSelectedImage] = useState(null);
+	const [bannerData, setBannerData] = useState(initialBannerData)
 	const [showLoader, setShowLoader] = useState(false)
+
 
 	const handleFileChange = (e) => {
 		const file = e.target.files[0];
-		setSelectedImage(file);
+		console.log(file)
+		setBannerData((prevData) => (
+			{
+				...prevData,
+				bannerImg: file
+			}
+		))
 	};
+	console.log("current banner",bannerData)
+	const handleBannerUpdate = async()=> {
+		// console.log("Banner Data====> ",bannerData)
+		if (bannerData.title && bannerData.text && bannerData.bannerImg) {
+			setShowLoader(false)
+			try {
+				const resp = await API.setHomePageBanner(bannerData)
+				console.log(resp)
+			} catch (error) {
+				console.log(error)
+			}
+		}
+	}
 
-	const handleBannerUpdate = ()=> {
-		setShowLoader(true)
+	const handleBannerDataChange = (e)=> {
+		setBannerData((prevData)=> (
+			{
+				...prevData,
+				[e.target.name] : e.target.value
+			}
+		))
 	}
 
 	return (
@@ -40,17 +69,26 @@ const Banner = () => {
 							<div className='cms__home__banner__flex__item_left'>
 								<CForm>
 									<div className="mb-3">
-										<CFormLabel htmlFor="homeBannerTitle">Banner Title</CFormLabel>
+										<CFormLabel htmlFor="homeBannerTitle">Banner Title <b style={{fontSize: "10px"}}>(Uppercase recomended)</b></CFormLabel>
 										<CFormInput
 											type="text"
 											id="homeBannerTitle"
 											placeholder="Eg: Innovation"
+											name='title'
+											value={bannerData?.title}
+											onChange={handleBannerDataChange}
 										/>
 									</div>
 									<br />
 									<div className="mb-3">
 										<CFormLabel htmlFor="homeBannerTitle">Banner Text</CFormLabel>
-										<CFormTextarea id="homeBannerTitle" rows="3"></CFormTextarea>
+										<CFormTextarea 
+											id="homeBannerTitle" 
+											rows="3"
+											name='text'
+											value={bannerData?.text}
+											onChange={handleBannerDataChange}
+										/>
 									</div>
 									<br />
 									<div className="mb-3">
@@ -63,8 +101,8 @@ const Banner = () => {
 							</div>
 							<div className='cms__home__banner__flex__item_right'>
 								{
-									selectedImage ?
-										<img src={URL.createObjectURL(selectedImage)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
+									bannerData?.bannerImg ?
+										<img src={URL.createObjectURL(bannerData?.bannerImg)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
 										:
 										<span>
 											No File Chosen
@@ -74,7 +112,7 @@ const Banner = () => {
 						</div>
 						{
 							showLoader ?
-								<CButton color="primary" className="px-4 cms__home__banner__save_button">
+								<CButton color="primary" className="px-4 cms__home__banner__save_button" >
 									<CSpinner color="light" size="sm" />
 								</CButton>
 								:

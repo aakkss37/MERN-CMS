@@ -43,6 +43,7 @@ const Login = () => {
 
 			if (resp.data.success) {
 				setUser(resp.data)
+				localStorage.setItem('accessToken', `Bearer ${resp.data.token}`)	
 				navigate('/dashboard')
 			}
 			setShowLoader(false)
