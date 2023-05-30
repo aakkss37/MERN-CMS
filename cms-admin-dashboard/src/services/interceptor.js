@@ -99,7 +99,7 @@ const processError = (error) => {
 export const API = {};
 
 for (const [key, value] of Object.entries(SERVICE_URL)) {
-	API[key] = (body, showUploadProgress, showDownloadProgress) => {  
+	API[key] = (body, headers) => {  
 		// console.log("*******************************",getAccessToken())
 		return axiosInstance({
 			url: value.url,
@@ -107,23 +107,11 @@ for (const [key, value] of Object.entries(SERVICE_URL)) {
 			data: body,
 			responseType: value.responceType,
 			headers: {
-				authorization: getAccessToken()
+				authorization: getAccessToken(),
+				...headers,
 			},
 			// TYPE: getType(value, body),
-			// onUploadProgress: (ProgressEvent) => {
-			// 	if (showUploadProgress) {
-			// 		let percentComplete = Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total);
-			// 		showUploadProgress(percentComplete);
-			// 	}
-			// },
-			// onDownloadProgress: (ProgressEvent) => {
-			// 	if (showDownloadProgress) {
-			// 		let percentComplete = Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total);
-			// 		showDownloadProgress(percentComplete)
-			// 	}
-			// }
 		})
 	}
 }
 
-// console.log(API)

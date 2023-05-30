@@ -22,25 +22,41 @@ const initialBannerData = {
 const Banner = () => {
 	const [bannerData, setBannerData] = useState(initialBannerData)
 	const [showLoader, setShowLoader] = useState(false)
+	// const [imgFile, setImgFile] = useState("")
 
 
-	const handleFileChange = (e) => {
-		const file = e.target.files[0];
-		console.log(file)
+	const handleFileChange = (file) => {
+		console.log("***************************",file)
+		
+
+		// console.log("img data******** ==> ", data)
+
 		setBannerData((prevData) => (
 			{
 				...prevData,
 				bannerImg: file
 			}
 		))
+
 	};
 	console.log("current banner",bannerData)
+
 	const handleBannerUpdate = async()=> {
-		// console.log("Banner Data====> ",bannerData)
+		console.log("Banner Data====> ",bannerData)
+		// for (var pair of bannerData.bannerImg.entries()) {
+		// 	console.log(pair[0] + ', ' + pair[1]);
+		// }
+		let data = new FormData();
+		console.log("img data ==> ", data)
+		// data.append("filename", file.name);
+		data.append("file", bannerData.bannerImg);
+		data.append("title", bannerData.title);
+		data.append("text", bannerData.text);
+
 		if (bannerData.title && bannerData.text && bannerData.bannerImg) {
 			setShowLoader(false)
 			try {
-				const resp = await API.setHomePageBanner(bannerData)
+				const resp = await API.setHomePageBanner(data, { 'Content-Type': 'multipart/form-data'})
 				console.log(resp)
 			} catch (error) {
 				console.log(error)
@@ -93,7 +109,7 @@ const Banner = () => {
 									<br />
 									<div className="mb-3">
 										<CFormLabel htmlFor="formFile">Choose Banner Background</CFormLabel>
-										<CFormInput type="file" id="formFile" onChange={handleFileChange} />
+										<CFormInput type="file" id="formFile" onChange={(e) => handleFileChange(e.target.files[0])} />
 									</div>
 
 
@@ -101,7 +117,7 @@ const Banner = () => {
 							</div>
 							<div className='cms__home__banner__flex__item_right'>
 								{
-									bannerData?.bannerImg ?
+									bannerData?.bannerImg.length ?
 										<img src={URL.createObjectURL(bannerData?.bannerImg)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
 										:
 										<span>

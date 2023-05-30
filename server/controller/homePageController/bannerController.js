@@ -14,8 +14,8 @@ export const getBannerData = catchAsyncError(async (req, res, next) => {
 
 export const addBannerData = catchAsyncError(async (req, res, next) => {
 	console.log("runnnnnnnnnnnn")
-	console.log(req.file, "******************from controller")
-	console.log(req.body)
+	console.log("body ====>? ",req.body)
+	console.log("body file ====>? ",req.file)
 	if (!req.file) {
 		return next(new ErrorHandler("file not found", 404));
 	}

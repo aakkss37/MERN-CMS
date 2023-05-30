@@ -4,12 +4,35 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import ErrorHandler from './middleware/error.js';
 import cookieParser from 'cookie-parser';
-
+import swaggerJsdoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express'
 
 dotenv.config();
 
 // EXPRESS INITIALIZATION
 const app = express()
+
+// Swagger configuration
+const swaggerOptions = {
+	swaggerDefinition: {
+		openapi: '3.0.0', // Update to OpenAPI 3.0.0 version
+		info: {
+			title: 'Swagger Demo API',
+			description: 'A sample API for demonstrating Swagger',
+			version: '1.0.0',
+		},
+		servers: [
+			{
+				url: 'http://localhost:8000', // Update the server URL
+				description: 'Local server',
+			},
+		],
+	},
+	apis: ['./router/router.js'], // Specify the file that contains your API routes
+};
+
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
 // APP CONFIGURATION
