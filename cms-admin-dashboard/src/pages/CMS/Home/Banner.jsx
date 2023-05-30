@@ -14,6 +14,7 @@ import {
 	CSpinner,
 } from '@coreui/react'
 import { API } from 'src/services/interceptor'
+import Warning from 'src/components/Popups/Warning/Warning'
 const initialBannerData = {
 	title: "",
 	text: "",
@@ -22,6 +23,7 @@ const initialBannerData = {
 const Banner = () => {
 	const [bannerData, setBannerData] = useState(initialBannerData)
 	const [showLoader, setShowLoader] = useState(false)
+	const [warning, setWarning] = useState(false)
 
 	useEffect(() => {
 		const getBannerData = async()=>{
@@ -54,8 +56,8 @@ const Banner = () => {
 
 	const handleBannerUpdate = async () => {
 		console.log("Banner Data====> ", bannerData)
-		setShowLoader(true)
 		if (bannerData.title && bannerData.text && bannerData.bannerImg) {
+			setShowLoader(true)
 
 			let data = new FormData();
 			console.log("img data ==> ", data)
@@ -75,6 +77,11 @@ const Banner = () => {
 				setShowLoader(false)
 				console.log(error)
 			}
+		}else{
+			setWarning(true)
+			setTimeout(()=> {
+				setWarning(false)
+			}, 5000)
 		}
 
 	}
@@ -92,6 +99,9 @@ const Banner = () => {
 
 	return (
 		<div>
+			{
+				warning && <Warning warningText="Fiels should not be empty!" />
+			}
 			<CCol xs={12}>
 				<CCard className="mb-4">
 					<CCardHeader>
