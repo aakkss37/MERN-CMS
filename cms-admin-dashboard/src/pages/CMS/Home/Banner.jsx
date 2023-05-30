@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Home.css'
 import {
 	CCol,
@@ -22,15 +22,26 @@ const initialBannerData = {
 const Banner = () => {
 	const [bannerData, setBannerData] = useState(initialBannerData)
 	const [showLoader, setShowLoader] = useState(false)
-	// const [imgFile, setImgFile] = useState("")
 
+	useEffect(() => {
+		const getBannerData = async()=>{
+			try {
+				const {data} = await API.getHomePageBanner()
+				console.log(data)
+				setBannerData({
+					title: data.title,
+					text: data.text,
+					bannerImg: data.bannerImg,
+				})
+			} catch (error) {
+				console.log(error.message)
+			}
+		}
+		getBannerData()
+	}, []);
 
 	const handleFileChange = (file) => {
-		console.log("***************************",file)
-		
-
-		// console.log("img data******** ==> ", data)
-
+		// console.log("***************************", file)
 		setBannerData((prevData) => (
 			{
 				...prevData,
@@ -39,36 +50,42 @@ const Banner = () => {
 		))
 
 	};
-	console.log("current banner",bannerData)
+	// console.log("current banner", bannerData)
 
-	const handleBannerUpdate = async()=> {
-		console.log("Banner Data====> ",bannerData)
-		// for (var pair of bannerData.bannerImg.entries()) {
-		// 	console.log(pair[0] + ', ' + pair[1]);
-		// }
-		let data = new FormData();
-		console.log("img data ==> ", data)
-		// data.append("filename", file.name);
-		data.append("file", bannerData.bannerImg);
-		data.append("title", bannerData.title);
-		data.append("text", bannerData.text);
-
+	const handleBannerUpdate = async () => {
+		console.log("Banner Data====> ", bannerData)
+		setShowLoader(true)
 		if (bannerData.title && bannerData.text && bannerData.bannerImg) {
-			setShowLoader(false)
+
+			let data = new FormData();
+			console.log("img data ==> ", data)
+			// data.append("filename", file.name);
+			data.append("file", bannerData.bannerImg);
+			data.append("title", bannerData.title);
+			data.append("text", bannerData.text);
+			// to print FormData ===> 
+			// for (var pair of data.entries()) {
+				// 	console.log(pair[0] + ', ' + pair[1]);
+				// }
 			try {
-				const resp = await API.setHomePageBanner(data, { 'Content-Type': 'multipart/form-data'})
+				const resp = await API.setHomePageBanner(data, { 'Content-Type': 'multipart/form-data' })
 				console.log(resp)
+				setShowLoader(false)
 			} catch (error) {
+				setShowLoader(false)
 				console.log(error)
 			}
 		}
-	}
 
-	const handleBannerDataChange = (e)=> {
-		setBannerData((prevData)=> (
+	}
+	// console.log("typeof (bannerData.bannerImg) =====>>>>> ", typeof (bannerData.bannerImg))
+	// console.log("typeof (bannerData.bannerImg) is string =====>>>>> ", typeof (bannerData?.bannerImg) == typeof("string"))
+
+	const handleBannerDataChange = (e) => {
+		setBannerData((prevData) => (
 			{
 				...prevData,
-				[e.target.name] : e.target.value
+				[e.target.name]: e.target.value
 			}
 		))
 	}
@@ -85,7 +102,7 @@ const Banner = () => {
 							<div className='cms__home__banner__flex__item_left'>
 								<CForm>
 									<div className="mb-3">
-										<CFormLabel htmlFor="homeBannerTitle">Banner Title <b style={{fontSize: "10px"}}>(Uppercase recomended)</b></CFormLabel>
+										<CFormLabel htmlFor="homeBannerTitle">Banner Title <b style={{ fontSize: "10px" }}>(Uppercase recomended)</b></CFormLabel>
 										<CFormInput
 											type="text"
 											id="homeBannerTitle"
@@ -98,8 +115,8 @@ const Banner = () => {
 									<br />
 									<div className="mb-3">
 										<CFormLabel htmlFor="homeBannerTitle">Banner Text</CFormLabel>
-										<CFormTextarea 
-											id="homeBannerTitle" 
+										<CFormTextarea
+											id="homeBannerTitle"
 											rows="3"
 											name='text'
 											value={bannerData?.text}
@@ -117,8 +134,8 @@ const Banner = () => {
 							</div>
 							<div className='cms__home__banner__flex__item_right'>
 								{
-									bannerData?.bannerImg.length ?
-										<img src={URL.createObjectURL(bannerData?.bannerImg)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
+									bannerData?.bannerImg ?
+										<img src={typeof (bannerData?.bannerImg) == typeof("string") ? bannerData?.bannerImg : URL.createObjectURL(bannerData?.bannerImg)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
 										:
 										<span>
 											No File Chosen

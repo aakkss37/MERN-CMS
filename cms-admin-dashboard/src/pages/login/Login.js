@@ -35,11 +35,11 @@ const Login = () => {
 	const { setUser } = useContext(AuthContext)
 
 	const handleLogin = async () => {
-		console.log("login ----> ")
+		// console.log("login ----> ")
 		setShowLoader(true)
 		try {
 			const resp = await API.userLogin(userInput)
-			console.log(resp)
+			// console.log(resp)
 
 			if (resp.data.success) {
 				setUser(resp.data)

@@ -34,7 +34,7 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
 	function (response) {
 		// Stop global loader here
-		console.log("reasponce for api request ---> ", response)
+		// console.log("reasponce for api request ---> ", response)
 		return processResponse(response);
 	},
 	function (error) {
