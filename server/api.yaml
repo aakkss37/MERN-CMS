@@ -1,0 +1,57 @@
+swagger: "2.0"
+info:
+  title: This is swagger ui document
+  servers:
+    -url: "http://localhost:8000/"
+
+schemes: [http, https]
+
+paths:
+  # For getting banner data
+  /home-page/get-banner-data:
+    get:
+      summary: Returns an object
+      description: it is for fetching banner data
+      responses:
+        200:
+          description: Success
+        404:
+          description: Can't get banner data
+
+  # For adding banner
+  /home-page/banner/add-banner-data:
+    post:
+      summary: Add banner data
+      description: Add banner data with title, text, and file
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: title
+          in: formData
+          description: Title of the banner
+          required: true
+          type: string
+        - name: text
+          in: formData
+          description: Text of the banner
+          required: true
+          type: string
+        - name: file
+          in: formData
+          description: File attachment
+          required: true
+          type: file
+        - name: authorization
+          in: header
+          description: Token of user
+          required: true
+          type: string
+      responses:
+        201:
+          description: Banner data added successfully
+        401:
+          description: Unauthorized - user not authenticated
+        404:
+          description: File not found

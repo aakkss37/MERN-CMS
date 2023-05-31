@@ -6,22 +6,17 @@ const url = 'http://localhost:8000';
 
 export const addRecognitionAwardsData = catchAsyncError(async (req, res, next) => {
 
-    const titles = req.body.titles;
-    const texts = req.body.texts;
-    const files = req.files;
+    const title = req.body.title;
+    const text = req.body.text;
+    const file = req.file;
 
-    if (!files) return next(new ErrorHandler("file not found", 404));
+    if (!file) return next(new ErrorHandler("file not found", 404));
 
-    await recognitionData.deleteMany({});
-
-    titles.map(async (title, index) => {
-        const text = texts[index];
-        const imgUrl = `${url}/file/${files[index].filename}`
-        await recognitionData.create({
-            title: title,
-            text: text,
-            img: imgUrl
-        })
+    const imgUrl = `${url}/file/${file.filename}`
+    await recognitionData.create({
+        title: title,
+        text: text,
+        img: imgUrl
     })
 
     res.status(200).json({
@@ -29,3 +24,49 @@ export const addRecognitionAwardsData = catchAsyncError(async (req, res, next) =
         mesage: 'data inserted successfully'
     })
 })
+
+export const getRecognitionAwardsData = catchAsyncError(async (req, res, next) => {
+    const result = await recognitionData.find();
+    res.status(200).json({
+        success: true,
+        data: result
+    })
+})
+
+export const updateRecognitionAwardsData = catchAsyncError(async (req, res, next) => {
+    const { id, text, title } = req.body;
+    const file = req.file;
+
+    if (!file) return next(new ErrorHandler("file not found", 404));
+
+    const imgUrl = `${url}/file/${file.filename}`
+
+    const data = await recognitionData.findById(id);
+
+    if (!data) return next(new ErrorHandler("Data not found with this id", 404));
+
+    data.text = text;
+    data.title = title;
+    data.img = imgUrl;
+
+    await data.save();
+
+    res.status(201).json({
+        success: true,
+        message: 'data updated successfully'
+    })
+})
+
+export const deleteRecognitioinAwardsData = catchAsyncError(async (req, res, next) => {
+    const { id } = req.body;
+
+    const data = await recognitionData.findByIdAndDelete(id);
+
+    if (!data) return next(new ErrorHandler("Data not found with this id", 404));
+
+    res.status(201).json({
+        success: true,
+        message: "data deleted successfully"
+    })
+})
+

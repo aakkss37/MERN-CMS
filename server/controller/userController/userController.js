@@ -7,7 +7,7 @@ import crypto from 'crypto';
 
 
 export const createUser = catchAsyncError(async (req, res, next) => {
-	console.log(req.body)
+    console.log(req.body)
     try {
         const { username, email, password } = req.body;
 
@@ -38,7 +38,7 @@ export const createUser = catchAsyncError(async (req, res, next) => {
 
 export const loginUser = catchAsyncError(async (req, res, next) => {
     const { email, password } = req.body;
-	console.log(req.body)
+    console.log(req.body)
     if (!email || !password) {
         return next(new ErrorHandler("Please Enter your email and password", 400));
     }
@@ -55,19 +55,6 @@ export const loginUser = catchAsyncError(async (req, res, next) => {
     }
     sendToken(user, 200, res);
 });
-
-// Log out user
-
-export const logoutUser = catchAsyncError(async (req, res, next) => {
-    res.cookie("token", null, {
-        expires: new Date(Date.now()),
-        httpOnly: true
-    });
-    res.status(200).json({
-        success: true,
-        message: "Log out success"
-    })
-})
 
 // Forgot password
 

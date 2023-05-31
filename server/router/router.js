@@ -4,9 +4,9 @@ import uploadFile from "../utils/uploadFile.js";
 import { getImage } from "../controller/imageController/imageController.js";
 import { addOverviewCard, getOverviewCardData, getOverviewText, updateOverviewCards, updateOverviewText } from "../controller/homePageController/overviewController.js";
 import { addContactQuery, getContactQuery } from "../controller/contactQueryController/contactController.js";
-import { createUser, forgotPassword, loginUser, logoutUser, resetPassword } from "../controller/userController/userController.js";
+import { createUser, forgotPassword, loginUser, resetPassword } from "../controller/userController/userController.js";
 import { addPartners } from "../controller/partnerController/partnerController.js";
-import { addRecognitionAwardsData } from "../controller/homePageController/recognitionAwardsController.js";
+import { addRecognitionAwardsData, deleteRecognitioinAwardsData, getRecognitionAwardsData, updateRecognitionAwardsData } from "../controller/homePageController/recognitionAwardsController.js";
 import { addCareerBannerData } from "../controller/careerPageController/bannerController.js";
 import { addCareerImpactData } from "../controller/careerPageController/impactController.js";
 import { isAuthenticatedUser } from "../middleware/auth.js";
@@ -16,53 +16,20 @@ const router = express.Router();
 router.get('/file/:filename', getImage);
 
 // BANNER 
-/**
- * @swagger
- * /home-page/get-banner-data:
- *   get:
- *     summary: This api is used to fetch bannerdata
- *     description: This api is used to fetch bannerdata
- *     responses:
- *       200:
- *         description: A successful response
- */
-router.get('/home-page/get-banner-data', getBannerData)
 
-/**
- * @swagger
- * /home-page/banner/add-banner-data:
- *   post:
- *     summary: Add banner data
- *     description: Add banner data with title, text, and file
- *     requestBody:
- *       required: true
- *       content:
- *         multipart/form-data:
- *           schema:
- *             type: object
- *             properties:
- *               title:
- *                 type: string
- *               text:
- *                 type: string
- *               file:
- *                 type: string
- *                 format: binary
- *     responses:
- *       201:
- *         description: Banner data added successfully
- *       401:
- *         description: Unauthorized - user not authenticated
- *       404:
- *         description: file not found
- */
+router.get('/home-page/get-banner-data', getBannerData)
 router.post('/home-page/banner/add-banner-data', isAuthenticatedUser, uploadFile.single('file'), addBannerData);
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> f32312bddcc365875c1f63fc1baf04ad90d6b341
 // recognition and awards Route
 
-router.post('/home-page/add-recognition-data', isAuthenticatedUser, uploadFile.array('files'), addRecognitionAwardsData);
-
+router.post('/home-page/add-recognition-data', isAuthenticatedUser, uploadFile.single('file'), addRecognitionAwardsData);
+router.get('/home-page/get-recognition-data', getRecognitionAwardsData);
+router.put('/home-page/update-recognition-data', isAuthenticatedUser, uploadFile.single('file'), updateRecognitionAwardsData);
+router.post('/home-page/delete-recognitioin-data', isAuthenticatedUser, deleteRecognitioinAwardsData);
 
 /* COMPANY OVERVIEW */
 router.post('/home-page/overView/update/overViewText', isAuthenticatedUser, updateOverviewText);
@@ -108,9 +75,8 @@ router.get('/contact-page/add-query/get', getContactQuery);
  *                 type: string
  *               email:
  *                 type: string
- *               file:
+ *               password:
  *                 type: string
- *                 format: binary
  *     responses:
  *       201:
  *         description: Banner data added successfully
@@ -123,20 +89,96 @@ router.get('/contact-page/add-query/get', getContactQuery);
 router.post("/registration", createUser);           // register user
 
 
+/**
+ * @swagger
+ * /login:
+ *   post:
+ *     summary: login user
+ *     description: This api is for login.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: user logged in successfully
+ *       401:
+ *         description: something went wrong
+ *       404:
+ *         description: user not found
+ */
+
+
 router.post("/login", loginUser);                   // login user
+
 
 /**
  * @swagger
- * /logout:
- *   get:
- *     summary: This api is used for logging out
- *     description: This api is used for logging out
+ * /password/forgot:
+ *   post:
+ *     summary: forgot password
+ *     description: This api is for forgot password.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
  *     responses:
  *       200:
- *         description: A successful response
+ *         description: email send successfully
+ *       404:
+ *         description: user not found
  */
-router.get("/logout", logoutUser);                 // log out user
+
 router.post("/password/forgot", forgotPassword);    // Forgot password
+
+/**
+ * @swagger
+ * /password/reset/{token}:
+ *   put:
+ *     summary: Reset password
+ *     description: Reset the password for a user with the provided token
+ *     parameters:
+ *       - in: path
+ *         name: token
+ *         required: true
+ *         description: The token of the user to reset the password
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               password:
+ *                 type: string
+ *               confirmPassword:
+ *                 type: string
+ *             required:
+ *               - password
+ *               - confirmPassword
+ *     responses:
+ *       200:
+ *         description: Password reset successfully
+ *       400:
+ *         description: Bad request - missing or invalid fields
+ *       500:
+ *         description: Internal server error
+ */
+
 router.put("/password/reset/:token", resetPassword); // reset password
 
 // Partners Routes

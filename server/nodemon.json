@@ -1,0 +1,7 @@
+{
+  "ext": "js,yaml,mjs,json",
+  "ignore": ["**/*.test.js", "**/*.spec.js"],
+  "execMap": {
+    "yaml": "node -r yaml/register"
+  }
+}
