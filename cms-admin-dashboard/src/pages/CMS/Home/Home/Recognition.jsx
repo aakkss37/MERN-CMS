@@ -59,23 +59,38 @@ const cardDummyData = [
 ]
 
 
+const initialNewAwardData = {
+	title: "",
+	text: "",
+	img: "",
+}
 
 const Recognition = () => {
-	const [selectedImage, setSelectedImage] = useState(null);
+	const [existingAwards, setExistingAwards] = useState(cardDummyData)
+	const [newAward, setNewAward] = useState(initialNewAwardData)
 	const [modalVisible, setModalVisible] = useState(false)
 	const [modalData, setModalData] = useState({})
+
 
 	const handleFileChange = (e) => {
 		const file = e.target.files[0];
 		console.log(file)
-		setSelectedImage(file);
+		setNewAward((prev)=> ({...prev, img: file}));
 	};
 
+	const handleSubmit = async()=> {
+		// api call
+	}
+
+
+	// MODAL
 	const handleModalData = (data) => {
 		setModalData(data)
 		setModalVisible(true)
 	}
 
+
+	console.log(newAward)
 	return (
 		<div>
 			<CCol xs={12}>
@@ -87,8 +102,8 @@ const Recognition = () => {
 					{/* CARDS */}
 					<div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "10px" }}>
 						{
-							cardDummyData?.map((item, index) => (
-								<CCard className='cms__career__life__cards' key={index}>
+							existingAwards?.map((item, index) => (
+								<CCard className='cms__home__recognition__cards' key={index}>
 									<CCardImage orientation="top" src={item.img} />
 									<CCardBody>
 										<CCardTitle>{item.title}</CCardTitle>
@@ -123,14 +138,18 @@ const Recognition = () => {
 													type="text"
 													id="homeBannerTitle"
 													placeholder="Eg: Innovation"
+													name='title'
+													value={newAward?.title}
+													onChange={(e) => setNewAward((prev)=> ({...prev, title: e.target.value}))}
 												/>
 											</div>
 											{/* QUILL */}
 											<QuillEditor
 												modules={modules}
-												value={"<strong>Hey there</strong>"}
+												value={newAward.text}
 												className='home_recognition'
 												text='Text'
+												onChange={(quillValue) => setNewAward((prev) => ({ ...prev, text: quillValue }))}
 											/>
 											<div className="mb-3">
 												<CFormLabel htmlFor="formFile">Choose Banner Background</CFormLabel>
@@ -143,8 +162,8 @@ const Recognition = () => {
 								</div>
 								<div className='cms__home__recognition__flex__item_right'>
 									{
-										selectedImage ?
-											<img src={URL.createObjectURL(selectedImage)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
+										newAward?.img ?
+											<img src={URL.createObjectURL(newAward?.img)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
 											:
 											<span>
 												No File Chosen
@@ -156,8 +175,9 @@ const Recognition = () => {
 						<CButton
 							color="primary"
 							className='cms__home__recognition__save_button'
+							onClick={handleSubmit}
 						>
-							Save
+							Save Award
 						</CButton>
 					</CCardBody>
 				</CCard>
@@ -168,6 +188,7 @@ const Recognition = () => {
 			<Modal
 				modalVisible={modalVisible}
 				data={modalData}
+				updateAPI={""}
 				setModalVisible={setModalVisible}
 			/>
 

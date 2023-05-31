@@ -67,10 +67,11 @@ function QuillEditor (props) {
 	];
 
 
-	const [code, setCode] = useState("Hello world");
+	const [code, setCode] = useState(props?.value);
 
 	const handleQuillChange = (content, delta, source, editor) => {
 		setCode(content);
+		props.onChange(content);
 	}
 	// console.log("quill code =====> ", code)
 
@@ -81,7 +82,7 @@ function QuillEditor (props) {
 				theme="snow"
 				modules={props.modules ? props.modules : modules}
 				formats={formats}
-				value={props.value}
+				value={code}
 				onChange={handleQuillChange}
 				className={props.className}
 			/>
@@ -95,6 +96,7 @@ QuillEditor.propTypes = {
 	modules: PropTypes.object.isRequired,
 	className: PropTypes.string,
 	text: PropTypes.string,
+	onChange: PropTypes.func,
 };
 
 
