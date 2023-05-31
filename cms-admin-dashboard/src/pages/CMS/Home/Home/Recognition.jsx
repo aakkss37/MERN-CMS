@@ -153,26 +153,17 @@ const Recognition = () => {
 								</div>
 							</div>
 						</CCard>
-						<div >
-							<CButton
-								color="primary"
-								className='cms__home__recognition__save_button'
-							>
-								Save
-							</CButton>
-							<CButton
-								color="primary"
-								className='cms__home__recognition__add_button'
-							>
-								Add New Recognition Award
-							</CButton>
-						</div>
+						<CButton
+							color="primary"
+							className='cms__home__recognition__save_button'
+						>
+							Save
+						</CButton>
 					</CCardBody>
 				</CCard>
 			</CCol>
 
 
-			{/* MODAL  */}
 			{/* MODAL  */}
 			<Modal
 				modalVisible={modalVisible}
