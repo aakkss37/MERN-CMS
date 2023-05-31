@@ -54,6 +54,10 @@ export const SERVICE_URL = {
 	setRecognitionAndAward: {
 		url: '/home-page/add-recognition-data',
 		method: 'POST',
-	}
+	},
+	getRecognitionAndAward: {
+		url: '/home-page/get-recognition-data',
+		method: 'GET',
+	},
 
 }

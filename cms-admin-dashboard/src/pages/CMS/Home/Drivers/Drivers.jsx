@@ -31,6 +31,8 @@ const modules = {
 
 const Drivers = () => {
 	const [selectedImage, setSelectedImage] = useState(null);
+	const [quillData, setQuillData] = useState("");
+
 
 	const handleFileChange = (e) => {
 		const file = e.target.files[0];
@@ -51,8 +53,9 @@ const Drivers = () => {
 									<div className="mb-3">
 										<QuillEditor
 											modules={modules}
-											value={"<p> Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Pellentesque semper vestibulum fermentum. Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Pellentesque semper vestibulum fermentum.</p>"}
+											value={quillData}
 											className='career__make__impact career__make__impact__head'
+											onChange={(e) => setQuillData((prev) => ({ ...prev, title: e.target.value }))}
 										/>
 										<div className="mb-3">
 											<CFormLabel htmlFor="formFile">Choose Image</CFormLabel>

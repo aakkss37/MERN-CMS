@@ -1,6 +1,16 @@
-/*  *//*  *//*  *//*  *//*  *//*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
 /* * HOME BANNER */
-/*  *//*  *//*  *//*  *//*  *//*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
 
 .cms__home__banner__flex__containner {
 	display: flex;
@@ -47,9 +57,19 @@
 
 
 
-/*  *//*  *//*  *//*  *//*  *//*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
 /* * HOME RECOGNITION AND AWARD */
-/*  *//*  *//*  *//*  *//*  *//*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
 
 .cms__home__recognition__flex__containner {
 	display: flex;
@@ -102,6 +122,22 @@
 		width: 100%;
 		margin-top: 1rem;
 	}
+
+}
+@media only screen and (max-width: 622px) {
+	.cms__home__recognition__cards {
+		width: 100%;
+	}
 }
 
 
+
+/* QUILL */
+.hide-quill-toolbar .ql-toolbar {
+	display: none;
+}
+
+.hide-quill-toolbar .ql-container {
+	border: none;
+	padding: 0;
+}

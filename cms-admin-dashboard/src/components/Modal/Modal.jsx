@@ -28,7 +28,7 @@ const modules = {
 };
 
 const Modal = ({ modalVisible, setModalVisible, data, }) => {
-
+	const [quillData, setQuillData] = useState(data.text)
 	const [selectedImage, setSelectedImage] = useState(null);
 	const handleFileChange = (e) => {
 		const file = e.target.files[0];
@@ -39,7 +39,7 @@ const Modal = ({ modalVisible, setModalVisible, data, }) => {
 		<div>
 			<CModal alignment="center" size="xl" scrollable visible={modalVisible} onClose={() => setModalVisible(false)}>
 				<CModalHeader>
-					<CModalTitle>{data.title}</CModalTitle>
+					<CModalTitle>Edit: {data.title}</CModalTitle>
 				</CModalHeader>
 
 				<CModalBody>
@@ -59,9 +59,10 @@ const Modal = ({ modalVisible, setModalVisible, data, }) => {
 									{/* QUILL */}
 									<QuillEditor
 										modules={modules}
-										value={data.text}
+										value={quillData}
 										className='career__life__at__agile'
 										text='Text'
+										onChange={(changedValue) => setQuillData((prev) => ({ ...prev, text: changedValue }))}
 									/>
 									<div className="mb-3">
 										<CFormLabel htmlFor="formFile">Choose Banner Background</CFormLabel>

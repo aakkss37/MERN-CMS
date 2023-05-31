@@ -33,3 +33,7 @@ export const formatDate = (date) => {
 	const formattedDate = `${monthsList[month]} | ${day.toString().padStart(2, '0')} | ${year.toString()}`;
 	return formattedDate
 }
+
+export const addElipsis = (string, limit) => {
+	return string.length > limit ? string.substring(0, limit) + '...' : string;
+}

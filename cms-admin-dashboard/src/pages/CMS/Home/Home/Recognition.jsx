@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Home.css'
 import {
 	CCol,
@@ -36,49 +36,30 @@ const modules = {
 	]
 };
 
-const cardDummyData = [
-	{
-		id: 1,
-		title: "Card Title 1",
-		text: 'Some quick example text to build on the card content.',
-		img: 'https://picsum.photos/500/400'
-	},
-	{
-		id: 2,
-		title: "Card Title 2",
-		text: 'Some quick example text to build on the card content.',
-		img: 'https://picsum.photos/500/400'
-	},
-	{
-		id: 3,
-		title: "Card Title 3",
-		text: 'Some quick example text to build on the card content.',
-		img: 'https://picsum.photos/500/400'
-	},
-	{
-		id: 4,
-		title: "Card Title 4",
-		text: 'Some quick example text to build on the card content.',
-		img: 'https://picsum.photos/500/400'
-	},
-]
-
-
-const initialNewAwardData = {
-	title: "",
-	text: "",
-	img: "",
-}
-
 const Recognition = () => {
-	const [existingAwards, setExistingAwards] = useState(cardDummyData)
-	const [newAward, setNewAward] = useState(initialNewAwardData)
+	const [existingAwards, setExistingAwards] = useState([])
+	const [newAward, setNewAward] = useState({})
 	const [modalVisible, setModalVisible] = useState(false)
 	const [modalData, setModalData] = useState({})
 	const [showLoader, setShowLoader] = useState(false)
 	const [warning, setWarning] = useState(false)
 	const [success, setSuccess] = useState(false)
 	const [error, setError] = useState(false)
+
+
+	useEffect(() => {
+		const getExistingRecognitionAndAwards = async () => {
+			try {
+				const { data } = await API.getRecognitionAndAward()
+				// console.log(data.data)
+				setExistingAwards(data.data)
+
+			} catch (error) {
+				console.log(error.message)
+			}
+		}
+		getExistingRecognitionAndAwards()
+	}, [])
 
 
 	const handleFileChange = (e) => {
@@ -130,7 +111,7 @@ const Recognition = () => {
 	}
 
 
-	console.log(newAward)
+	// console.log(existingAwards)
 	return (
 		<div>
 			{/* EVENT FEEDBACKS */}
@@ -154,25 +135,27 @@ const Recognition = () => {
 					{/* CARDS */}
 					<div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "10px" }}>
 						{
-							existingAwards?.map((item, index) => (
-								<CCard className='cms__home__recognition__cards' key={index}>
-									<CCardImage orientation="top" src={item.img} />
-									<CCardBody>
-										<CCardTitle>{item.title}</CCardTitle>
-										<CCardText>
-											{item.text}
-										</CCardText>
-										<div style={{ display: "flex", justifyContent: "space-between" }}>
-											<CButton color='none' onClick={() => handleModalData(item)}>
-												<CIcon icon={cilPen} style={{ fontWeight: 800 }} />
-											</CButton>
-											<CButton color='none' >
-												<CIcon icon={cilTrash} style={{ fontWeight: 800 }} />
-											</CButton>
-										</div>
-									</CCardBody>
-								</CCard>
-							))
+							existingAwards.length ?
+								existingAwards.map((item, index) => (
+									<CCard className='cms__home__recognition__cards' key={index}>
+										<CCardImage orientation="top" src={item.img} />
+										<CCardBody>
+											<CCardTitle>{item.title}</CCardTitle>
+											<div style={{ display: "flex", justifyContent: "space-between" }}>
+												<CButton color='none' onClick={() => handleModalData(item)}>
+													<CIcon icon={cilPen} style={{ fontWeight: 800 }} />
+												</CButton>
+												<CButton color='none' >
+													<CIcon icon={cilTrash} style={{ fontWeight: 800 }} />
+												</CButton>
+											</div>
+										</CCardBody>
+									</CCard>
+								))
+								:
+								<div style={{ textAlign: "center" }}>
+									<CSpinner color="light" size="sm" />
+								</div>
 						}
 					</div>
 
