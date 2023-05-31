@@ -20,10 +20,6 @@ router.get('/file/:filename', getImage);
 router.get('/home-page/get-banner-data', getBannerData)
 router.post('/home-page/banner/add-banner-data', isAuthenticatedUser, uploadFile.single('file'), addBannerData);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f32312bddcc365875c1f63fc1baf04ad90d6b341
 // recognition and awards Route
 
 router.post('/home-page/add-recognition-data', isAuthenticatedUser, uploadFile.single('file'), addRecognitionAwardsData);

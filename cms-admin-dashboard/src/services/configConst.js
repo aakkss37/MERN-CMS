@@ -41,6 +41,8 @@ export const SERVICE_URL = {
 		url: '/login',
 		method: 'POST',
 	},
+
+	// HOME PAGE
 	setHomePageBanner: {
 		url: '/home-page/banner/add-banner-data',
 		method: 'POST',
@@ -49,4 +51,9 @@ export const SERVICE_URL = {
 		url: '/home-page/get-banner-data',
 		method: 'GET',
 	},
+	setRecognitionAndAward: {
+		url: '/home-page/add-recognition-data',
+		method: 'POST',
+	}
+
 }

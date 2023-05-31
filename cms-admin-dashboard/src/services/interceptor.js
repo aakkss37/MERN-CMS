@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import axios from 'axios';
 import { API_NOTIFICATION_MESSAGE, SERVICE_URL } from './configConst';
-import { getAccessToken, getType } from '../utils/commonUtils';
-
+import { getAccessToken, } from '../utils/commonUtils';
+// getType
 
 const API_URL = 'http://localhost:8000';
 const axiosInstance = axios.create({ // axios.create --> You can create a new instance of axios with a custom config.
