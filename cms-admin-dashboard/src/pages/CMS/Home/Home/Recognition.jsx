@@ -13,11 +13,16 @@ import {
 	CCardImage,
 	CCardTitle,
 	CCardText,
+	CSpinner,
 } from '@coreui/react'
 import QuillEditor from 'src/components/quill/Quill';
 import CIcon from '@coreui/icons-react';
 import { cilPen, cilTrash } from '@coreui/icons';
 import Modal from 'src/components/Modal/Modal';
+import { API } from 'src/services/interceptor';
+import Warning from 'src/components/Popups/Warning/Warning';
+import Success from 'src/components/Popups/Sucess/Success';
+import Error from 'src/components/Popups/Error/Error';
 
 // QUILL MODULES/TOOLBAR
 const modules = {
@@ -70,16 +75,51 @@ const Recognition = () => {
 	const [newAward, setNewAward] = useState(initialNewAwardData)
 	const [modalVisible, setModalVisible] = useState(false)
 	const [modalData, setModalData] = useState({})
+	const [showLoader, setShowLoader] = useState(false)
+	const [warning, setWarning] = useState(false)
+	const [success, setSuccess] = useState(false)
+	const [error, setError] = useState(false)
 
 
 	const handleFileChange = (e) => {
 		const file = e.target.files[0];
 		console.log(file)
-		setNewAward((prev)=> ({...prev, img: file}));
+		setNewAward((prev) => ({ ...prev, img: file }));
 	};
 
-	const handleSubmit = async()=> {
-		// api call
+	const handleSubmit = async () => {
+		console.log("new recognition and award ==> ", newAward)
+		setShowLoader(true)
+		let data = new FormData();
+		console.log("img data ==> ", data)
+		// data.append("filename", file.name);
+		data.append("file", newAward.img);
+		data.append("title", newAward.title);
+		data.append("text", newAward.text);
+		if (newAward?.img && newAward?.text && newAward?.title) {
+			try {
+				const resp = await API.setRecognitionAndAward(data, { 'Content-Type': 'multipart/form-data' })
+				console.log(resp)
+				setShowLoader(false)
+				setSuccess(true)
+				setTimeout(() => {
+					setSuccess(false)
+				}, 5000)
+			} catch (error) {
+				setShowLoader(false)
+				setError(true)
+				setTimeout(() => {
+					setError(false)
+				}, 5000)
+				console.log(error)
+			}
+		} else {
+			setShowLoader(false)
+			setWarning(true)
+			setTimeout(() => {
+				setWarning(false)
+			}, 5000)
+		}
 	}
 
 
@@ -93,6 +133,18 @@ const Recognition = () => {
 	console.log(newAward)
 	return (
 		<div>
+			{/* EVENT FEEDBACKS */}
+			{
+				warning && <Warning warningText="Fiels should not be empty!" />
+			}
+
+			{
+				success && <Success successText='Banner update sucessfully' />
+			}
+			{
+				error && <Error errorText='Something went wrong, please try again with a valid file.' />
+			}
+
 			<CCol xs={12}>
 				<CCard className="mb-4">
 					<CCardHeader>
@@ -140,7 +192,7 @@ const Recognition = () => {
 													placeholder="Eg: Innovation"
 													name='title'
 													value={newAward?.title}
-													onChange={(e) => setNewAward((prev)=> ({...prev, title: e.target.value}))}
+													onChange={(e) => setNewAward((prev) => ({ ...prev, title: e.target.value }))}
 												/>
 											</div>
 											{/* QUILL */}
@@ -172,13 +224,20 @@ const Recognition = () => {
 								</div>
 							</div>
 						</CCard>
-						<CButton
-							color="primary"
-							className='cms__home__recognition__save_button'
-							onClick={handleSubmit}
-						>
-							Save Award
-						</CButton>
+						{
+							showLoader ?
+								<CButton color="primary" className="px-4 cms__home__recognition__save_button" >
+									<CSpinner color="light" size="sm" />
+								</CButton>
+								:
+								<CButton
+									color="primary"
+									className='cms__home__recognition__save_button'
+									onClick={handleSubmit}
+								>
+									Save Award
+								</CButton>
+						}
 					</CCardBody>
 				</CCard>
 			</CCol>

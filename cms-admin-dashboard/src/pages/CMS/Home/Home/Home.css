@@ -74,12 +74,7 @@
 }
 
 .cms__home__recognition__save_button {
-	width: 6rem;
-}
-
-.cms__home__recognition__add_button {
-	width: 45%;
-	float: right;
+	width: 10rem;
 }
 
 .cms__home__recognition__cards {

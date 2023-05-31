@@ -90,6 +90,7 @@ const Banner = () => {
 				console.log(error)
 			}
 		}else{
+			setShowLoader(false)
 			setWarning(true)
 			setTimeout(()=> {
 				setWarning(false)
