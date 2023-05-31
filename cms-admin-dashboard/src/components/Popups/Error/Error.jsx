@@ -4,15 +4,15 @@ import { CAlert } from '@coreui/react'
 import PropTypes from 'prop-types';
 import '../popup.css'
 
-const Warning = (props) => {
+const Error = (props) => {
 	return (
 		<div className='slide-left'>
-			<CAlert color="danger" variant="solid">{props.warningText}</CAlert>
+			<CAlert color="danger" variant="solid">{props.errorText}</CAlert>
 		</div>
 	)
 }
 
-Warning.propTypes = {
-	warningText: PropTypes.string,
+Error.propTypes = {
+	errorText: PropTypes.string,
 };
-export default Warning
+export default Error

@@ -15,6 +15,8 @@ import {
 } from '@coreui/react'
 import { API } from 'src/services/interceptor'
 import Warning from 'src/components/Popups/Warning/Warning'
+import Success from 'src/components/Popups/Sucess/Success'
+import Error from 'src/components/Popups/Error/Error'
 const initialBannerData = {
 	title: "",
 	text: "",
@@ -24,6 +26,8 @@ const Banner = () => {
 	const [bannerData, setBannerData] = useState(initialBannerData)
 	const [showLoader, setShowLoader] = useState(false)
 	const [warning, setWarning] = useState(false)
+	const [success, setSuccess] = useState(false)
+	const [error, setError] = useState(false)
 
 	useEffect(() => {
 		const getBannerData = async()=>{
@@ -73,8 +77,16 @@ const Banner = () => {
 				const resp = await API.setHomePageBanner(data, { 'Content-Type': 'multipart/form-data' })
 				console.log(resp)
 				setShowLoader(false)
+				setSuccess(true)
+				setTimeout(() => {
+					setSuccess(false)
+				}, 5000)
 			} catch (error) {
 				setShowLoader(false)
+				setError(true)
+				setTimeout(() => {
+					setError(false)
+				}, 5000)
 				console.log(error)
 			}
 		}else{
@@ -99,9 +111,21 @@ const Banner = () => {
 
 	return (
 		<div>
+			{/* EVENT FEEDBACKS */}
 			{
 				warning && <Warning warningText="Fiels should not be empty!" />
 			}
+
+			{
+				success && <Success successText='Banner update sucessfully' />
+			}
+			{
+				error && <Error errorText='Something went wrong, please try again with a valid file.' />
+			}
+
+
+
+			{/* BANNER BODY */}
 			<CCol xs={12}>
 				<CCard className="mb-4">
 					<CCardHeader>
