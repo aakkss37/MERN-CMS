@@ -55,7 +55,7 @@ const Page404 = React.lazy(() => import('./pages/page404/Page404'))
 
 
 // CMS Items
-const HomePageCMS = React.lazy(()=> import('./pages/CMS/Home/Home'))
+const HomePageCMS = React.lazy(()=> import('./pages/CMS/Home/Home/Home'))
 const HomeDriverPageCMS = React.lazy(()=> import('./pages/CMS/Home/Drivers/Drivers'))
 const HomeServicesPageCMS = React.lazy(()=> import('./pages/CMS/Home/Services/Services'))
 const PartnerModelCMS = React.lazy(()=> import('./pages/CMS/PartnerModel/PartnerModel'))
