@@ -16,6 +16,7 @@ const storage = new GridFsStorage({
 	url: CONNECTION_URL,
 	options: connectionOption,
 	file: (request, file) => {
+		console.log("multer ====> ", file)	
 		const match = ["image/png", "image/jpg"];
 
 		if (match.indexOf(file.memeType) === -1)
