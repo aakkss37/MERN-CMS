@@ -17,7 +17,7 @@ import {
 import QuillEditor from 'src/components/quill/Quill';
 import CIcon from '@coreui/icons-react';
 import { cilPen, cilTrash } from '@coreui/icons';
-import Modal from './Modal';
+import Modal from 'src/components/Modal/Modal';
 
 // QUILL MODULES/TOOLBAR
 const modules = {
@@ -164,6 +164,7 @@ const LifeAtAgileGlobal = () => {
 				modalVisible={modalVisible}
 				data={modalData}
 				setModalVisible={setModalVisible}
+				updateAPI={""}
 			/>
 
 		</div>

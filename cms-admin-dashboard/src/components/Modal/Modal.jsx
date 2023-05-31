@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types';
-import './career.css'
+import './modal.css'
 import {
 	CForm,
 	CFormInput,
@@ -43,15 +43,15 @@ const Modal = ({ modalVisible, setModalVisible, data, }) => {
 				</CModalHeader>
 
 				<CModalBody>
-					<div className='cms__career__life__modal____flex__containner'>
-						<div className='cms__career__life__modal__flex__item_left'>
+					<div className='modal__flex__containner'>
+						<div className='modal__flex__item_left'>
 							<CForm>
 								<div>
 									<div className="mb-3">
-										<CFormLabel htmlFor="careerLifeAtAgileTitle">Title</CFormLabel>
+										<CFormLabel htmlFor="Title">Title</CFormLabel>
 										<CFormInput
 											type="text"
-											id="careerLifeAtAgileTitle"
+											id="Title"
 											placeholder="Eg: Innovation"
 											value={data.title}
 										/>
@@ -68,11 +68,9 @@ const Modal = ({ modalVisible, setModalVisible, data, }) => {
 										<CFormInput type="file" id="formFile" onChange={handleFileChange} />
 									</div>
 								</div>
-
-
 							</CForm>
 						</div>
-						<div className='cms__career__life__modal__flex__item_right'>
+						<div className='modal__flex__item_right'>
 							<img src={selectedImage ? selectedImage : data.img} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
 						</div>
 					</div>
@@ -91,7 +89,8 @@ const Modal = ({ modalVisible, setModalVisible, data, }) => {
 Modal.propTypes = {
 	modalVisible: PropTypes.bool.isRequired,
 	data: PropTypes.object.isRequired,
-	setModalVisible: PropTypes.func.isRequired
+	setModalVisible: PropTypes.func.isRequired,
+	updateAPI: PropTypes.string.isRequired
 };
 
 export default Modal
