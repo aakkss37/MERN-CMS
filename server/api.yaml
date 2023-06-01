@@ -55,3 +55,479 @@ paths:
           description: Unauthorized - user not authenticated
         404:
           description: File not found
+
+  # For adding recognition and award data
+  /home-page/add-recognition-data:
+    post:
+      summary: Add recognition and award data
+      description: Add recognition and award data with title, text, and file
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: title
+          in: formData
+          description: Title of the recognition data
+          required: true
+          type: string
+        - name: text
+          in: formData
+          description: Text of the recognition data
+          required: true
+          type: string
+        - name: file
+          in: formData
+          description: File attachment
+          required: true
+          type: file
+        - name: authorization
+          in: header
+          description: Token of user
+          required: true
+          type: string
+      responses:
+        201:
+          description: recognition data added successfully
+        401:
+          description: Unauthorized - user not authenticated
+        404:
+          description: File not found
+
+  # For getting recognition and award data
+  /home-page/get-recognition-data:
+    get:
+      summary: Get recognition and award data
+      description: it is for fetching recognition and award data
+      responses:
+        200:
+          description: Success
+        404:
+          description: Can't get recognition and award data
+
+  # For updating recognition and award data
+  /home-page/update-recognition-data:
+    put:
+      summary: Update recognition and award data
+      description: Update recognition and award data with id, title, text, and file
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: formData
+          description: id of a recognition data
+          required: true
+          type: string
+        - name: title
+          in: formData
+          description: Title of the recognition data
+          required: true
+          type: string
+        - name: text
+          in: formData
+          description: Text of the recognition data
+          required: true
+          type: string
+        - name: file
+          in: formData
+          description: File attachment
+          required: true
+          type: file
+        - name: authorization
+          in: header
+          description: Token of user
+          required: true
+          type: string
+      responses:
+        201:
+          description: recognition data updated successfully
+        401:
+          description: Unauthorized - user not authenticated
+        404:
+          description: File not found
+
+  # For deleting the recognition data
+  /home-page/delete-recognitioin-data:
+    post:
+      summary: delete recognition and award data
+      description: delete recognition and award data with id
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: id
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+        - in: header
+          name: authorization
+          schema:
+            type: string
+            description: Token of user
+            required: true
+      responses:
+        201:
+          description: recognition data deleted successfully
+        401:
+          description: Unauthorized - user not authenticated
+        404:
+          description: data not found with this id
+
+  # Register user
+  /registration:
+    post:
+      summary: Register user
+      description: This api is for signup
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        201:
+          description: user created successfully
+        400:
+          description: user already exist
+        500:
+          description: internal server error
+
+  # login user
+  /login:
+    post:
+      summary: login user
+      description: This api is for login
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        200:
+          description: user logged in successfully
+        404:
+          description: user not found
+        401:
+          description: something went wrong
+        500:
+          description: internal server error
+
+  # Forgot password
+  /password/forgot:
+    post:
+      summary: Forgot password
+      description: This api is for forgot password
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+      responses:
+        200:
+          description: email send successfully
+        404:
+          description: user not found
+        500:
+          description: internal server error
+
+  # Forgot password
+  /password/reset/{token}:
+    put:
+      summary: Reset password
+      description: This api is for Resetting password
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: token
+          required: true
+          description: The token of the user to reset the password
+          schema:
+            type: string
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              password:
+                type: string
+              confirmPassword:
+                type: string
+      responses:
+        200:
+          description: password reset successfully
+        400:
+          description: bad request missing or invalid fields
+        500:
+          description: internal server error
+
+  # For getting contact query data
+  /contact-page/add-query/get:
+    get:
+      summary: get contact query data
+      description: it is for fetching contact query data
+      responses:
+        200:
+          description: Success
+        404:
+          description: No query found
+        500:
+          description: internal server error
+
+  # For adding contact query data
+  /contact-page/add-query:
+    post:
+      summary: add contact query data
+      description: add contact query with fname, lname, email, phone, subject
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fname:
+                type: string
+              lname:
+                type: string
+              email:
+                type: string
+              phone:
+                type: string
+              subject:
+                type: string
+        - in: header
+          name: authorization
+          schema:
+            type: string
+            description: Token of user
+            required: true
+      responses:
+        200:
+          description: data added successfully
+        401:
+          description: Unauthorized - user not authenticated
+        400:
+          description: bad request
+
+  # For adding partner data
+  /partners/add:
+    post:
+      summary: add partner data
+      description: add partner data with title, text1, text2 and image
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: title
+          in: formData
+          description: title of the partner data
+          required: true
+          type: string
+        - name: text1
+          in: formData
+          description: text1 for partner data
+          required: true
+          type: string
+        - name: text2
+          in: formData
+          description: Text2 of the partner data
+          required: true
+          type: string
+        - name: files
+          in: formData
+          description: File attachments
+          required: true
+          type: array
+          items:
+            type: file
+        - name: authorization
+          in: header
+          description: Token of user
+          required: true
+          type: string
+      responses:
+        200:
+          description: partner data added successfully
+        401:
+          description: Unauthorized - user not authenticated
+        404:
+          description: File not found
+
+  # For getting partners data
+  /partners/get:
+    get:
+      summary: get partners data
+      description: it is for fetching partners data
+      responses:
+        200:
+          description: Success
+        404:
+          description: No data found
+        500:
+          description: internal server error
+
+  # For adding career banner data.
+  /career-page/add-banner-data:
+    post:
+      summary: add career page banner
+      description: add career page banner with title and background image
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: title
+          in: formData
+          description: Title of banner
+          required: true
+          type: string
+        - name: file
+          in: formData
+          description: File attachment
+          required: true
+          type: file
+        - name: authorization
+          in: header
+          description: Token of user
+          required: true
+          type: string
+      responses:
+        201:
+          description: data added successfully
+        401:
+          description: Unauthorized - user not authenticated
+        404:
+          description: File not found
+
+  # For getting career banner data
+  /career-page/get-banner-data:
+    get:
+      summary: get career banner data
+      description: it is for fetching career banner data
+      responses:
+        200:
+          description: Success
+        404:
+          description: No data found
+        500:
+          description: internal server error
+
+  # For adding impact data.
+  /career-page/add-impact-data:
+    post:
+      summary: add career page impact data
+      description: add career page impact data
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: impactHead
+          in: formData
+          description: Head of the impact
+          required: true
+          type: string
+        - name: impactText
+          in: formData
+          description: Text of the impact
+          required: true
+          type: string
+        - name: impact1
+          in: formData
+          description: impact1 of the impact
+          required: true
+          type: string
+        - name: impact2
+          in: formData
+          description: impact2 of the impact
+          required: true
+          type: string
+        - name: impact3
+          in: formData
+          description: impact3 of the impact
+          required: true
+          type: string
+        - name: text1
+          in: formData
+          description: text1 of the impact
+          required: true
+          type: string
+        - name: text2
+          in: formData
+          description: text2 of the impact
+          required: true
+          type: string
+        - name: text3
+          in: formData
+          description: text3 of the impact
+          required: true
+          type: string
+        - name: file
+          in: formData
+          description: File attachment
+          required: true
+          type: file
+        - name: authorization
+          in: header
+          description: Token of user
+          required: true
+          type: string
+      responses:
+        201:
+          description: data added successfully
+        401:
+          description: Unauthorized - user not authenticated
+        404:
+          description: File not found
+
+  # For getting career banner data
+  /career-page/get-impact-data:
+    get:
+      summary: get career impact data
+      description: it is for fetching career impact data
+      responses:
+        200:
+          description: Success
+        404:
+          description: No data found
+        500:
+          description: internal server error

@@ -28,3 +28,15 @@ export const addCareerBannerData = catchAsyncError(async (req, res, next) => {
         message: "banner data added successfully",
     })
 })
+
+export const getCareerBannerData = catchAsyncError(async (req, res, next) => {
+
+    const result = await BannerData.find();
+
+    if (!result) return next(new ErrorHandler("data not found", 404));
+
+    res.status(200).json({
+        success: true,
+        data: result
+    })
+})

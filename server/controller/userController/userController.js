@@ -45,7 +45,7 @@ export const loginUser = catchAsyncError(async (req, res, next) => {
     const user = await User.findOne({ email }).select("+password");
 
     if (!user) {
-        return next(new ErrorHandler("User not found with this email", 401));
+        return next(new ErrorHandler("User not found with this email", 404));
     }
 
     const isPasswordMatched = await user.comparePassword(password);

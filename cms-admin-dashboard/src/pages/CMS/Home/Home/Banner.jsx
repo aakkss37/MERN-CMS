@@ -33,7 +33,7 @@ const Banner = () => {
 		const getBannerData = async()=>{
 			try {
 				const {data} = await API.getHomePageBanner()
-				console.log(data)
+				// console.log(data)
 				setBannerData({
 					title: data.title,
 					text: data.text,

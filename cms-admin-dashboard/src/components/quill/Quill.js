@@ -95,7 +95,7 @@ function QuillEditor (props) {
 
 
 QuillEditor.propTypes = {
-	value: PropTypes.node,
+	value: PropTypes.any,
 	modules: PropTypes.object.isRequired,
 	className: PropTypes.string,
 	text: PropTypes.string,

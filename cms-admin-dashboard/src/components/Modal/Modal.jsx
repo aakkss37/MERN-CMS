@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types';
 import './modal.css'
 import {
@@ -28,12 +28,13 @@ const modules = {
 };
 
 const Modal = ({ modalVisible, setModalVisible, data, }) => {
-	const [quillData, setQuillData] = useState(data.text)
+	const [quillData, setQuillData] = useState()
 	const [selectedImage, setSelectedImage] = useState(null);
 	const handleFileChange = (e) => {
 		const file = e.target.files[0];
 		setSelectedImage(URL.createObjectURL(file));
 	};
+
 
 	return (
 		<div>
@@ -59,10 +60,10 @@ const Modal = ({ modalVisible, setModalVisible, data, }) => {
 									{/* QUILL */}
 									<QuillEditor
 										modules={modules}
-										value={quillData}
+										value={!quillData ? data?.text : quillData}
 										className='career__life__at__agile'
 										text='Text'
-										onChange={(changedValue) => setQuillData((prev) => ({ ...prev, text: changedValue }))}
+										onChange={(changedValue) => setQuillData(changedValue)}
 									/>
 									<div className="mb-3">
 										<CFormLabel htmlFor="formFile">Choose Banner Background</CFormLabel>

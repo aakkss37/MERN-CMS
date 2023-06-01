@@ -36,3 +36,15 @@ export const addPartners = catchAsyncError(async (req, res, next) => {
         message: "data added successfully"
     })
 })
+
+
+export const getPartners = catchAsyncError(async (req, res, next) => {
+    const result = await PartnerData.find();
+
+    if (!result) return next(new ErrorHandler("data not found", 404));
+
+    res.status(200).json({
+        success: true,
+        data: result
+    })
+})
