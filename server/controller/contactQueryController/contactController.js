@@ -15,7 +15,7 @@ export const addContactQuery = catchAsyncError(async (req, res, next) => {
 		subject: subject,
 	})
 
-	if (!result) return (next(new ErrorHandler("something went wrong while creating contact data")));
+	if (!result) return (next(new ErrorHandler("something went wrong while creating contact data",400)));
 	res.status(200).json({ success: true, message: "data inserted successfully" });
 
 })

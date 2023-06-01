@@ -34,12 +34,12 @@ export const getRecognitionAwardsData = catchAsyncError(async (req, res, next) =
 })
 
 export const updateRecognitionAwardsData = catchAsyncError(async (req, res, next) => {
-    const { id, text, title } = req.body;
+    const { id, text, title, img } = req.body;
     const file = req.file;
 
-    if (!file) return next(new ErrorHandler("file not found", 404));
+    if (!file && !img) return next(new ErrorHandler("file or url not found", 404));
 
-    const imgUrl = `${url}/file/${file.filename}`
+    const imgUrl = file ? `${url}/file/${file.filename}` : img;
 
     const data = await recognitionData.findById(id);
 
@@ -59,6 +59,8 @@ export const updateRecognitionAwardsData = catchAsyncError(async (req, res, next
 
 export const deleteRecognitioinAwardsData = catchAsyncError(async (req, res, next) => {
     const { id } = req.body;
+
+    console.log(id);
 
     const data = await recognitionData.findByIdAndDelete(id);
 

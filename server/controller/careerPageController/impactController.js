@@ -35,3 +35,15 @@ export const addCareerImpactData = catchAsyncError(async (req, res, next) => {
         message: "impact data added successfully",
     })
 })
+
+
+export const getCareerImpactData = catchAsyncError(async (req, res, next) => {
+    const result = await impactData.find();
+
+    if (!result) return next(new ErrorHandler("data not found", 404));
+
+    res.status(200).json({
+        success: true,
+        data: result,
+    })
+})
