@@ -55,12 +55,12 @@ const Driver = () => {
             </div>
           ))}
 
-        <img
-          className="transition ease-in-out delay-150  hover:scale-110  md:w-[300px] rounded-xl lg:w-[500px] xl:w-full"
-          src={firstImg}
-          alt=""
+          <img
+            className="transition ease-in-out delay-150  hover:scale-110  md:w-[300px] rounded-xl lg:w-[500px] xl:w-full"
+            src={firstImg}
+            alt=""
           />
-          </div>
+        </div>
       </div>
 
       {/* main div below hero */}

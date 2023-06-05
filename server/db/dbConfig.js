@@ -5,7 +5,6 @@ const DB_USERNAME = process.env.DB_USERNAME;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 
 
-
 // CONNECTION
 import mongoose from "mongoose";
 mongoose.set('strictQuery', false);

@@ -1,66 +1,50 @@
+import catchAsyncError from "../../middleware/catchAsyncError.js";
 import BannerData from "../../model/HomePage/bannerSchema.js"
-const url = 'http://localhost:8000';
+import ErrorHandler from "../../utils/ErrorHandler.js";
+const url = 'https://mern-cms-server.onrender.com';
 
 
-export const getBannerData = async(request, response)=> {
-	try {
-		const bannerData = await BannerData.findOne({})
-		response.status(200).json(bannerData);
-	} catch (error) {
-		response.status(500).json({ msg: "Failed to get banner data." });
+export const getBannerData = catchAsyncError(async (req, res, next) => {
+	const bannerData = await BannerData.findOne({})
+
+	if (!bannerData)
+		return next(new ErrorHandler("can't get banner data", 404));
+	res.status(200).json(bannerData);
+})
+
+export const addBannerData = catchAsyncError(async (req, res, next) => {
+	// console.log("runnnnnnnnnnnn")
+	// console.log("body ====>? ",req.body)
+	console.log("body file ====>? ",req.file)
+	if (!req.file) {
+		return next(new ErrorHandler("file not found", 404));
 	}
-}
 
+	const imageUrl = `${url}/file/${req.file.filename}`;
+	const { title, text } = req.body;
 
+	const data = await BannerData.findOne({});
 
+	const id = data._id;
 
-export const updateBannerTitle = async (request, response) => {
-	console.log(request.body)
-	try {
-		await BannerData.findByIdAndUpdate(request.body.id, 
-			{
-				title: request.body.title
+	await BannerData.updateOne(
+		{ _id: id },
+		{
+			$set: {
+				title: title,
+				text: text,
+				bannerImg: imageUrl,
 			}
-		)
-		const updatedData = await BannerData.findOne({})
-		response.status(200).json({ msg: "Banner Title Updated sucessfully.", data: updatedData });
-	} catch (error) {
-		response.status(500).json({ msg: "Error while Updating Title." });
-	}
-}
-
-export const updateBannerText = async (request, response) => {
-	try {
-		await BannerData.findByIdAndUpdate(request.body.id, 
-			{
-				text: request.body.text
+		},
+		{ upsert: true },
+		(err, result) => {
+			if (err) {
+				return next(new ErrorHandler("Failed to update or create the banner data", 400));
 			}
-		)
-		const updatedData = await BannerData.findOne({})
-		response.status(200).json({ msg: "Banner Text Updated sucessfully.", data: updatedData });
-	} catch (error) {
-		response.status(500).json({ msg: "Error while Updating Text." });
-	}
-}
-
-export const uploadBannerImage = async (request, response) => {
-	if (!request.file)
-		return response.status(404).json("File not found");
-
-	const imageUrl = `${url}/file/${request.file.filename}`;
-	console.log("image url =====>", imageUrl)
-	try {
-		const found = await BannerData.findOne({})
-		console.log(found)
-		await BannerData.findByIdAndUpdate(found._id,
-			{
-				bannerImg: imageUrl
-			}
-		)
-		const updatedData = await BannerData.findOne({})
-		console.log("updated file: ", updatedData)
-		response.status(200).json({ msg: "Banner Text Updated sucessfully.", data: updatedData });
-	} catch (error) {
-		response.status(500).json({ msg: "Error while Updating Text." });
-	}
-}
+		}
+	);
+	res.status(201).json({
+		success: true,
+		message: "banner data added successfully",
+	})
+})

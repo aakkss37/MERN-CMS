@@ -1,0 +1,191 @@
+/*  *//*  *//*  *//*  *//*  *//*  */
+/* * CAREER BANNER */
+/*  *//*  *//*  *//*  *//*  *//*  */
+
+.cms__career__banner__flex__item_right {
+	width: 100%;
+	height: 340px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* border: 1px solid red; */
+	background-color: rgb(220, 221, 221);
+	border-radius: 5px;
+}
+
+.cms__career__banner__save_button {
+	margin-top: 2rem;
+	width: 6rem;
+}
+
+@media only screen and (max-width: 768px) {
+	.cms__career__banner__flex__containner {
+		flex-direction: column;
+	}
+
+	.cms__career__banner__flex__item_right {
+		min-height: 340px;
+		width: 100%;
+		display: flex;
+	}
+
+	.cms__career__banner__save_button {
+		width: 100%;
+	}
+}
+
+
+
+/*  *//*  *//*  *//*  *//*  *//*  */
+/* * CAREER MAKE IMPACT */
+/*  *//*  *//*  *//*  *//*  *//*  */
+
+.cms__career__make__impact{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.cms__career__make__impact__form__conatiner{
+	width: 40%;
+	min-width: 250px;
+}
+.cms__career__make__impact__img__container{
+	width: 40%;
+	min-width: 250px;
+	height: 640px;
+	/* border: 1px solid red; */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.cms__career__make__impact__save_button {
+	margin-top: 1rem;
+	width: 100%;
+}
+
+.cms__career__make__impact__img{
+	width: 100%;
+	height: 350px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* border: 1px solid red; */
+	background-color: rgb(220, 221, 221);
+	border-radius: 5px;
+}
+
+@media only screen and (max-width: 1020px) {
+	.cms__career__make__impact__form__conatiner {
+		width: 100%;
+		min-width: 50px;
+	}
+	.cms__career__make__impact__img__container {
+		width: 100%;
+		min-width: 50px;
+		height: auto;
+	}
+
+	.cms__career__make__impact__save_button {
+		width: 100%;
+	}
+	.cms__contactus__hq__img {
+		width: 100%;
+	}
+}
+
+
+
+/*  *//*  *//*  *//*  *//*  *//*  */
+/* * LIFE AT AGILE GLOBAL */
+/*  *//*  *//*  *//*  *//*  *//*  */
+
+.cms__career__life__flex__containner {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.cms__career__life__flex__item_left {
+	flex-grow: 1;
+	/* border: 1px solid red; */
+}
+
+.cms__career__life__flex__item_right {
+	width: 45%;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* border: 1px solid red; */
+	background-color: rgb(220, 221, 221);
+	border-radius: 5px;
+}
+
+.cms__career__life__cards{
+	width: 15rem;
+	margin: 15px;
+	box-shadow: 0px 0px 9px 1px rgb(0, 0, 0, 0.20);
+}
+
+
+.cms__career__life__add_button {
+	width: 35%;
+}
+
+
+@media only screen and (max-width: 768px) {
+	.cms__career__life__flex__containner {
+		flex-direction: column;
+	}
+
+	.cms__career__life__flex__item_right {
+		height: 300px;
+		width: 100%;
+		display: flex;
+	}
+
+	.cms__career__life__add_button {
+		width: 100%;
+		margin-top: 1rem;
+	}
+}
+@media only screen and (max-width: 623px) {
+	.cms__career__life__cards {
+		width: 100%;
+	}
+}
+
+/* *MODAL  */
+.cms__career__life__modal____flex__containner {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding: 15px;
+}
+
+.cms__career__life__modal__flex__item_left {
+	flex-grow: 1;
+}
+
+.cms__career__life__modal__flex__item_right {
+	width: 45%;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* border: 1px solid red; */
+	background-color: rgb(220, 221, 221);
+	border-radius: 5px;
+}
+@media only screen and (max-width: 991px) {
+	.cms__career__life__modal__flex__item_right {
+		width: 100%;
+		height: 300px;
+	}
+}
