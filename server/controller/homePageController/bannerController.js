@@ -1,7 +1,7 @@
 import catchAsyncError from "../../middleware/catchAsyncError.js";
 import BannerData from "../../model/HomePage/bannerSchema.js"
 import ErrorHandler from "../../utils/ErrorHandler.js";
-const url = 'https://mern-cms-server.onrender.com';
+const url = 'http://localhost:8000';
 
 
 export const getBannerData = catchAsyncError(async (req, res, next) => {

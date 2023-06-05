@@ -12,7 +12,6 @@ import {
 	CButton,
 	CCardImage,
 	CCardTitle,
-	CCardText,
 	CSpinner,
 } from '@coreui/react'
 import QuillEditor from 'src/components/quill/Quill';
@@ -42,6 +41,7 @@ const Recognition = () => {
 	const [modalVisible, setModalVisible] = useState(false)
 	const [modalData, setModalData] = useState({})
 	const [showLoader, setShowLoader] = useState(false)
+	const [showModalLoader, setShowModalLoader] = useState(false)
 	const [warning, setWarning] = useState(false)
 	const [success, setSuccess] = useState(false)
 	const [error, setError] = useState(false)
@@ -68,7 +68,7 @@ const Recognition = () => {
 		setNewAward((prev) => ({ ...prev, img: file }));
 	};
 
-	const handleSubmit = async () => {
+	const handleAddNewAward = async () => {
 		console.log("new recognition and award ==> ", newAward)
 		setShowLoader(true)
 		let data = new FormData();
@@ -80,9 +80,12 @@ const Recognition = () => {
 		if (newAward?.img && newAward?.text && newAward?.title) {
 			try {
 				const resp = await API.setRecognitionAndAward(data, { 'Content-Type': 'multipart/form-data' })
-				console.log(resp)
+				console.log(resp.data)
+				setExistingAwards(resp.data.updatedData)
+				setNewAward({})
 				setShowLoader(false)
 				setSuccess(true)
+				setModalVisible(false)
 				setTimeout(() => {
 					setSuccess(false)
 				}, 5000)
@@ -111,6 +114,28 @@ const Recognition = () => {
 	}
 
 
+	// UPDATE
+	const handleUpdateAwards = async (updateData) => {
+		try {
+			setShowModalLoader(true)
+			// API CALL
+			const {data} = await API.updateRecognitionAndAward(updateData, { 'Content-Type': 'multipart/form-data' })
+			console.log("update resoncse----> ", data.updatedData)
+			setExistingAwards(data.updatedData)
+			setShowModalLoader(false)
+			setSuccess(true)
+			setTimeout(() => {
+				setSuccess(false)
+			}, 5000)
+		} catch (error) {
+			setShowModalLoader(false)
+			setError(true)
+			setTimeout(() => {
+				setError(false)
+			}, 5000)
+		}
+	}
+
 	// console.log(existingAwards)
 	return (
 		<div>
@@ -120,7 +145,7 @@ const Recognition = () => {
 			}
 
 			{
-				success && <Success successText='Banner update sucessfully' />
+				success && <Success successText='Update sucessfully' />
 			}
 			{
 				error && <Error errorText='Something went wrong, please try again with a valid file.' />
@@ -146,7 +171,7 @@ const Recognition = () => {
 													<CIcon icon={cilPen} style={{ fontWeight: 800 }} />
 												</CButton>
 												<CButton color='none' >
-													<CIcon icon={cilTrash} style={{ fontWeight: 800 }} />
+													<CIcon icon={cilTrash} style={{ fontWeight: 800 }} onClick={()=> deleteAwardHandler(item._id)}/>
 												</CButton>
 											</div>
 										</CCardBody>
@@ -216,7 +241,7 @@ const Recognition = () => {
 								<CButton
 									color="primary"
 									className='cms__home__recognition__save_button'
-									onClick={handleSubmit}
+									onClick={handleAddNewAward}
 								>
 									Save Award
 								</CButton>
@@ -230,8 +255,10 @@ const Recognition = () => {
 			<Modal
 				modalVisible={modalVisible}
 				data={modalData}
-				updateAPI={""}
+				APIcallHandle={handleUpdateAwards}
 				setModalVisible={setModalVisible}
+				setShowModalLoader={setShowModalLoader}
+				showModalLoader={showModalLoader}
 			/>
 
 		</div>

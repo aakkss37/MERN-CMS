@@ -55,9 +55,16 @@ const Page404 = React.lazy(() => import('./pages/page404/Page404'))
 
 
 // CMS Items
+
+// HOME
 const HomePageCMS = React.lazy(()=> import('./pages/CMS/Home/Home/Home'))
 const HomeDriverPageCMS = React.lazy(()=> import('./pages/CMS/Home/Drivers/Drivers'))
 const HomeServicesPageCMS = React.lazy(()=> import('./pages/CMS/Home/Services/Services'))
+
+// SOLUTION
+const emergingTechnology = React.lazy(()=> import('./pages/CMS/Solution/EmergingTech/EmergingTech'))
+
+
 const PartnerModelCMS = React.lazy(()=> import('./pages/CMS/PartnerModel/PartnerModel'))
 const ContactUsPageCMS = React.lazy(()=> import('./pages/CMS/ContactUs/ContactUs'))
 const CareerPageCMS = React.lazy(()=> import('./pages/CMS/Career/Career'))
@@ -117,9 +124,10 @@ const routes = [
 	{ path: '/cms/home', name: 'Home', element: HomePageCMS },
 	{ path: '/cms/home/drivers', name: 'Driver', element: HomeDriverPageCMS },
 	{ path: '/cms/home/services', name: 'Services', element: HomeServicesPageCMS },
-
+	
 	/********* SOLUTION *********/
-
+	{ path: '/cms/solutions/emerging-technologies', name: 'Emerging Technologies', element: emergingTechnology },
+	
 
 	/********* PARTNER MODEL *********/
 	{ path: '/cms/partner-model', name: 'partner Model', element: PartnerModelCMS },

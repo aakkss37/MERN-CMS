@@ -19,9 +19,12 @@ export const addRecognitionAwardsData = catchAsyncError(async (req, res, next) =
         img: imgUrl
     })
 
+	const updatedData = await recognitionData.find();
+
     res.status(200).json({
         success: true,
-        mesage: 'data inserted successfully'
+        mesage: 'data inserted successfully',
+		updatedData: updatedData,
     })
 })
 
@@ -37,6 +40,10 @@ export const updateRecognitionAwardsData = catchAsyncError(async (req, res, next
     const { id, text, title, img } = req.body;
     const file = req.file;
 
+	console.log("body===> ", req.body)
+	console.log("body===> ", req.file)
+
+
     if (!file && !img) return next(new ErrorHandler("file or url not found", 404));
 
     const imgUrl = file ? `${url}/file/${file.filename}` : img;
@@ -51,9 +58,12 @@ export const updateRecognitionAwardsData = catchAsyncError(async (req, res, next
 
     await data.save();
 
+	const updatedData = await recognitionData.find();
+
     res.status(201).json({
         success: true,
-        message: 'data updated successfully'
+        message: 'data updated successfully',
+		updatedData: updatedData,
     })
 })
 
@@ -66,9 +76,12 @@ export const deleteRecognitioinAwardsData = catchAsyncError(async (req, res, nex
 
     if (!data) return next(new ErrorHandler("Data not found with this id", 404));
 
+	const updatedData = await recognitionData.find();
+
     res.status(201).json({
         success: true,
-        message: "data deleted successfully"
+        message: "data deleted successfully",
+		updatedData: updatedData,
     })
 })
 
