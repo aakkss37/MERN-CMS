@@ -134,12 +134,6 @@ const Navbar = () => {
 			</div>
 
 
-
-
-
-
-
-
 			{/* mobile links   */}
 			{
 				ShowMobileNavDiv &&

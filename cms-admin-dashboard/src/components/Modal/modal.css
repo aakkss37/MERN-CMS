@@ -8,6 +8,7 @@
 
 .modal__flex__item_left {
 	flex-grow: 1;
+	width: 45%;
 }
 
 .modal__flex__item_right {
@@ -25,5 +26,9 @@
 	.modal__flex__item_right {
 		width: 100%;
 		height: 300px;
+	}
+
+	.modal__flex__item_left {
+		width: 100%;
 	}
 }
