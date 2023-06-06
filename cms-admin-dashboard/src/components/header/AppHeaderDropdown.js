@@ -25,7 +25,7 @@ import CIcon from '@coreui/icons-react'
 
 import avatar8 from './../../assets/images/avatars/8.jpg'
 
-import { AuthContext } from 'src/context/authDataprovider'
+import { AuthContext } from 'src/context/AuthDataprovider'
 
 const AppHeaderDropdown = () => {
 	const { setUser } = useContext(AuthContext)

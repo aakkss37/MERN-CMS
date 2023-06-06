@@ -52,7 +52,7 @@ mongoseConnection();
 
 // ROUTING
 import router from './router/router.js';
-app.use('/', router)
+app.use('/api', router)
 
 
 app.use(ErrorHandler);

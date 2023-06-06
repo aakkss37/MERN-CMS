@@ -2,7 +2,7 @@ import catchAsyncError from "../../middleware/catchAsyncError.js";
 import recognitionData from "../../model/HomePage/recognitionAwardsSchema.js";
 import ErrorHandler from "../../utils/ErrorHandler.js";
 
-const url = 'http://localhost:8000';
+const url = 'https://mern-cms-server.onrender.com';
 
 export const addRecognitionAwardsData = catchAsyncError(async (req, res, next) => {
 
@@ -34,22 +34,21 @@ export const getRecognitionAwardsData = catchAsyncError(async (req, res, next) =
 })
 
 export const updateRecognitionAwardsData = catchAsyncError(async (req, res, next) => {
-    const { id, text, title, img } = req.body;
+    const { id } = req.params;
+    const { text, title, img } = req.body;
     const file = req.file;
 
     if (!file && !img) return next(new ErrorHandler("file or url not found", 404));
 
     const imgUrl = file ? `${url}/file/${file.filename}` : img;
 
-    const data = await recognitionData.findById(id);
+    const data = await recognitionData.findByIdAndUpdate(id, {
+        title: title,
+        text: text,
+        img: imgUrl,
+    })
 
     if (!data) return next(new ErrorHandler("Data not found with this id", 404));
-
-    data.text = text;
-    data.title = title;
-    data.img = imgUrl;
-
-    await data.save();
 
     res.status(201).json({
         success: true,
@@ -58,9 +57,7 @@ export const updateRecognitionAwardsData = catchAsyncError(async (req, res, next
 })
 
 export const deleteRecognitioinAwardsData = catchAsyncError(async (req, res, next) => {
-    const { id } = req.body;
-
-    console.log(id);
+    const { id } = req.params;
 
     const data = await recognitionData.findByIdAndDelete(id);
 

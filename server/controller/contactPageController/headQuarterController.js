@@ -1,37 +1,37 @@
 import catchAsyncError from "../../middleware/catchAsyncError.js";
-import BannerData from "../../model/careerPage/bannerSchema.js";
 import ErrorHandler from "../../utils/ErrorHandler.js";
+import headQuarterData from "../../model/ContactPage/headQuarterSchema.js";
 const url = 'https://mern-cms-server.onrender.com';
 
-export const addCareerBannerData = catchAsyncError(async (req, res, next) => {
+export const addHeadQuarterData = catchAsyncError(async (req, res, next) => {
     if (!req.file) {
         return next(new ErrorHandler("file not found", 404));
     }
 
     const imageUrl = `${url}/file/${req.file.filename}`;
-    const { title } = req.body;
+    const { address } = req.body;
 
-    let data = await BannerData.findOne({});
+    let data = await headQuarterData.findOne({});
 
     if (!data) {
         // Create a new document if it doesn't exist
-        data = new BannerData();
+        data = new headQuarterData();
     }
 
-    data.title = title;
-    data.bannerImg = imageUrl;
+    data.address = address;
+    data.Img = imageUrl;
 
     await data.save();
 
     res.status(201).json({
         success: true,
-        message: "banner data added successfully",
+        message: "HeadQuarter data added successfully",
     })
 })
 
-export const getCareerBannerData = catchAsyncError(async (req, res, next) => {
+export const getHeadQuarterData = catchAsyncError(async (req, res, next) => {
 
-    const result = await BannerData.find();
+    const result = await headQuarterData.find();
 
     if (!result) return next(new ErrorHandler("data not found", 404));
 

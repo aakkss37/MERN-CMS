@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
+const EmergingTechnologies = React.lazy(() => import('./pages/CMS/Solutions/Emerging Technologies/EmergingTechnologies'));
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
@@ -55,13 +56,13 @@ const Page404 = React.lazy(() => import('./pages/page404/Page404'))
 
 
 // CMS Items
-const HomePageCMS = React.lazy(()=> import('./pages/CMS/Home/Home/Home'))
-const HomeDriverPageCMS = React.lazy(()=> import('./pages/CMS/Home/Drivers/Drivers'))
-const HomeServicesPageCMS = React.lazy(()=> import('./pages/CMS/Home/Services/Services'))
-const PartnerModelCMS = React.lazy(()=> import('./pages/CMS/PartnerModel/PartnerModel'))
-const ContactUsPageCMS = React.lazy(()=> import('./pages/CMS/ContactUs/ContactUs'))
-const CareerPageCMS = React.lazy(()=> import('./pages/CMS/Career/Career'))
-const Modal = React.lazy(()=> import('./pages/CMS/ContactInfo/Modal'))
+const HomePageCMS = React.lazy(() => import('./pages/CMS/Home/Home/Home'))
+const HomeDriverPageCMS = React.lazy(() => import('./pages/CMS/Home/Drivers/Drivers'))
+const HomeServicesPageCMS = React.lazy(() => import('./pages/CMS/Home/Services/Services'))
+const PartnerModelCMS = React.lazy(() => import('./pages/CMS/PartnerModel/PartnerModel'))
+const ContactUsPageCMS = React.lazy(() => import('./pages/CMS/ContactUs/ContactUs'))
+const CareerPageCMS = React.lazy(() => import('./pages/CMS/Career/Career'))
+const Modal = React.lazy(() => import('./pages/CMS/ContactInfo/Modal'))
 
 
 const routes = [
@@ -110,7 +111,7 @@ const routes = [
 	{ path: '/notifications/toasts', name: 'Toasts', element: Toasts },
 	{ path: '/widgets', name: 'Widgets', element: Widgets },
 	{ path: '*', name: 'Not Found', element: Page404 },
-	
+
 	// CMS ROUTES
 
 	/********* HOME *********/
@@ -119,6 +120,7 @@ const routes = [
 	{ path: '/cms/home/services', name: 'Services', element: HomeServicesPageCMS },
 
 	/********* SOLUTION *********/
+	{ path: '/cms/solutions/emerging-technologies', name: 'Emerging Technologies', element: EmergingTechnologies },
 
 
 	/********* PARTNER MODEL *********/

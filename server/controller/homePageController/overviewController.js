@@ -3,10 +3,7 @@ import CompanyOverview from "../../model/HomePage/companyOverviewSchema.js";
 import OverviewCards from "../../model/HomePage/overviewCardsSchema.js";
 import ErrorHandler from "../../utils/ErrorHandler.js";
 
-const url = 'http://localhost:8000';
-
-
-
+const url = 'https://mern-cms-server.onrender.com';
 
 export const updateOverviewText = catchAsyncError(async (req, res, next) => {
 	const result = await CompanyOverview.findOneAndUpdate({}, {

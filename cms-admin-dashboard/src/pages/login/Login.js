@@ -17,7 +17,7 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
-import { AuthContext } from 'src/context/authDataprovider'
+import { AuthContext } from 'src/context/AuthDataprovider'
 import { API } from 'src/services/interceptor'
 
 const initialInput = {
@@ -35,7 +35,6 @@ const Login = () => {
 	const { setUser } = useContext(AuthContext)
 
 	const handleLogin = async () => {
-		// console.log("login ----> ")
 		setShowLoader(true)
 		try {
 			const resp = await API.userLogin(userInput)
@@ -43,7 +42,7 @@ const Login = () => {
 
 			if (resp.data.success) {
 				setUser(resp.data)
-				localStorage.setItem('accessToken', `${resp.data.token}`)	
+				localStorage.setItem('accessToken', `${resp.data.token}`)
 				navigate('/dashboard')
 			}
 			setShowLoader(false)

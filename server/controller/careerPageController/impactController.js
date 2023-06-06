@@ -1,7 +1,7 @@
 import catchAsyncError from "../../middleware/catchAsyncError.js";
 import impactData from "../../model/careerPage/impactSchema.js";
 import ErrorHandler from "../../utils/ErrorHandler.js";
-const url = 'http://localhost:8000';
+const url = 'https://mern-cms-server.onrender.com';
 
 export const addCareerImpactData = catchAsyncError(async (req, res, next) => {
     if (!req.file) {

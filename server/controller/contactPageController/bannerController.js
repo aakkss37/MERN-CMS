@@ -1,9 +1,9 @@
 import catchAsyncError from "../../middleware/catchAsyncError.js";
-import BannerData from "../../model/careerPage/bannerSchema.js";
 import ErrorHandler from "../../utils/ErrorHandler.js";
+import BannerData from "../../model/ContactPage/bannerSchema.js";
 const url = 'https://mern-cms-server.onrender.com';
 
-export const addCareerBannerData = catchAsyncError(async (req, res, next) => {
+export const addContactBannerData = catchAsyncError(async (req, res, next) => {
     if (!req.file) {
         return next(new ErrorHandler("file not found", 404));
     }
@@ -29,7 +29,7 @@ export const addCareerBannerData = catchAsyncError(async (req, res, next) => {
     })
 })
 
-export const getCareerBannerData = catchAsyncError(async (req, res, next) => {
+export const getContactBannerData = catchAsyncError(async (req, res, next) => {
 
     const result = await BannerData.find();
 

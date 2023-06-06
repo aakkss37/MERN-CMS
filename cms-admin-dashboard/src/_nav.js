@@ -339,7 +339,6 @@ const _nav = [
 				name: 'About Us',
 				to: '/cms/home/about-us',
 			},
-			
 		],
 	},
 
@@ -408,7 +407,7 @@ const _nav = [
 				name: 'Co-Managed Services',
 				to: '/cms/solutions/co-managed-services',
 			},
-			
+
 		],
 	},
 
@@ -424,7 +423,7 @@ const _nav = [
 		icon: <CIcon icon={cilColorBorder} customClassName="nav-icon" />,
 		to: '/cms/career',
 	},
-	
+
 	{
 		component: CNavItem,
 		name: 'CONTACT US',

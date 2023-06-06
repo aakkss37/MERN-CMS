@@ -2,7 +2,7 @@ import catchAsyncError from "../../middleware/catchAsyncError.js";
 import ErrorHandler from "../../utils/ErrorHandler.js";
 import PartnerData from "../../model/partners.js";
 
-const url = 'http://localhost:8000';
+const url = 'https://mern-cms-server.onrender.com';
 
 export const addPartners = catchAsyncError(async (req, res, next) => {
     const files = req.files;

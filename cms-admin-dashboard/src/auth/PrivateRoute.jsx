@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useContext } from 'react'
 import { Navigate, Outlet } from 'react-router-dom/dist'
-import {AuthContext}  from '../context/authDataprovider.js'
+import {AuthContext}  from '../context/AuthDataprovider.js'
 
 
 // validate used login  

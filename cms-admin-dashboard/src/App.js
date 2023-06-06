@@ -2,7 +2,7 @@
 import React, { Component, Suspense } from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import './scss/style.scss'
-import AuthDataprovider from './context/authDataprovider.js'
+import AuthDataprovider from './context/AuthDataprovider.js'
 
 const loading = (
 	<div className="pt-3 text-center">
@@ -21,7 +21,7 @@ const Page500 = React.lazy(() => import('./pages/page500/Page500'))
 
 class App extends Component {
 	//  useEffect
-	render () {
+	render() {
 		return (
 			<AuthDataprovider>
 				<HashRouter>

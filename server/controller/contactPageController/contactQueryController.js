@@ -1,5 +1,5 @@
 import catchAsyncError from "../../middleware/catchAsyncError.js";
-import ContactQuery from "../../model/ContectQuery/contectQuerySchema.js";
+import ContactQuery from "../../model/ContactPage/contactQuerySchema.js";
 import ErrorHandler from "../../utils/ErrorHandler.js";
 
 
@@ -15,7 +15,7 @@ export const addContactQuery = catchAsyncError(async (req, res, next) => {
 		subject: subject,
 	})
 
-	if (!result) return (next(new ErrorHandler("something went wrong while creating contact data",400)));
+	if (!result) return (next(new ErrorHandler("something went wrong while creating contact data", 400)));
 	res.status(200).json({ success: true, message: "data inserted successfully" });
 
 })

@@ -30,9 +30,9 @@ const Banner = () => {
 	const [error, setError] = useState(false)
 
 	useEffect(() => {
-		const getBannerData = async()=>{
+		const getBannerData = async () => {
 			try {
-				const {data} = await API.getHomePageBanner()
+				const { data } = await API.getHomePageBanner()
 				// console.log(data)
 				setBannerData({
 					title: data.title,
@@ -71,8 +71,8 @@ const Banner = () => {
 			data.append("text", bannerData.text);
 			// to print FormData ===> 
 			// for (var pair of data.entries()) {
-				// 	console.log(pair[0] + ', ' + pair[1]);
-				// }
+			// 	console.log(pair[0] + ', ' + pair[1]);
+			// }
 			try {
 				const resp = await API.setHomePageBanner(data, { 'Content-Type': 'multipart/form-data' })
 				console.log(resp)
@@ -89,14 +89,13 @@ const Banner = () => {
 				}, 5000)
 				console.log(error)
 			}
-		}else{
+		} else {
 			setShowLoader(false)
 			setWarning(true)
-			setTimeout(()=> {
+			setTimeout(() => {
 				setWarning(false)
 			}, 5000)
 		}
-
 	}
 	// console.log("typeof (bannerData.bannerImg) =====>>>>> ", typeof (bannerData.bannerImg))
 	// console.log("typeof (bannerData.bannerImg) is string =====>>>>> ", typeof (bannerData?.bannerImg) == typeof("string"))
@@ -170,7 +169,7 @@ const Banner = () => {
 							<div className='cms__home__banner__flex__item_right'>
 								{
 									bannerData?.bannerImg ?
-										<img src={typeof (bannerData?.bannerImg) == typeof("string") ? bannerData?.bannerImg : URL.createObjectURL(bannerData?.bannerImg)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
+										<img src={typeof (bannerData?.bannerImg) == typeof ("string") ? bannerData?.bannerImg : URL.createObjectURL(bannerData?.bannerImg)} alt="Selected" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", padding: "5px" }} />
 										:
 										<span>
 											No File Chosen
